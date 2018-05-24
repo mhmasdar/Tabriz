@@ -1,0 +1,312 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.navigationDrawerFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/navigation_back"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="52dp"
+            android:id="@+id/imgBack"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_back2"
+            android:layout_alignParentRight="true"
+            android:padding="15dp"
+            android:layout_height="52dp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/lytUserInformation"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txtUserName"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txtUserEmail"
+                    android:textSize="14sp"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/white"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="65dp"
+                android:id="@+id/UserImage"
+                android:src="@drawable/ic_profile"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        android:layout_weight="0.3"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtLogin"
+                android:padding="15dp"
+                android:text="ورود / ثبت نام"
+                android:textSize="17sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/mainBarText"
+                android:layout_height="0.5dp"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytIntroduction"
+                android:gravity="right|center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="معرفی ارس"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@drawable/ic_about_city"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytFavorites"
+                android:gravity="right|center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="لیست علاقه مندی ها"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@drawable/ic_bookmark"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytreferendum"
+                android:gravity="right|center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="مسابقه / نظرسنجی"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/ic_nazarsanji"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytFreeNet"
+                android:gravity="right|center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="اینترنت رایگان"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/ic_internet"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytSuggestion"
+                android:gravity="right|center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="انتقادات و پیشنهادات"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/ic_suggesion"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/mainBarText"
+                android:layout_height="0.5dp"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytShare"
+                android:gravity="right|center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="معرفی به دوستان"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/ic_share"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytAbout"
+                android:gravity="right|center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="درباره ما"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/mainBarText"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/ic_about_us"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytExit"
+                android:visibility="gone"
+                android:gravity="right|center_vertical"
+                android:layout_marginTop="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:paddingRight="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="خروج از برنامه"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/ic_exit"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

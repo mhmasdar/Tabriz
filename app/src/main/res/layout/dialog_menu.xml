@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/colorPrimary"
+        android:text="لیست منو"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/recycler"
+        android:visibility="gone"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytEmpty"
+        android:gravity="center"
+        android:visibility="gone"
+        android:paddingBottom="30dp"
+        android:paddingTop="30dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:src="@drawable/ic_no_content"
+            android:layout_height="45dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="منو ثبت نشده است"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:padding="40dp"
+        android:id="@+id/lytLoading"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <fr.castorflex.android.circularprogressbar.CircularProgressBar
+            android:layout_width="45dp"
+            android:indeterminate="true"
+            app:cpb_colors="@array/arr"
+            app:cpb_rotation_speed="1.0"
+            app:cpb_sweep_speed="1.0"
+            app:cpb_stroke_width="5dp"
+            app:cpb_min_sweep_angle="10"
+            app:cpb_max_sweep_angle="300"
+            android:layout_height="45dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytDisconnect"
+        android:visibility="gone"
+        android:gravity="center"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:src="@drawable/ic_sad"
+            android:layout_height="45dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="مشکل در ارتباط با اینترنت"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textSize="15sp"
+            android:textColor="@color/itmesText"
+            android:text="اتصال به اینترنت را بررسی کرده و دوباره تلاش کنید"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

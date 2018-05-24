@@ -1,0 +1,462 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.detailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:background="@drawable/wide_back"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                app:centered="true"
+                app:fillColor="@color/colorPrimary"
+                app:pageColor="@color/white"
+                app:snap="false"
+                android:layout_alignParentBottom="true"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/gallery_border"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:id="@+id/lytGallery"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="آلبوم عکس"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@drawable/ic_gallery"
+                    android:layout_height="25dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtHotelStars"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                style="@style/AudioFileInfoOverlayText2"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/test7"
+            android:layout_height="45dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtName"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:id="@+id/imgBack"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_back"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="0.45"
+        android:background="@color/white"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:id="@+id/imgShare"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_share1"
+                    android:layout_height="40dp" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:id="@+id/imgBookmark"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_bookmark1"
+                    android:layout_height="40dp" />
+
+                <com.like.LikeButton
+                    android:layout_width="40dp"
+                    android:id="@+id/btnLike"
+                    app:icon_size="20dp"
+                    app:icon_type="heart"
+                    app:unlike_drawable="@drawable/ic_love"
+                    app:like_drawable="@drawable/ic_like1"
+                    android:layout_height="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txtLikeCount"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/lytRating"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:id="@+id/rateBar"
+                    android:layout_width="wrap_content"
+                    android:numStars="5"
+                    android:layout_marginRight="5dp"
+                    android:theme="@style/RatingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="ثبت امتیاز"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="2.5"
+            android:layout_marginTop="5dp"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytCall"
+                android:layout_marginRight="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/detial_items_border"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_detail_phone"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="تماس"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#a7b5b6"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingTop="2dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/detial_items_border"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@drawable/ic_work_time"
+                    android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/txtDay"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="#a7b5b6"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtHour"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="#a7b5b6"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytMenu"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/detial_items_border"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgMenuAndCost"
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_detail_menu"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:id="@+id/txtMenuAndCost"
+                    android:layout_width="wrap_content"
+                    android:text="منو و هزینه ها"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#a7b5b6"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytDrivers"
+                android:layout_marginLeft="10dp"
+                android:visibility="gone"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/detial_items_border"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:src="@drawable/ic_driver"
+                    android:layout_height="25dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="لیست رانندگان"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#a7b5b6"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="2"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytLocation"
+                android:layout_weight="1"
+                android:background="@drawable/detial_items_border"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:src="@drawable/ic_map2"
+                    android:layout_height="35dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/detial_items_border"
+                android:layout_weight="0.2"
+                android:orientation="horizontal"
+                android:paddingRight="10dp"
+                android:layout_marginRight="1dp"
+                android:gravity="right|center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textColor="#a7b5b6"
+                    android:id="@+id/txtAddress"
+                    android:layout_marginLeft="8dp" android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/detial_items_border"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_marginTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="درباره مجموعه :"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:scrollbars="none"
+                android:fillViewport="true"
+                android:layout_height="match_parent">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txtInfo"
+                    android:textColor="#a7b5b6"
+                    android:layout_gravity="right"
+                    android:lineSpacingMultiplier="1.2"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content" />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1.2"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytWebsite"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/full_shadow_border"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="شبکه اجتماعی"
+                    android:textColor="@color/detailsTitle"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytOptions"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/full_shadow_border"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="امکانات"
+                    android:textColor="@color/yellow"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytComments"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/full_shadow_border"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="نظرات کاربران"
+                    android:textColor="@color/detailsTitle"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

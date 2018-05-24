@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.suggestionActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="انتقادات و پیشنهادات"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content" />
+
+
+
+                <RelativeLayout
+                    android:id="@+id/relative_back"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_back"
+                        android:layout_height="25dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:fillViewport="true"
+       android:scrollbars="none"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:orientation="vertical"
+           android:layout_height="match_parent">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:padding="15dp"
+               android:lineSpacingMultiplier="1.2"
+               android:layout_gravity="right"
+               android:text="لطفا نظرات ، انتقادات و پیشنهادات خود را با ما در میان بگذارید. بدون شک نظرات شما برای هر چه بهتر شدن برنامه ، مورد بررسی قرار خواهند گرفت. پیشاپیش از توجه شما تشکر می کنیم."
+               android:textColor="@color/itmesText"
+               android:layout_height="wrap_content" />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:id="@+id/edtName"
+                   android:layout_weight="0.2"
+                   android:padding="8dp"
+                   android:textCursorDrawable="@drawable/cursor_color"
+                   android:hint="نام و نام خانوادگی"
+                   android:textColorHint="@color/mainBarText"
+                   android:textSize="13sp"
+                   android:gravity="center_vertical"
+                   android:layout_marginTop="10dp"
+                   android:background="@drawable/edit_text_back"
+                   android:layout_height="wrap_content" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_marginTop="10dp"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:id="@+id/edtEmail"
+                   android:layout_weight="0.2"
+                   android:padding="8dp"
+                   android:textCursorDrawable="@drawable/cursor_color"
+                   android:hint="پست الکترونیکی"
+                   android:textColorHint="@color/mainBarText"
+                   android:textSize="13sp"
+                   android:gravity="center_vertical"
+                   android:layout_marginTop="10dp"
+                   android:background="@drawable/edit_text_back"
+                   android:layout_height="wrap_content" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_marginTop="10dp"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:id="@+id/edtTitle"
+                   android:layout_weight="0.2"
+                   android:padding="8dp"
+                   android:textCursorDrawable="@drawable/cursor_color"
+                   android:hint="موضوع پیام"
+                   android:textColorHint="@color/mainBarText"
+                   android:textSize="13sp"
+                   android:gravity="center_vertical"
+                   android:layout_marginTop="10dp"
+                   android:background="@drawable/edit_text_back"
+                   android:layout_height="wrap_content" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_marginTop="10dp"
+               android:paddingBottom="20dp"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:orientation="vertical"
+                   android:layout_weight="0.2"
+                   android:layout_height="wrap_content">
+
+                   <EditText
+                       android:layout_width="match_parent"
+                       android:id="@+id/edtBody"
+                       android:padding="8dp"
+                       android:textCursorDrawable="@drawable/cursor_color"
+                       android:hint="متن پیام را وارد کنید"
+                       android:textColorHint="@color/mainBarText"
+                       android:textSize="13sp"
+                       android:layout_marginTop="10dp"
+                       android:background="@drawable/edit_text_back"
+                       android:layout_height="120dp" />
+
+                   <Button
+                       android:layout_width="wrap_content"
+                       android:id="@+id/btnSendSuggestion"
+                       android:layout_marginTop="20dp"
+                       android:text="ارسال پیام"
+                       android:textColor="@color/white"
+                       android:paddingRight="20dp"
+                       android:paddingLeft="20dp"
+                       android:layout_gravity="left"
+                       android:background="@color/yellow"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"></LinearLayout>
+
+           </LinearLayout>
+
+       </LinearLayout>
+
+   </ScrollView>
+
+
+</LinearLayout>

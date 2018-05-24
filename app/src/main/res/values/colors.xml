@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#16a086</color>
+    <color name="colorPrimaryDark">#137361</color>
+    <color name="colorPrimary1">#f3f4f4</color>
+    <color name="colorPrimaryDark1">#dddfdf</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="mainBarBack">#ecf0f1</color>
+    <color name="mainBarText">#95a5a6</color>
+    <color name="itmesBack">#f3f4f4</color>
+    <color name="itmesText">#929b9c</color>
+    <color name="itmesShadow">#e6e7e7</color>
+    <color name="red">#c0392b</color>
+    <color name="white">#ffffff</color>
+    <color name="notifBack">#fafafa</color>
+    <color name="darkWhite">#f1f1f1</color>
+    <color name="dark">#262626</color>
+    <color name="yellow">#FFC400</color>
+    <color name="detailsTitle">#3c5b7a</color>
+    <color name="introBack">#7FCAC3</color>
+    <color name="introPrimaryDark">#55938d</color>
+
+    <array name="arr">
+
+        <item>@color/colorPrimary</item>
+        <item>@color/yellow</item>
+        <item>@color/mainBarText</item>
+
+    </array>
+
+    <color name="imageBack">#3c404040</color>
+
+</resources>

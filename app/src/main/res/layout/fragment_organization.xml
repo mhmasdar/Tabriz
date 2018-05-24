@@ -1,0 +1,416 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.categories.organizationFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/organizationSlider">
+
+        <com.example.tabrizguilds.tabrizguilds.ViewPagerCustomDuration
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:background="@drawable/wide_back"
+            android:layout_height="match_parent" />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:centered="true"
+            app:fillColor="@color/colorPrimary"
+            app:pageColor="@color/white"
+            app:snap="false"
+            android:layout_alignParentBottom="true"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:id="@+id/imgBack"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_back"
+                android:padding="10dp"
+                android:layout_height="45dp" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_weight="0.7"
+        android:fillViewport="true"
+        android:background="@drawable/organization_back"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytOrgIntroduce"
+                android:background="#dc5b475d"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="معرفی سازمان"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:background="@drawable/ic_organize1"
+                        android:adjustViewBounds="true"
+                        android:layout_height="35dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:layout_width="match_parent"
+                android:id="@+id/expanableLayout1"
+                app:el_duration="1000"
+                app:el_expanded="false"
+                app:el_parallax="0.4"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="#dc5b475d"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/txtOrgintroduce"
+                        android:text="@string/s1"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="@color/white"
+                        android:lineSpacingMultiplier="1.4"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytOrgAddress"
+                android:background="#e25f5b78"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="آدرس سازمان"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:src="@drawable/ic_organize2"
+                        android:layout_height="35dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:layout_width="match_parent"
+                android:id="@+id/expanableLayout2"
+                app:el_duration="1000"
+                app:el_expanded="false"
+                app:el_parallax="0.4"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="#e25f5b78"
+                    android:gravity="right"
+                    android:padding="20dp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/txtOrgAddress"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="@color/white"
+                        android:lineSpacingMultiplier="1.4"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content" />
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:orientation="horizontal"
+                       android:id="@+id/lytRoute"
+                       android:paddingTop="10dp"
+                       android:paddingBottom="10dp"
+                       android:layout_marginBottom="10dp"
+                       android:gravity="right|center_vertical"
+                       android:layout_height="wrap_content">
+
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:text="مشاهده روی نقشه"
+                           android:textSize="13sp"
+                           android:layout_marginRight="5dp"
+                           android:textColor="@color/white"
+                           android:layout_height="wrap_content" />
+
+                       <ImageView
+                           android:layout_width="20dp"
+                           android:src="@drawable/ic_route"
+                           android:layout_height="20dp" />
+
+                   </LinearLayout>
+
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytOrgPhone"
+                android:background="#e26b6d92"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="تماس با سازمان"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:src="@drawable/ic_organize3"
+                        android:layout_height="35dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:layout_width="match_parent"
+                android:id="@+id/expanableLayout3"
+                app:el_duration="1000"
+                app:el_expanded="false"
+                app:el_parallax="0.4"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="#e26b6d92"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TableRow   android:gravity="center_horizontal"
+                            android:layout_gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:text="تماس"
+                                android:background="@drawable/progress_back"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="40dp"
+                                android:text="شماره تلفن"
+                                android:background="@drawable/progress_back"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="40dp"
+                                android:text="نام بخش"
+                                android:background="@drawable/progress_back"
+                                android:gravity="center"
+                                android:textColor="@color/white" />
+
+
+                        </TableRow>
+
+
+                    </TableLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:id="@+id/Recycler"
+                        android:gravity="center_horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytOrgWeb"
+                android:background="#e2748ea7"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="وب سایت سازمان"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:src="@drawable/ic_organize4"
+                        android:layout_height="35dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytOrgRules"
+                android:background="#e26b6d92"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:text="قوانین و آیین نامه های مناطق آزاد"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:src="@drawable/ic_rules"
+                        android:layout_height="35dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

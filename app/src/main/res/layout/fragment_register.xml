@@ -1,0 +1,379 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.loginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:id="@+id/lytSms"
+        android:visibility="visible"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="right"
+                    android:textColor="@color/white"
+                    android:text="لطفا شماره همراه خود را وارد کنید"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/edtPhone"
+                    android:layout_marginTop="10dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:background="@drawable/edit_text_back_login"
+                    android:hint="09"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:singleLine="true"
+                    android:textColorHint="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:maxLength="11"
+                    android:inputType="phone"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:id="@+id/btnPhoneSubmit"
+                    android:layout_weight="0.5"
+                    android:text="مرحله بعد"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_back_login"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        android:id="@+id/lytCodeAccept"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="right"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:text="تا چند لحظه دیگر پیامک حاوی کد فعال سازی برای شما ارسال می شود. کد را در این قسمت وارد کنید"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/edtCode"
+                    android:layout_marginTop="10dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:background="@drawable/edit_text_back_login"
+                    android:hint="کد فعال سازی"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:singleLine="true"
+                    android:textColorHint="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txtTryAgain"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="right"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:padding="10dp"
+                    android:text="شماره رو اشتباه وارد کردی؟ دوباره سعی کن"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:id="@+id/btnCodeSubmit"
+                    android:layout_weight="0.5"
+                    android:text="مرحله بعدی"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_back_login"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:id="@+id/lytRegister"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="30dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edtName"
+                        android:layout_weight="0.5"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:background="@drawable/edit_text_back_login"
+                        android:hint="نام"
+                        android:padding="8dp"
+                        android:textColor="@color/white"
+                        android:maxLines="2"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edtLName"
+                        android:layout_weight="0.5"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:background="@drawable/edit_text_back_login"
+                        android:hint="نام خانوادگی"
+                        android:textColor="@color/white"
+                        android:maxLines="2"
+                        android:padding="8dp"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edtMobile"
+                        android:layout_weight="0.5"
+                        android:inputType="number"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:background="@drawable/edit_text_back_login"
+                        android:hint="شماره همراه"
+                        android:padding="8dp"
+                        android:textColor="@color/white"
+                        android:maxLines="2"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edtEmail"
+                        android:layout_weight="0.5"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:background="@drawable/edit_text_back_login"
+                        android:hint="ایمیل"
+                        android:textColor="@color/white"
+                        android:maxLines="2"
+                        android:padding="8dp"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/edtPass"
+                        android:layout_weight="0.5"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:background="@drawable/edit_text_back_login"
+                        android:hint="کلمه عبور"
+                        android:inputType="textPassword"
+                        android:textColor="@color/white"
+                        android:maxLines="2"
+                        android:padding="8dp"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:id="@+id/btnRegister"
+                        android:layout_weight="0.5"
+                        android:text="ثبت نام"
+                        android:textColor="@color/white"
+                        android:background="@drawable/button_back_login"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"></LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

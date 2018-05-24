@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="0.15"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@drawable/comments_items_back"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/txtDate"
+                    android:padding="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txtName"
+                    android:text="کاربر میهمان"
+                    android:padding="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtCommentBody"
+                android:textColor="@color/itmesText"
+                android:padding="10dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/s1"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/lytReply"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="پاسخ دادن"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:src="@drawable/ic_reply"
+                        android:layout_height="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_height="wrap_content">
+
+                    <com.like.LikeButton
+                        android:layout_width="30dp"
+                        android:id="@+id/btnLike"
+                        app:icon_size="20dp"
+                        app:unlike_drawable="@drawable/ic_love"
+                        app:like_drawable="@drawable/ic_like1"
+                        app:icon_type="heart"
+                        android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/txtLikeCount"
+                        android:layout_marginLeft="3dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/answerRecycler"
+                android:layout_weight="0.2"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:src="@drawable/ic_comments"
+            android:layout_height="25dp" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:id="@+id/lytCommentHeight"
+            android:background="@color/mainBarBack"
+            android:layout_height="match_parent"></LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

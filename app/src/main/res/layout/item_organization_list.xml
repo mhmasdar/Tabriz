@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/lytCall"
+            android:background="@drawable/progress_back"
+            android:layout_height="60dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:src="@drawable/ic_detail_phone"
+                android:layout_height="25dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="04135544360"
+            android:layout_gravity="center_vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/txtPhoneNumber"
+            android:background="@drawable/progress_back"
+            android:textSize="14sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="بخش فرهنگی"
+            android:layout_gravity="center_vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/txtName"
+            android:background="@drawable/progress_back"
+            android:textSize="14sp"
+            android:textColor="@color/white"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

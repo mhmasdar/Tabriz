@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:background="@color/darkWhite"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="اوقات شرعی"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/lytMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="نوردوز" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="خدافرین" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="جلفا" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="40dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtSobh3" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtSobh2" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtSobh" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:text="اذان صبح"
+                    android:textSize="12sp"
+                    android:layout_height="50dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txttolo3" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txttolo2" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txttolo" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:text="طلوع آفتاب"
+                    android:textSize="12sp"
+                    android:layout_height="50dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtZohr3" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtZohr2" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtZohr" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:text="اذان ظهر"
+                    android:textSize="12sp"
+                    android:layout_height="50dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtGhorob3" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtGhorob2" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtGhorob" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:text="غروب آفتاب"
+                    android:textSize="12sp"
+                    android:layout_height="50dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtMaghreb3" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtMaghreb2" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtMaghreb" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:text="اذان مغرب"
+                    android:textSize="12sp"
+                    android:layout_height="50dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+            <TableRow android:gravity="right" android:layout_width="match_parent" android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtNimeShab3" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtNimeShab2" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:id="@+id/txtNimeShab" />
+
+                <LinearLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/mainBarText"/>
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:text="نیمه شب شرعی"
+                    android:textSize="12sp"
+                    android:layout_height="50dp"
+                    android:gravity="center" />
+
+            </TableRow>
+
+            <LinearLayout
+                android:layout_height="0.5dp"
+                android:layout_width="match_parent"
+                android:background="@color/mainBarText"/>
+
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="40dp"
+        android:visibility="gone">
+
+        <fr.castorflex.android.circularprogressbar.CircularProgressBar
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:indeterminate="true"
+            app:cpb_colors="@array/arr"
+            app:cpb_max_sweep_angle="300"
+            app:cpb_min_sweep_angle="10"
+            app:cpb_rotation_speed="1.0"
+            app:cpb_stroke_width="5dp"
+            app:cpb_sweep_speed="1.0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytDisconnect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_sad" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="مشکل در ارتباط با اینترنت"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="اتصال به اینترنت را بررسی کرده و دوباره تلاش کنید"
+            android:textColor="@color/itmesText"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_back_exit"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="بستن"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

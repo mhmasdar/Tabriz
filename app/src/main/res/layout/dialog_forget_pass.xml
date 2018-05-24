@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="290dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="فراموشی کلمه عبور"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:gravity="center"
+        android:layout_marginTop="3dp"
+        android:id="@+id/lytLoading"
+        android:layout_height="wrap_content">
+
+        <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+            android:layout_width="match_parent"
+            android:indeterminate="true"
+            style="@style/GNowProgressBar"
+            android:layout_height="10dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="لطفا ایمیل یا شماره تلفن خود را وارد کنید"
+        android:layout_margin="15dp"
+        android:textSize="12sp"
+        android:textColor="@color/dark"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edtPhoneEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textEmailAddress"
+        android:hint="آدرس ایمیل / شماره تلفن"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:background="@drawable/detial_items_border"
+        android:textColor="@color/dark"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_marginRight="3dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="ارسال کلمه عبور به ایمیل"
+                android:gravity="center"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="ارسال کلمه عبور به شماره شما"
+                android:gravity="center"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:gravity="right"
+                android:id="@+id/radioGroup"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/radioEmail"
+                    android:buttonTint="@color/colorPrimary"
+                    android:layout_height="40dp"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/radioPhone"
+                    android:buttonTint="@color/colorPrimary"
+                    android:layout_height="40dp" />
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_back_exit"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="انصراف"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnSendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_back_login"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="تایید"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.loginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edtUserName"
+            android:layout_weight="0.5"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:background="@drawable/edit_text_back_login"
+            android:hint="نام کاربری (ایمیل)"
+            android:padding="8dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:maxLines="3"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edtUserPass"
+            android:layout_weight="0.5"
+            android:inputType="textPassword"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:background="@drawable/edit_text_back_login"
+            android:hint="کلمه عبور"
+            android:padding="8dp"
+            android:textColorHint="@color/white"
+            android:maxLines="3"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/btnUserLogin"
+            android:layout_weight="0.5"
+            android:text="ورود"
+            android:textColor="@color/white"
+            android:background="@drawable/button_back_login"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:id="@+id/txtForgetPass"
+       android:textColor="@color/white"
+       android:textSize="13sp"
+       android:layout_gravity="center"
+       android:layout_marginTop="5dp"
+       android:padding="15dp"
+       android:text="کلمه عبورم رو فراموش کردم"
+       android:layout_height="wrap_content" />
+
+</LinearLayout>

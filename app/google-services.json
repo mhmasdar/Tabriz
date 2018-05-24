@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "62645683252",
+    "firebase_url": "https://arasfreezone-3b23e.firebaseio.com",
+    "project_id": "arasfreezone-3b23e",
+    "storage_bucket": "arasfreezone-3b23e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62645683252:android:36a3fce822cd4537",
+        "android_client_info": {
+          "package_name": "com.example.arka.arasfreezone1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62645683252-m0aohi418bafge2ai1j1hcvb11g524p4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPtQ4V9oS9TTcacTsLemah_7UsS2NR1nI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

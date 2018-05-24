@@ -1,0 +1,245 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.newsDetailsFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txtCatTitle"
+                    android:text="جزئیات خبر"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content" />
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeBack"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_back"
+                        android:layout_height="25dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtNewsTitle"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:id="@+id/imgShare"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_share1"
+                    android:padding="10dp"
+                    android:layout_centerInParent="true"
+                    android:layout_height="40dp" />
+
+                <com.like.LikeButton
+                    android:layout_width="30dp"
+                    android:id="@+id/btnLike"
+                    app:icon_size="20dp"
+                    app:icon_type="heart"
+                    app:unlike_drawable="@drawable/ic_love"
+                    app:like_drawable="@drawable/ic_like1"
+                    android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/txtLikeCount"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="3dp"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/txtDate"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/mainBarText"
+                        android:textSize="13sp"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="17dp"
+                        android:src="@drawable/ic_date"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:id="@+id/imgNews"
+                        android:background="@drawable/wide_back"
+                        android:scaleType="fitXY"
+                        android:layout_height="200dp" />
+
+                    <com.uncopt.android.widget.text.justify.JustifiedTextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/txtNewsBody"
+                        android:textColor="@color/itmesText"
+                        android:layout_marginTop="15dp"
+                        android:gravity="right"
+                        android:lineSpacingMultiplier="1.3"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:id="@+id/lytNewsComments"
+                            android:background="?attr/selectableItemBackground"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:gravity="left|center_vertical"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:text="مشاهده نظرات کاربران"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_height="wrap_content" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:src="@drawable/ic_comments"
+                                android:layout_height="20dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:padding="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="?attr/selectableItemBackground"
+                                android:id="@+id/lytNewsLink"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:background="@drawable/profile_border"
+                                    android:text="لینک خبر"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/colorPrimary"
+                                    android:padding="5dp"
+                                    android:gravity="right|center_vertical"
+                                    android:layout_height="match_parent"/>
+
+                            </RelativeLayout>
+
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

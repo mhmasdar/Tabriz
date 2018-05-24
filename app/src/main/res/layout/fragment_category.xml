@@ -1,0 +1,433 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.categoryFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/lytSearch"
+                    android:layout_alignParentLeft="true"
+                    style="@style/SelectableItemBackground"
+
+                    android:padding="10dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:src="@drawable/ic_search"
+                        android:layout_height="23dp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="دسته بندی"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:id="@+id/lytMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    style="@style/SelectableItemBackground"
+
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_menu"
+                        android:layout_height="23dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/category_back"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytStay"
+                android:layout_weight="1"
+                style="@style/SelectableItemBackground"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_stay"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="مراکز اقامتی"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytShopping"
+                style="@style/SelectableItemBackground"
+
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_shopping"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="مراکز خرید"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/lytRestaurant"
+                style="@style/SelectableItemBackground"
+
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_restaurant"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="رستوران ها"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/mainBarBack"
+            android:layout_height="1dp"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytTravel"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_travel"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="حمل و نقل"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytArt"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_art"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="فرهنگی و هنری"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytTourism"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_tourism"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="گردشگری"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/mainBarBack"
+            android:layout_height="1dp"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytMedical"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_medical"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="مراکز درمانی"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytOffices"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_office"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="اماکن و ادارات"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytUtilities"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_utility"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="خدمات و تسهیلات"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/mainBarBack"
+            android:layout_height="1dp"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytOrganization"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/aras_logo"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="سازمان منطقه آزاد تجاری صنعتی ارس"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:background="@color/mainBarBack"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                style="@style/SelectableItemBackground"
+
+                android:id="@+id/lytEvents"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/ic_event_category"
+                    android:layout_height="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="رویدادها"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

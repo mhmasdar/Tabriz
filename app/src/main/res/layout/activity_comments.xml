@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tabrizguilds.tabrizguilds.commentsActivity"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="نظرات کاربران"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/relative_back"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_back"
+                            android:layout_height="25dp" />
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+            android:id="@+id/lytLoading"
+            android:layout_width="match_parent"
+            android:indeterminate="true"
+            style="@style/GNowProgressBar"
+            android:layout_height="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/lytMain"
+            android:visibility="visible"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/commentsRecycler"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:paddingBottom="65dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytCommentReply"
+        android:visibility="gone"
+        android:background="@drawable/edit_text_back"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:gravity="right|center_vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right|center_vertical"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtReplyName"
+                android:layout_width="wrap_content"
+                android:text="کاربر میهمان"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"/>
+
+            <TextView
+                android:id="@+id/txtReplyBody"
+                android:layout_width="wrap_content"
+                android:text="@string/s1"
+                android:maxLines="1"
+                android:textSize="11sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/itmesText"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:id="@+id/btnCloseReply"
+            android:src="@drawable/ic_close"
+            android:padding="8dp"
+            android:layout_height="30dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytLoginComment"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:background="@color/colorPrimary"
+            android:text="ورود و ثبت نظر"
+
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytSubmitComment"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/lytSendComments"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_weight="0.9"
+                android:src="@drawable/ic_comment_send"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent"></LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="0.25"
+            android:background="@color/mainBarBack"
+            android:layout_height="60dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/edtComment"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:hint="نظر خود را وارد کنید..."
+                android:padding="8dp"
+                android:textColorHint="@color/mainBarText"
+                android:lineSpacingMultiplier="1.2"
+                android:textSize="13sp"
+                android:background="@drawable/edit_text_back"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytEmpty"
+        android:visibility="gone"
+        android:gravity="center"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_no_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="نظری ثبت نشده"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lytDisconnect"
+        android:visibility="gone"
+        android:gravity="center"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_sad"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="مشکل در ارتباط با اینترنت"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textSize="15sp"
+            android:textColor="@color/itmesText"
+            android:text="اتصال به اینترنت را بررسی کرده و دوباره تلاش کنید"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

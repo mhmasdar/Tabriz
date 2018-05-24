@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.introduceActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="معرفی"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" />
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeBack"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_back"
+                        android:layout_height="22dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:text="ارس کجاست ؟"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/img1"
+                android:scaleType="fitXY"
+                android:layout_marginTop="20dp"
+                android:layout_height="160dp" />
+
+            <com.uncopt.android.widget.text.justify.JustifiedTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txt1"
+                android:text="@string/intro1"
+                android:layout_marginTop="15dp"
+                android:lineSpacingMultiplier="1.3"
+                android:textSize="14sp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="#e93939"
+                android:lineSpacingMultiplier="1.3"
+                android:text="مجموع وسعت منطقه آزاد ارس 51000 هکتار و به شرح ذیل می باشد: "
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/intro2"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.3"
+                android:textSize="14sp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#d1d0d0"
+                android:layout_marginTop="30dp"
+                android:layout_height="0.5dp"></LinearLayout>
+
+            <com.uncopt.android.widget.text.justify.JustifiedTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txt2"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:text="مزایای رقابتی ارس"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/img2"
+                android:scaleType="fitXY"
+                android:layout_marginTop="20dp"
+                android:layout_height="140dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+
+                android:gravity="center_vertical|right"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt3"
+                    android:layout_marginLeft="15dp"
+                    android:text="قرارگیري در مرزهاي سه کشور آذربايجان، ارمنستان و نخجوان و نزدیکی به کشور ترکیه"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/ic_intro"
+                    android:layout_height="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+
+                android:gravity="center_vertical|right"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt4"
+                    android:layout_marginLeft="15dp"
+                    android:text="نزدیکی به بازار 400 میلیونی کشورهای CIS و قرارگیری در درون بازار 10 میلیونی شمالغرب"
+                    android:layout_marginRight="5dp"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/ic_intro"
+                    android:layout_height="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical|right"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt5"
+                    android:text="اتصال به جاده هاي ترانزيتي و خط آهن سراسري "
+                    android:layout_marginRight="5dp"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/ic_intro"
+                    android:layout_height="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical|right"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt6"
+                    android:text="قرارگیري در کريدورهاي شمال- جنوب و شرق- غرب "
+                    android:layout_marginRight="5dp"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/ic_intro"
+                    android:layout_height="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical|right"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt7"
+                    android:text="منابع انساني و نیروي کار ارزان و متخصص و انرژي ارزان "
+                    android:layout_marginRight="5dp"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/ic_intro"
+                    android:layout_height="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical|right"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt8"
+                    android:text="وجود سدهاي ارس، خداآفرين، گلفرج و پتانسیل هاي گردشگري و تفريحي "
+                    android:layout_marginRight="5dp"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:src="@drawable/ic_intro"
+                    android:layout_height="12dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#d1d0d0"
+                android:layout_marginTop="30dp"
+                android:layout_height="0.5dp"></LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:text="آب و هوا و پوشش گیاهی"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                android:id="@+id/img3"
+                android:layout_marginTop="20dp"
+                android:layout_height="140dp" />
+
+            <com.uncopt.android.widget.text.justify.JustifiedTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txt9"
+                android:text="@string/intro3"
+                android:layout_marginTop="20dp"
+                android:lineSpacingMultiplier="1.3"
+                android:textSize="14sp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="میانگین دما"
+                        android:textColor="#e93939"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="15 درجه سانتیگراد"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:src="@drawable/intro6"
+                    android:scaleType="fitXY"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="بارش سالیانه"
+                        android:textColor="#e93939"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="225 میلی لیتر"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:src="@drawable/intro5"
+                    android:scaleType="fitXY"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="روزهای خوش آب و هوا"
+                        android:textColor="#e93939"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="بیش از 300 روز"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:src="@drawable/intro4"
+                    android:scaleType="fitXY"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#d1d0d0"
+                android:layout_marginTop="30dp"
+                android:layout_height="0.5dp"></LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:text="مزایای ترانزیت کالا از طریق ارس"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="قرارگیری در مرزهای سه کشور آذربایجان، ارمنستان و نخجوان"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="نزدیکی به مرزهای کشور ترکیه"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="جاده های ترانزیتی"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="راه آهن با سابقه یکصد ساله"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="گمرک با سابقه 60 ساله"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="انبارهای دپوی انواع کالا"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="معافیت گمرکی در داخل منطقه"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="تسهیلات تفکیک و ترخیص کالا به داخل ایران"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="قرارگیری در مسیر کریدور شمال-جنوب"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#d1d0d0"
+                android:layout_marginTop="30dp"
+                android:layout_height="0.5dp"></LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:text="مزایای سرمایه گذاری در ارس"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="#e93939"
+                android:text="موقعیت جغرافیایی مناسب "
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="آب و هوای معتدل کوهستانی"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="نزدیکی به بازار 400 میلیونی کشورهای CIS"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="قرارگیری در درون بازار 10 میلیونی شمالغرب ایران"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="#e93939"
+                android:text="زیرساخت های مناسب "
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="فراوانی انرژی های برق و گاز"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="خطوط پرسرعت مخابراتی "
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="آب فراوان رود ارس"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="سدهای ارس، خداآفرین، گلفرج و گردیان"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <com.uncopt.android.widget.text.justify.JustifiedTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txt10"
+                android:layout_marginTop="30dp"
+                android:textColor="#e93939"
+                android:lineSpacingMultiplier="1.3"
+                android:text="اراضی و طرح های آماده برای سرمایه گذاری در کاربری های مختلف صنعتی، کشاورزی، گردشگری، علمی و فن آوری و ترانزیت"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt11"
+                    android:layout_marginLeft="10dp"
+                    android:text=" دشت های وسیع کشاورزی گرديان، گلفرج، خداآفرين، قلی بیگلو و سايت 140 هکتاری گلخانه ای "
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt12"
+                    android:layout_marginLeft="10dp"
+                    android:text="شهرک های صنعتی 135، 260، 300 و 40 هکتاری صنایع پاک و شهرک صنعتی 1400 هکتاری صنایع سنگین"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="سایت 710 هکتاری گردشگری"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="سوله ها و سالن های آماده"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/txt13"
+                    android:text="طرح ها و پروژه های مطالعه شده اولویت دار آماده سرمایه گذاری"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|right"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="30dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="طرح های تفصیلی آماده در حوزه های مختلف"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="7dp"
+                    android:src="@drawable/ic_intro2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="7dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

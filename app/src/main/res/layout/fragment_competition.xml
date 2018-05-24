@@ -1,0 +1,172 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="right"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.competitionFragment">
+
+   <fr.castorflex.android.smoothprogressbar.SmoothProgressBar
+       android:id="@+id/lytLoading"
+       android:layout_width="match_parent"
+       android:indeterminate="true"
+       style="@style/GNowProgressBar"
+       android:layout_height="10dp" />
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:id="@+id/lytMain"
+       android:visibility="gone"
+       android:orientation="vertical"
+       android:gravity="right"
+       android:layout_height="match_parent">
+
+      <TextView
+          android:id="@+id/txtCompetitionTitle"
+          android:layout_width="wrap_content"
+          android:padding="8dp"
+          android:visibility="gone"
+          android:background="@drawable/btn_intro"
+          android:layout_margin="10dp"
+          android:textSize="15sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"/>
+
+      <TextView
+          android:id="@+id/txtAward"
+          android:layout_width="wrap_content"
+          android:layout_margin="10dp"
+          android:visibility="gone"
+          android:textSize="13sp"
+          android:layout_height="wrap_content" />
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+         <android.support.v7.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:id="@+id/recycle"
+             android:layout_marginTop="10dp"
+             android:layout_marginBottom="40dp"
+             android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:id="@+id/lytQuestionSend"
+             android:layout_alignParentBottom="true"
+             android:background="?attr/selectableItemBackground"
+             android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtSend"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="ثبت"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content" />
+
+         </LinearLayout>
+
+      </RelativeLayout>
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:id="@+id/lytEmpty"
+       android:visibility="gone"
+       android:gravity="center"
+       android:paddingRight="15dp"
+       android:paddingLeft="15dp"
+       android:orientation="vertical"
+       android:layout_height="match_parent">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:src="@drawable/ic_no_content"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_marginTop="15dp"
+          android:textSize="18sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:text="در حال حاظر مسابقه فعالی وجود ندارد"
+          android:layout_height="wrap_content" />
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:id="@+id/lytDisconnect"
+       android:visibility="gone"
+       android:gravity="center"
+       android:paddingRight="15dp"
+       android:paddingLeft="15dp"
+       android:orientation="vertical"
+       android:layout_height="match_parent">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:src="@drawable/ic_sad"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_marginTop="15dp"
+          android:textSize="18sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:text="مشکل در ارتباط با اینترنت"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_marginTop="25dp"
+          android:textSize="15sp"
+          android:textColor="@color/itmesText"
+          android:text="اتصال به اینترنت را بررسی کرده و دوباره تلاش کنید"
+          android:layout_height="wrap_content" />
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:id="@+id/lytRepetitive"
+       android:visibility="gone"
+       android:gravity="center"
+       android:paddingRight="15dp"
+       android:paddingLeft="15dp"
+       android:orientation="vertical"
+       android:layout_height="match_parent">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:src="@drawable/ic_repetitve"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_marginTop="15dp"
+          android:textSize="18sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:text="شما قبلا در این مسابقه شرکت کرده اید"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/repetitiveTitle"
+          android:layout_width="wrap_content"
+          android:layout_marginTop="15dp"
+          android:textSize="18sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:layout_height="wrap_content" />
+
+   </LinearLayout>
+   
+</LinearLayout>
