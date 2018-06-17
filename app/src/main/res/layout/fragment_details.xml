@@ -433,7 +433,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:text="امکانات"
-                    android:textColor="@color/yellow"
+                    android:textColor="@color/detailsTitle"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>

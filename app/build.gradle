@@ -64,5 +64,6 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }
+    compile 'com.github.armcha:SpaceNavigationView:1.6.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -40,9 +40,8 @@ public class shoppingFragment extends Fragment {
 
 
     private RelativeLayout relativeBack;
-    private TabLayout catListTabLayout;
     private RecyclerView recycler;
-    private Typeface typeface;
+    private TextView txtTitle;
 
     private int currentPage = 0;
     private int totalSlides = 3;
@@ -66,8 +65,6 @@ public class shoppingFragment extends Fragment {
         initView(view);
         initSlider();
 
-        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
-
 
         recycler.setNestedScrollingEnabled(false);
 
@@ -84,62 +81,6 @@ public class shoppingFragment extends Fragment {
         });
 
 
-        catListTabLayout.addTab(catListTabLayout.newTab().setText("بازارچه"));
-        catListTabLayout.addTab(catListTabLayout.newTab().setText("فروشگاه"));
-        catListTabLayout.addTab(catListTabLayout.newTab().setText("مرکز خرید"));
-        catListTabLayout.addTab(catListTabLayout.newTab().setText("همه"));
-
-        totalTabsCount = catListTabLayout.getTabCount();
-
-        catListTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                filteredList = new ArrayList<>();
-
-                if (tab.getPosition() == totalTabsCount - 1){
-                    setUpRecyclerView(placesList);
-                }
-                else {
-
-                    for (int i = 0; i < placesList.size(); i++) {
-                        if (placesList.get(i).type == totalTabsCount - (tab.getPosition() + 1))
-                            filteredList.add(placesList.get(i));
-                    }
-                    setUpRecyclerView(filteredList);
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-        View root = catListTabLayout.getChildAt(0);
-        if (root instanceof LinearLayout) {
-            ((LinearLayout) root).setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-            GradientDrawable drawable = new GradientDrawable();
-            drawable.setColor(getResources().getColor(R.color.colorPrimary));
-            drawable.setSize(2, 1);
-            ((LinearLayout) root).setDividerPadding(10);
-            ((LinearLayout) root).setDividerDrawable(drawable);
-        }
-
-        changeTabsFont();
-
-        boolean handler = new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                catListTabLayout.getTabAt(3).select();
-            }
-        }, 2);
-
-
 
 
         return view;
@@ -147,26 +88,9 @@ public class shoppingFragment extends Fragment {
 
     private void initView(View view) {
         relativeBack = (RelativeLayout) view.findViewById(R.id.relative_back);
-        catListTabLayout = (TabLayout) view.findViewById(R.id.catListTabLayout);
         recycler = (RecyclerView) view.findViewById(R.id.recycler);
         mPager = (ViewPagerCustomDuration) view.findViewById(R.id.pager);
-    }
-
-    private void changeTabsFont() {
-
-        ViewGroup vg = (ViewGroup) catListTabLayout.getChildAt(0);
-        int tabsCount = vg.getChildCount();
-        for (int j = 0; j < tabsCount; j++) {
-            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
-            int tabChildsCount = vgTab.getChildCount();
-            for (int i = 0; i < tabChildsCount; i++) {
-                View tabViewChild = vgTab.getChildAt(i);
-                if (tabViewChild instanceof TextView) {
-
-                    ((TextView) tabViewChild).setTypeface(typeface);
-                }
-            }
-        }
+        txtTitle = (TextView) view.findViewById(R.id.txtTitle);
     }
 
     private void initSlider() {
