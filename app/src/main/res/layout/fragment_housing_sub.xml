@@ -73,7 +73,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -81,15 +81,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="مشاور املاک"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -105,10 +105,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing1"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -127,7 +127,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -135,15 +135,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="فنی و مهندسی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -159,10 +159,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing2"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -181,7 +181,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -189,15 +189,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="دکوراسیون داخلی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -213,10 +213,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing3"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -235,7 +235,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -243,15 +243,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="خدماتی و نظافتی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -267,10 +267,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing4"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -289,7 +289,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -297,15 +297,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تاسیسات و تجهیزات"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -321,10 +321,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing5"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -343,7 +343,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -351,15 +351,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="مصالح ساختمانی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -375,10 +375,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing6"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -397,7 +397,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -405,15 +405,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تخلیه چاه"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -429,10 +429,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing7"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -451,7 +451,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -459,15 +459,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="آهن فروشی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -483,10 +483,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing8"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -505,7 +505,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -513,16 +513,16 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:text="MDF"
+                        android:text="کابینت"
                         android:gravity="right"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -538,10 +538,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_housing9"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -551,7 +551,172 @@
                 android:layout_width="match_parent"
                 android:background="@color/subSeperatorLine"
                 android:layout_height="0.5dp"></RelativeLayout>
-            
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub10"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="چوب و مبلمان"
+                        android:gravity="right"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_housing10"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub11"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="لوازم خانگی"
+                        android:gravity="right"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_housing11"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub12"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="پلاسکو"
+                        android:gravity="right"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_housing12"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
 
         </LinearLayout>
 

@@ -73,7 +73,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -81,15 +81,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="بیمه"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -105,10 +105,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti1"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -127,7 +127,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -135,15 +135,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="آرایشگاه مردانه"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -159,10 +159,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti2"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -181,7 +181,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -189,15 +189,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="آرایشگاه زنانه"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -213,10 +213,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti3"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -227,6 +227,7 @@
                 android:background="@color/subSeperatorLine"
                 android:layout_height="0.5dp"></RelativeLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
@@ -235,7 +236,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -243,15 +244,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:text="خشکشویی"
+                        android:text="خشکشوئی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -267,10 +268,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res4"
-                        android:layout_height="55dp" />
+                        android:src="@drawable/ic_sub_clothes11"
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -289,7 +290,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -297,15 +298,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="قالیشوئی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -321,10 +322,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti4"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -343,7 +344,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -351,15 +352,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="دفتر ثبت ازدواج"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -375,10 +376,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti5"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -397,7 +398,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -405,15 +406,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="دفتر اسناد رسمی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -429,10 +430,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res7"
-                        android:layout_height="55dp" />
+                        android:src="@drawable/ic_sub_uti12"
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -451,7 +452,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -459,15 +460,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="صرافی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -483,10 +484,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti6"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -505,7 +506,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -513,15 +514,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="کلیدسازی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -537,10 +538,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti7"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -559,7 +560,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -567,15 +568,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="چاپ"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -591,10 +592,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti8"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -613,7 +614,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -621,15 +622,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="مجالس"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -645,10 +646,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti9"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -667,7 +668,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -675,15 +676,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="پست"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -699,10 +700,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti10"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -721,7 +722,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -729,15 +730,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="پست بانک"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -753,10 +754,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_uti11"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -766,6 +767,7 @@
                 android:layout_width="match_parent"
                 android:background="@color/subSeperatorLine"
                 android:layout_height="0.5dp"></RelativeLayout>
+
 
 
         </LinearLayout>

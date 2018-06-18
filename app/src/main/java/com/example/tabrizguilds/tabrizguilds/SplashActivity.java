@@ -34,20 +34,14 @@ import java.util.concurrent.TimeoutException;
 public class SplashActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT;
-    private ImageView imgSp1, imgSp2, imgSp3;
-    private LinearLayout splashBack;
-    private ImageView imgAras;
-    private ImageView txtSplash;
     private SharedPreferences prefs;
     private WebServiceCallBack callBack;
     private WebServiceLogo callBackLogo;
-    TextView txtTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        initView();
 
         FirebaseMessaging.getInstance().subscribeToTopic("global");
 
@@ -56,24 +50,6 @@ public class SplashActivity extends AppCompatActivity {
         else
             SPLASH_TIME_OUT = 4000;
 
-
-
-        Animation sp0 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash0);
-        Animation sp1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash1);
-        Animation sp2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash2);
-        Animation logo = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_logo);
-        Animation text = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_text);
-        splashBack.startAnimation(sp0);
-        imgSp1.startAnimation(sp2);
-        imgSp3.startAnimation(sp2);
-        imgSp2.startAnimation(sp1);
-//        imgAras.setVisibility(View.VISIBLE);
-//        imgAras.startAnimation(logo);
-//        txtSplash.setVisibility(View.VISIBLE);
-//        txtSplash.startAnimation(text);
-
-//        Glide.with(this).load(R.drawable.aras_logo).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-//        Glide.with(this).load(R.drawable.aras_text).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(txtSplash);
 
 
         prefs = getApplicationContext().getSharedPreferences("login", 0);
@@ -108,15 +84,6 @@ public class SplashActivity extends AppCompatActivity {
         }, SPLASH_TIME_OUT);
     }
 
-    private void initView() {
-        imgSp1 = (ImageView) findViewById(R.id.imgSp1);
-        imgSp2 = (ImageView) findViewById(R.id.imgSp2);
-        imgSp3 = (ImageView) findViewById(R.id.imgSp3);
-        splashBack = (LinearLayout) findViewById(R.id.splashBack);
-        imgAras = (ImageView) findViewById(R.id.imgAras);
-        txtSplash = (ImageView) findViewById(R.id.txtSplash);
-        txtTitle = findViewById(R.id.txtTitle);
-    }
 
     private class WebServiceLogo extends AsyncTask<Object, Void, Void> {
 
@@ -155,10 +122,6 @@ public class SplashActivity extends AppCompatActivity {
                         editor.putString("LogoText", logoModel.text);
                         editor.apply();
 
-                        Glide.with(SplashActivity.this).load(app.imgMainAddr + "logo/" + logoModel.logo).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-                        txtTitle.setText(logoModel.text);
-                        txtSplash.setVisibility(View.GONE);
-                        txtTitle.setVisibility(View.VISIBLE);
 
 
                     }
@@ -170,10 +133,6 @@ public class SplashActivity extends AppCompatActivity {
                         editor.putString("LogoText", "");
                         editor.apply();
 
-                        Glide.with(SplashActivity.this).load(app.imgMainAddr + "logo/" + logoModel.logo).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-                        //txtTitle.setText(logoModel.text);
-                        txtSplash.setVisibility(View.VISIBLE);
-                        txtTitle.setVisibility(View.GONE);
 
                     }
                     else if ((logoModel.logo.equals("null") || logoModel.logo.equals("")) && (!logoModel.text.equals("null") && !logoModel.text.equals(""))){
@@ -184,11 +143,7 @@ public class SplashActivity extends AppCompatActivity {
                         editor.putString("LogoText", logoModel.text);
                         editor.apply();
 
-                        imgAras.setImageResource(R.drawable.aras_logo1);
-                        //Glide.with(SplashActivity.this).load(app.imgMainAddr + "logo/" + logoModel.logo).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-                        txtTitle.setText(logoModel.text);
-                        txtSplash.setVisibility(View.GONE);
-                        txtTitle.setVisibility(View.VISIBLE);
+
 
                     }
                     else {
@@ -199,10 +154,7 @@ public class SplashActivity extends AppCompatActivity {
                         editor.putString("LogoText", "");
                         editor.apply();
 
-                        imgAras.setImageResource(R.drawable.aras_logo1);
-                        txtSplash.setImageResource(R.drawable.aras_text2);
-                        txtSplash.setVisibility(View.VISIBLE);
-                        txtTitle.setVisibility(View.GONE);
+
                     }
                 }
             } else{
@@ -211,29 +163,17 @@ public class SplashActivity extends AppCompatActivity {
                 String LogoText = prefs.getString("LogoText", "");
 
                 if (LogoImgName.equals("") && LogoText.equals("")){
-                    imgAras.setImageResource(R.drawable.aras_logo1);
-                    txtSplash.setImageResource(R.drawable.aras_text2);
-                    txtSplash.setVisibility(View.VISIBLE);
-                    txtTitle.setVisibility(View.GONE);
+
                 }
                 else if (!LogoImgName.equals("") && LogoText.equals("")){
-                    Glide.with(SplashActivity.this).load(app.imgMainAddr + "logo/" + LogoImgName).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-                    //txtTitle.setText(LogoText);
-                    txtSplash.setVisibility(View.VISIBLE);
-                    txtTitle.setVisibility(View.GONE);
+
                 }
                 else if (LogoImgName.equals("") && !LogoText.equals("")){
                     //Glide.with(getContext()).load(app.imgMainAddr + "logo/" + LogoImgName).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-                    imgAras.setImageResource(R.drawable.aras_logo1);
-                    txtTitle.setText(LogoText);
-                    txtSplash.setVisibility(View.GONE);
-                    txtTitle.setVisibility(View.VISIBLE);
+
                 }
                 else{
-                    Glide.with(SplashActivity.this).load(app.imgMainAddr + "logo/" + LogoImgName).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-                    txtTitle.setText(LogoText);
-                    txtSplash.setVisibility(View.GONE);
-                    txtTitle.setVisibility(View.VISIBLE);
+
                 }
 
             }
@@ -241,9 +181,6 @@ public class SplashActivity extends AppCompatActivity {
             Animation logo = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_logo);
             Animation text = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_text);
 
-            imgAras.startAnimation(logo);
-            txtSplash.startAnimation(text);
-            txtTitle.startAnimation(text);
 
             setUpTimer();
 

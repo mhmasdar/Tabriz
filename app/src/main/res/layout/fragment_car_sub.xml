@@ -73,7 +73,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -81,15 +81,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="نمایشگاه خودرو"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -105,10 +105,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car1"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -127,7 +127,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -135,15 +135,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="لوازم یدکی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -159,10 +159,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car2"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -181,7 +181,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -189,15 +189,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تزئینات خودرو"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -213,10 +213,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car3"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -235,7 +235,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -243,15 +243,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="معاینه فنی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -267,10 +267,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car4"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -289,7 +289,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -297,15 +297,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="نمایندگی خودرو"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -321,10 +321,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car5"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -343,7 +343,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -351,15 +351,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="لیزینگ خودرو"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -375,10 +375,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car6"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -397,7 +397,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -405,15 +405,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="کارواش"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -429,10 +429,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car7"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -451,7 +451,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -459,15 +459,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تعمیرگاه"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -483,10 +483,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car8"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -505,7 +505,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -513,15 +513,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="صافکاری و نقاشی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -537,10 +537,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car9"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -559,7 +559,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -567,15 +567,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تعویض روغن"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -591,10 +591,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car10"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -613,7 +613,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_weight="0.3"
+                android:layout_weight="0.25"
                 android:gravity="center_vertical"
                 android:paddingRight="15dp"
                 android:paddingLeft="15dp"
@@ -621,15 +621,15 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="20dp"
+                    android:layout_width="16dp"
                     android:src="@drawable/ic_sub"
-                    android:layout_height="20dp" />
+                    android:layout_height="16dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:text="باطری سازی"
                     android:textColor="@color/detailsTitle"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:layout_height="wrap_content" />
 
 
@@ -645,10 +645,10 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="55dp"
+                    android:layout_width="40dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_sub_car11"
-                    android:layout_height="55dp" />
+                    android:layout_height="40dp" />
 
             </RelativeLayout>
 
@@ -668,7 +668,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -676,15 +676,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="دوچرخه و موتورسیکلت"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -700,10 +700,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_car12"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 

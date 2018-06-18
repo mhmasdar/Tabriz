@@ -31,6 +31,10 @@ public class housingSub extends Fragment {
     private LinearLayout lytSub7;
     private LinearLayout lytSub8;
     private LinearLayout lytSub9;
+    private LinearLayout lytSub10;
+    private LinearLayout lytSub11;
+    private LinearLayout lytSub12;
+
 
     public housingSub() {
         // Required empty public constructor
@@ -71,6 +75,9 @@ public class housingSub extends Fragment {
         lytSub7 = (LinearLayout) view.findViewById(R.id.lytSub7);
         lytSub8 = (LinearLayout) view.findViewById(R.id.lytSub8);
         lytSub9 = (LinearLayout) view.findViewById(R.id.lytSub9);
+        lytSub10 = (LinearLayout) view.findViewById(R.id.lytSub10);
+        lytSub11 = (LinearLayout) view.findViewById(R.id.lytSub11);
+        lytSub12 = (LinearLayout) view.findViewById(R.id.lytSub12);
     }
 
 }

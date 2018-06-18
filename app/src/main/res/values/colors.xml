@@ -10,7 +10,7 @@
     <color name="itmesBack">#f3f4f4</color>
     <color name="itmesText">#929b9c</color>
     <color name="itmesShadow">#e6e7e7</color>
-    <color name="red">#c0392b</color>
+    <color name="red">#3c5b7a</color>
     <color name="white">#ffffff</color>
     <color name="notifBack">#fafafa</color>
     <color name="darkWhite">#f1f1f1</color>
@@ -26,7 +26,7 @@
     <array name="arr">
 
         <item>@color/colorPrimary</item>
-        <item>@color/yellow</item>
+        <item>@color/detailsTitle</item>
         <item>@color/mainBarText</item>
 
     </array>

@@ -74,15 +74,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:src="@drawable/ic_sub" />
 
                     <TextView
@@ -90,7 +90,7 @@
                         android:layout_height="wrap_content"
                         android:text="سالن های ورزشی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>
@@ -104,10 +104,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport1"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -126,7 +126,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -134,15 +134,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تناسب اندام"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -158,10 +158,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport2"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -180,7 +180,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -188,15 +188,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="استخر"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -212,10 +212,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport3"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -234,7 +234,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -242,15 +242,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="استادیوم"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -266,10 +266,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport4"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -288,7 +288,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -296,15 +296,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="سوارکاری"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -320,10 +320,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport5"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -342,7 +342,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -350,15 +350,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="تفریح و ورزش"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -374,10 +374,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport6"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
@@ -396,7 +396,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_weight="0.3"
+                    android:layout_weight="0.25"
                     android:gravity="center_vertical"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -404,15 +404,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
+                        android:layout_width="16dp"
                         android:src="@drawable/ic_sub"
-                        android:layout_height="20dp" />
+                        android:layout_height="16dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:text="کالای ورزشی"
                         android:textColor="@color/detailsTitle"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:layout_height="wrap_content" />
 
 
@@ -428,10 +428,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="55dp"
+                        android:layout_width="40dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_sub_sport7"
-                        android:layout_height="55dp" />
+                        android:layout_height="40dp" />
 
                 </RelativeLayout>
 
