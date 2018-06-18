@@ -107,7 +107,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res"
+                        android:src="@drawable/ic_sub_edu1"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -161,7 +161,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res2"
+                        android:src="@drawable/ic_sub_edu2"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -215,7 +215,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res3"
+                        android:src="@drawable/ic_sub_edu3"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -269,7 +269,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res4"
+                        android:src="@drawable/ic_sub_edu4"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -323,7 +323,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res5"
+                        android:src="@drawable/ic_sub_edu5"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -377,7 +377,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res6"
+                        android:src="@drawable/ic_sub_edu6"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -431,7 +431,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res7"
+                        android:src="@drawable/ic_sub_edu7"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -485,7 +485,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res8"
+                        android:src="@drawable/ic_sub_edu8"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -539,7 +539,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_edu9"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -593,7 +593,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res10"
+                        android:src="@drawable/ic_sub_edu10"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>

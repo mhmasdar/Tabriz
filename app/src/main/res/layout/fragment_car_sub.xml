@@ -107,7 +107,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res"
+                        android:src="@drawable/ic_sub_car1"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -161,7 +161,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res2"
+                        android:src="@drawable/ic_sub_car2"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -215,7 +215,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res3"
+                        android:src="@drawable/ic_sub_car3"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -269,7 +269,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res4"
+                        android:src="@drawable/ic_sub_car4"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -323,7 +323,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res5"
+                        android:src="@drawable/ic_sub_car5"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -377,7 +377,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res6"
+                        android:src="@drawable/ic_sub_car6"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -431,7 +431,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res7"
+                        android:src="@drawable/ic_sub_car7"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -485,7 +485,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res8"
+                        android:src="@drawable/ic_sub_car8"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -539,7 +539,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_car9"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -593,7 +593,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res10"
+                        android:src="@drawable/ic_sub_car10"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -647,7 +647,7 @@
                 <ImageView
                     android:layout_width="55dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_sub_res10"
+                    android:src="@drawable/ic_sub_car11"
                     android:layout_height="55dp" />
 
             </RelativeLayout>
@@ -702,7 +702,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res10"
+                        android:src="@drawable/ic_sub_car12"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>

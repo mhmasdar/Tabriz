@@ -107,7 +107,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res"
+                        android:src="@drawable/ic_sub_uti1"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -161,7 +161,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res2"
+                        android:src="@drawable/ic_sub_uti2"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -215,7 +215,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res3"
+                        android:src="@drawable/ic_sub_uti3"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -323,7 +323,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res5"
+                        android:src="@drawable/ic_sub_uti4"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -377,7 +377,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res6"
+                        android:src="@drawable/ic_sub_uti5"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -485,7 +485,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res8"
+                        android:src="@drawable/ic_sub_uti6"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -539,7 +539,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_uti7"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -593,7 +593,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_uti8"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -647,7 +647,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_uti9"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -701,7 +701,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_uti10"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -755,7 +755,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res9"
+                        android:src="@drawable/ic_sub_uti11"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>

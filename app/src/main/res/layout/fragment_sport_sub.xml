@@ -106,7 +106,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res"
+                        android:src="@drawable/ic_sub_sport1"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -160,7 +160,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res2"
+                        android:src="@drawable/ic_sub_sport2"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -214,7 +214,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res3"
+                        android:src="@drawable/ic_sub_sport3"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -268,7 +268,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res4"
+                        android:src="@drawable/ic_sub_sport4"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -322,7 +322,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res5"
+                        android:src="@drawable/ic_sub_sport5"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -376,7 +376,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res6"
+                        android:src="@drawable/ic_sub_sport6"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
@@ -430,7 +430,7 @@
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/ic_sub_res7"
+                        android:src="@drawable/ic_sub_sport7"
                         android:layout_height="55dp" />
 
                 </RelativeLayout>
