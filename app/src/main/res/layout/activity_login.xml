@@ -79,21 +79,7 @@
                 android:gravity="center"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:id="@+id/imgAras"
-                    android:src="@drawable/aras_logo"
-                    android:layout_height="50dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:id="@+id/txtSplash"
-                    android:layout_marginTop="10dp"
-                    android:text="برنامه گردشگری منطقه آزاد ارس"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

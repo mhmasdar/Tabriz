@@ -1,0 +1,777 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.subGroups.restaurantSub">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="خدمات و تسهیلات"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:id="@+id/lytBack"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    style="@style/SelectableItemBackground"
+
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_back"
+                        android:layout_height="23dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub1"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="بیمه"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti1"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub2"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="آرایشگاه مردانه"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti2"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub3"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="آرایشگاه زنانه"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti3"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub4"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="خشکشوئی"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_clothes11"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub5"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="قالیشوئی"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti4"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub6"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="دفتر ثبت ازدواج"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti5"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub7"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="دفتر اسناد رسمی"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti12"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub8"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="صرافی"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti6"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub9"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="کلیدسازی"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti7"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub10"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="چاپ"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti8"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub11"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="مجالس"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti9"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub12"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="پست"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti10"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/lytSub13"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.25"
+                    android:gravity="center_vertical"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@drawable/ic_sub"
+                        android:layout_height="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="پست بانک"
+                        android:textColor="@color/detailsTitle"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:background="@color/subBack"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_sub_uti11"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/subSeperatorLine"
+                android:layout_height="0.5dp"></RelativeLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

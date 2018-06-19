@@ -39,24 +39,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/lytSupport"
+                android:id="@+id/lytMap"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
                 android:layout_height="match_parent">
 
                 <ImageView
                     android:layout_width="24dp"
-                    android:id="@+id/imgSupport"
+                    android:id="@+id/imgMap"
                     android:layout_marginTop="4dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_support"
+                    android:src="@drawable/ic_map"
                     android:layout_height="24dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="پشتیبانی"
+                    android:text="نقشه شهر"
                     android:layout_marginTop="3dp"
-                    android:id="@+id/txtSupport"
+                    android:id="@+id/txtMap"
                     android:textColor="@color/mainBarText"
                     android:layout_gravity="center_horizontal"
                     android:textSize="12sp"
@@ -100,25 +100,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/lytMap"
+                android:id="@+id/lytAdd"
                 android:background="@color/colorPrimary"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imgMap"
+                    android:id="@+id/imgAdd"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="4dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_map" />
+                    android:src="@drawable/ic_add" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="نقشه شهر"
+                    android:text="افزودن"
                     android:layout_marginTop="3dp"
-                    android:id="@+id/txtMap"
+                    android:id="@+id/txtAdd"
                     android:textColor="@color/white"
                     android:layout_gravity="center_horizontal"
                     android:textSize="12sp"
