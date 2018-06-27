@@ -6,7 +6,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:src="@drawable/cul2"
+        android:src="@drawable/sport1"
         android:scaleType="fitXY"
         android:id="@+id/img"
         android:layout_centerInParent="true"

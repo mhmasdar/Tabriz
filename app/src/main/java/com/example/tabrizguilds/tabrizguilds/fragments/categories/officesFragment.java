@@ -101,7 +101,7 @@ public class officesFragment extends Fragment {
         List<Integer> images = new ArrayList<>();
         images.add(R.drawable.off1);
         images.add(R.drawable.off2);
-        images.add(R.drawable.wide_back);
+        images.add(R.drawable.off3);
         mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
 
         // Auto start of viewpager

@@ -65,7 +65,7 @@ public class artFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_art, container, false);
         initView(view);
-        initSlider();
+//        initSlider();
 
         typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
 
@@ -169,36 +169,36 @@ public class artFragment extends Fragment {
         }
     }
 
-    private void initSlider() {
-
-        List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.cul1);
-        images.add(R.drawable.cul2);
-        images.add(R.drawable.cul3);
-        mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
-
-
-        // Auto start of viewpager
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == totalSlides) {
-                    currentPage = 0;
-                }
-                mPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        if (app.isScheduled) {
-            app.swipeTimer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    handler.post(Update);
-                }
-            }, 2000, 5000);
-            app.isScheduled = true;
-        }
-
-    }
+//    private void initSlider() {
+//
+//        List<Integer> images = new ArrayList<>();
+//        images.add(R.drawable.cul1);
+//        images.add(R.drawable.cul2);
+//        images.add(R.drawable.cul3);
+//        mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
+//
+//
+//        // Auto start of viewpager
+//        final Handler handler = new Handler();
+//        final Runnable Update = new Runnable() {
+//            public void run() {
+//                if (currentPage == totalSlides) {
+//                    currentPage = 0;
+//                }
+//                mPager.setCurrentItem(currentPage++, true);
+//            }
+//        };
+//        if (app.isScheduled) {
+//            app.swipeTimer.schedule(new TimerTask() {
+//                @Override
+//                public void run() {
+//                    handler.post(Update);
+//                }
+//            }, 2000, 5000);
+//            app.isScheduled = true;
+//        }
+//
+//    }
 
     private void setUpRecyclerView(List<PlacesModel> placesList) {
 

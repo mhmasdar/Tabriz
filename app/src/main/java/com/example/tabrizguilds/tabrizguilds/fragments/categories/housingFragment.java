@@ -62,9 +62,9 @@ public class housingFragment extends Fragment {
 
 
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.shop1);
-        images.add(R.drawable.shop2);
-        images.add(R.drawable.shop3);
+        images.add(R.drawable.house1);
+        images.add(R.drawable.house2);
+        images.add(R.drawable.house3);
         mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
 //        app.isScheduled = false;
 

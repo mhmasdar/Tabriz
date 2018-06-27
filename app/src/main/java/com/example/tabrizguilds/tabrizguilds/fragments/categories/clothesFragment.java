@@ -65,9 +65,9 @@ public class clothesFragment extends Fragment {
 
 
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.shop1);
-        images.add(R.drawable.shop2);
-        images.add(R.drawable.shop3);
+        images.add(R.drawable.cloth1);
+        images.add(R.drawable.cloth2);
+        images.add(R.drawable.cloth3);
         mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
 //        app.isScheduled = false;
 
