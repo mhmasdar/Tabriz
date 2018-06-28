@@ -24,7 +24,6 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,10 +48,7 @@
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/splashActivityTheme">
-
-
-        </activity>
+            android:theme="@style/splashActivityTheme"></activity>
         <activity
             android:name=".introduceActivity"
             android:screenOrientation="portrait" />
@@ -118,7 +114,8 @@
                 android:resource="@xml/provider" />
         </provider>
 
-        <activity android:name=".AddNewItemActivity"></activity>
+        <activity android:name=".AddNewItemActivity" />
+        <activity android:name=".addFacilityActivity"></activity>
     </application>
 
 </manifest>
