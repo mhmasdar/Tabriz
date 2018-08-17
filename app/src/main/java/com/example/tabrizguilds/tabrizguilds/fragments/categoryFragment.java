@@ -30,6 +30,7 @@ import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.carSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.clothesSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.educationSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.housingSub;
+import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.medicalSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.officeSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.restaurantSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.shoppingSub;
@@ -276,7 +277,7 @@ public class categoryFragment extends Fragment {
                 app.check = 5;
 
                 idCategory = 12;
-                medicalFragment fragment = new medicalFragment();
+                medicalSub fragment = new medicalSub();
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);

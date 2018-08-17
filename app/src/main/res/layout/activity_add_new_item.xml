@@ -47,7 +47,7 @@
                         <ImageView
                             android:layout_width="23dp"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_back"
+                            android:src="@drawable/ic_back2"
                             android:layout_height="23dp" />
 
                     </RelativeLayout>
@@ -76,6 +76,8 @@
 
                 <EditText
                     android:layout_width="match_parent"
+                    android:id="@+id/edtName"
+                    android:singleLine="true"
                     android:hint="نام مجموعه"
                     android:textSize="15sp"
                     android:paddingRight="15dp"
@@ -88,6 +90,7 @@
 
                 <EditText
                     android:layout_width="match_parent"
+                    android:id="@+id/edtDes"
                     android:hint="توضیحات"
                     android:textSize="15sp"
                     android:paddingRight="15dp"
@@ -99,6 +102,7 @@
 
                 <EditText
                     android:layout_width="match_parent"
+                    android:id="@+id/edtPhone"
                     android:hint="شماره تلفن"
                     android:inputType="number"
                     android:textSize="15sp"
@@ -113,8 +117,9 @@
 
                 <EditText
                     android:layout_width="match_parent"
+                    android:id="@+id/edtWeb"
                     android:hint="وب سایت"
-                    android:inputType="textWebEditText"
+                    android:inputType="textWebEmailAddress"
                     android:textSize="15sp"
                     android:paddingRight="15dp"
                     android:paddingLeft="15dp"
@@ -125,18 +130,137 @@
                     android:background="@drawable/edit_text_back"
                     android:layout_height="wrap_content" />
 
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:hint="ساعت کاری"
-                    android:textSize="15sp"
-                    android:paddingRight="15dp"
-                    android:paddingLeft="15dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginTop="10dp"
-                    android:textCursorDrawable="@drawable/cursor_color"
-                    android:background="@drawable/edit_text_back"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/lytAddFacility"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="25dp"
+                    android:padding="15dp"
+                    android:gravity="center"
+                    android:background="@drawable/btn_intro"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="اضافه کردن امکانات"
+                        android:layout_marginRight="10dp"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:src="@drawable/ic_plus"
+                        android:layout_height="20dp" />
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="25dp"
+                    android:padding="15dp"
+                    android:background="@drawable/btn_intro"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="ساعت کاری :"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="17sp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/edit_text_back"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center_vertical|right"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:hint="ساعت"
+                                android:inputType="time"
+                                android:id="@+id/edtStartTime"
+                                android:layout_weight="1"
+                                android:textSize="15sp"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:textCursorDrawable="@drawable/cursor_color"
+                                android:background="@drawable/edit_text_back"
+                                android:layout_height="wrap_content" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_weight="0.7"
+                                android:id="@+id/startDaySpinner"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="gravity"
+                                android:gravity="right|center_vertical"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"></Spinner>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="از : " />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center_vertical|right"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:hint="ساعت"
+                                android:inputType="time"
+                                android:id="@+id/edtEndTime"
+                                android:layout_weight="1"
+                                android:textSize="15sp"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:textCursorDrawable="@drawable/cursor_color"
+                                android:background="@drawable/edit_text_back"
+                                android:layout_height="wrap_content" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_weight="0.7"
+                                android:id="@+id/endDaySpinner"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="gravity"
+                                android:gravity="right|center_vertical"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp"></Spinner>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="تا : " />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -169,6 +293,7 @@
 
                             <Spinner
                                 android:layout_width="wrap_content"
+                                android:id="@+id/categorySpinner"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="gravity"
                                 android:gravity="right|center_vertical"
@@ -194,6 +319,7 @@
 
                             <Spinner
                                 android:layout_width="wrap_content"
+                                android:id="@+id/subCategorySpinner"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="gravity"
                                 android:gravity="right|center_vertical"
@@ -236,8 +362,6 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:hint="آدرس"
-                            android:textColor="@color/dark"
-                            android:textColorHint="@color/dark"
                             android:textSize="15sp"
                             android:paddingRight="15dp"
                             android:paddingLeft="15dp"
@@ -249,12 +373,13 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="انتخاب موقعیت روی نقشه"
-                            android:textColor="@color/dark"
+                            android:id="@+id/txtMapSituation"
+                            android:text="تعیین موقعیت روی نقشه"
                             android:textSize="13sp"
                             android:textStyle="bold"
-                            android:layout_marginTop="13dp"
-                            android:layout_marginBottom="10dp"
+                            android:paddingLeft="13dp"
+                            android:paddingBottom="13dp"
+                            android:paddingTop="13dp"
                             android:layout_height="wrap_content" />
 
 
@@ -272,6 +397,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:id="@+id/lytSubmit"
         android:orientation="horizontal"
         android:gravity="center"
         android:paddingTop="15dp"

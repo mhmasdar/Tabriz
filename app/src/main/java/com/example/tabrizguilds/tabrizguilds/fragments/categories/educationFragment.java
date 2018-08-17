@@ -61,9 +61,9 @@ public class educationFragment extends Fragment {
 
 
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.shop1);
-        images.add(R.drawable.shop2);
-        images.add(R.drawable.shop3);
+        images.add(R.drawable.edu1);
+        images.add(R.drawable.edu2);
+        images.add(R.drawable.edu3);
         mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
 //        app.isScheduled = false;
 

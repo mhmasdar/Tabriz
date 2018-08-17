@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddNewItemActivity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.activity_enter, R.anim.stay);
+                overridePendingTransition(R.anim.bottom_to_top, R.anim.stay);
             }
         });
 

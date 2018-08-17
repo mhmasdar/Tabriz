@@ -62,9 +62,9 @@ public class sportFragment extends Fragment {
 
 
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.shop1);
-        images.add(R.drawable.shop2);
-        images.add(R.drawable.shop3);
+        images.add(R.drawable.sport1);
+        images.add(R.drawable.sport2);
+        images.add(R.drawable.sport3);
         mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
 //        app.isScheduled = false;
 
