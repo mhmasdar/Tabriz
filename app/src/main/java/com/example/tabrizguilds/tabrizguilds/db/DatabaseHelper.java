@@ -11,6 +11,7 @@ import com.example.tabrizguilds.tabrizguilds.models.ImgModel;
 import com.example.tabrizguilds.tabrizguilds.models.MapModel;
 import com.example.tabrizguilds.tabrizguilds.models.PhoneModel;
 import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
+import com.example.tabrizguilds.tabrizguilds.models.SubCategoryModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1230,6 +1231,79 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArasDB.close();
         return list;
     }
+
+
+
+
+    public List<String> selectSubCategoryById(String r) {
+        List<String> list = new ArrayList<>();
+        SQLiteDatabase ArasDB = getReadableDatabase();
+        String sql = "SELECT * FROM Tbl_SubCategory WHERE SubCategoryId=" + r;
+        String request = "SubCategoryId";
+        Cursor cursor = ArasDB.rawQuery(sql, null);
+        cursor.moveToFirst();
+        if (!cursor.isAfterLast()) {
+            do {
+                String s = cursor.getString(cursor.getColumnIndex(request));
+                list.add(s);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        ArasDB.close();
+        return list;
+    }
+
+    public void insertNewSubCategory(SubCategoryModel placesModel) {
+
+        SQLiteDatabase ArasDB = getReadableDatabase();
+        String sql = "";
+        sql = "INSERT INTO Tbl_SubCategory (SubCategoryId,CategoryId,SubCategoryName,ImageName,isActive,lastUpdate) VALUES('"
+                + placesModel.SubCategoryId + "','" + placesModel.CategoryId + "','" + placesModel.SubCategoryName + "','" + placesModel.ImageName + "','" + placesModel.isActive + "','" + placesModel.lastUpdate + "')";
+        ArasDB.execSQL(sql);
+
+        ArasDB.close();
+    }
+
+    public List<String> selectSubCategoryByLastUpdate(String r) {
+        List<String> list = new ArrayList<>();
+        SQLiteDatabase ArasDB = getReadableDatabase();
+        String sql = "SELECT * FROM Tbl_SubCategory WHERE SubCategoryId=" + r;
+        String request = "lastUpdate";
+        Cursor cursor = ArasDB.rawQuery(sql, null);
+        cursor.moveToFirst();
+        if (!cursor.isAfterLast()) {
+            do {
+                String s = cursor.getString(cursor.getColumnIndex(request));
+                list.add(s);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        ArasDB.close();
+        return list;
+    }
+
+    public void updateSubCategory(SubCategoryModel placesModel) {
+
+        SQLiteDatabase ArasDB = getReadableDatabase();
+        String sql;
+        sql = "UPDATE Tbl_SubCategory SET CategoryId=" + placesModel.CategoryId + ",SubCategoryName='" + placesModel.SubCategoryName + "',ImageName='" + placesModel.ImageName + "',isActive=" + ((placesModel.isActive) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "' WHERE SubCategoryId=" + placesModel.SubCategoryId;
+        ArasDB.execSQL(sql);
+        ArasDB.close();
+    }
+
+    public void deleteSubCategory(String id) {
+
+        //Log.i("LOG", "delete city:" + id);
+        SQLiteDatabase ArasDB = getWritableDatabase();
+        String sql = "DELETE FROM Tbl_SubCategory WHERE SubCategoryId=" + id + "";
+        ArasDB.execSQL(sql);
+        ArasDB.close();
+
+    }
+
+
 
 
     public List<String> selectOfficePhoneById(String r) {

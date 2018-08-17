@@ -229,6 +229,8 @@ public class SplashActivity extends AppCompatActivity {
 
             result = webService.getOfficePhone(app.isInternetOn());
 
+            result = webService.getSubCategory(app.isInternetOn());
+
             return null;
         }
 

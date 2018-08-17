@@ -20,6 +20,7 @@ import com.example.tabrizguilds.tabrizguilds.models.PhoneModel;
 import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 import com.example.tabrizguilds.tabrizguilds.models.ReferendumModel;
 import com.example.tabrizguilds.tabrizguilds.models.ReligiousTimesModel;
+import com.example.tabrizguilds.tabrizguilds.models.SubCategoryModel;
 import com.example.tabrizguilds.tabrizguilds.models.UserModel;
 
 import org.json.JSONArray;
@@ -53,7 +54,8 @@ import static android.content.ContentValues.TAG;
 public class WebService {
 
 //    private String addr = "http://80.191.210.19:7862/api/";
-    private String addr = "http://gsharing.ir/api/";
+//    private String addr = "http://gsharing.ir/api/";
+    private String addr = "https://tabriz.touristsapp.com/api/";
 //    String addr = "http://172.16.42.96/api/";
 
 
@@ -1257,6 +1259,73 @@ public class WebService {
                                         helper.deleteHomePage(s.get(0));
                                     else if (homeModel.lastUpdate.compareTo(v.get(0)) > 0) {
                                         helper.updateHomePage(homeModel);
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+
+                    return 1;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return -2;
+        } else
+            return -10;
+    }
+
+    public int getSubCategory(boolean isInternetAvailable) {
+
+        if (isInternetAvailable) {
+            DatabaseHelper helper = new DatabaseHelper(app.context);
+            String maxUpdate = helper.getLastUpdate("Tbl_SubCategory");
+            Log.i("TAG", maxUpdate + "");
+
+            String response = connectToServer(addr + "Group?lastUpdate=" + maxUpdate, "GET");
+            Log.i("TAG", response + "");
+
+            if (response != null) {
+                List<SubCategoryModel> homeList = new ArrayList<>();
+                try {
+
+                    JSONArray Arrey = new JSONArray(response);
+                    for (int i = 0; i < Arrey.length(); i++) {
+                        JSONObject Object = Arrey.getJSONObject(i);
+                        SubCategoryModel homeModel = new SubCategoryModel();
+                        homeModel.SubCategoryId = Object.getInt("SubCategoryId");
+                        homeModel.CategoryId = Object.getInt("CategoryId");
+                        homeModel.SubCategoryName = Object.getString("SubCategoryName");
+                        homeModel.ImageName = Object.getString("ImageName");
+                        homeModel.isActive = Object.getBoolean("isActive");
+                        homeModel.lastUpdate = Object.getString("lastUpdate");
+
+                        homeList.add(homeModel);
+
+                    }
+
+
+                    if (homeList.size() > 0) {
+
+                        SubCategoryModel homeModel = new SubCategoryModel();
+
+                        for (int i = 0; i < homeList.size(); i++) {
+                            homeModel = homeList.get(i);
+                            List<String> s = helper.selectSubCategoryById(homeModel.SubCategoryId + "");
+                            //List<String> s1 = helper.selectCity("name");
+                            //Log.i("MAH", s1 + "");
+                            if (s.isEmpty()) {
+                                if (homeModel.isActive)
+                                    helper.insertNewSubCategory(homeModel);
+                            } else {
+                                if (homeModel.SubCategoryId == Integer.parseInt(s.get(0))) {
+                                    List<String> v = helper.selectSubCategoryByLastUpdate(homeModel.SubCategoryId + "");
+                                    if (!homeModel.isActive)
+                                        helper.deleteSubCategory(s.get(0));
+                                    else if (homeModel.lastUpdate.compareTo(v.get(0)) > 0) {
+                                        helper.updateSubCategory(homeModel);
                                     }
 
                                 }
