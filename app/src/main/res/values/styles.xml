@@ -48,9 +48,10 @@
         <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/colorPrimary</item>
-        <item name="colorControlActivated">@color/colorPrimary</item>
         <item name="android:fontFamily">@font/font</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
+
 
 
 
