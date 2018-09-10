@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.tabrizguilds.tabrizguilds.fragments.SubCategoryFragment">
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,6 +20,7 @@
 
 
                 <TextView
+                    android:id="@+id/txtToolbar"
                     android:layout_width="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="رستوران و خوراکی"
@@ -53,5 +53,10 @@
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

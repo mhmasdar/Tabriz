@@ -35,6 +35,7 @@ public class app extends Application {
 //    public static String imgMainAddr = "http://gsharing.ir/Content/Upload/Img/";
 
     public static String homeImgAddr = "Home/";
+    public static String subCategoryImgAddr = "GroupsLogo/";
     public static String culturalImgAddr = "cultural/";
     public static String driverImgAddr = "driver/";
     public static String eatingImgAddr = "eating/";

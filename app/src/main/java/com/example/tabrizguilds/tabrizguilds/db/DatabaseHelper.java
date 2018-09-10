@@ -1301,6 +1301,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public List<SubCategoryModel> selectSubCategoryToList(int CategoryId) {
+
+        List<SubCategoryModel> list = new ArrayList<>();
+        SQLiteDatabase ArasDB = getReadableDatabase();
+        //String order = "orderb";
+        String sql = "SELECT * FROM Tbl_SubCategory where CategoryId=" + CategoryId;
+        Cursor cursor = ArasDB.rawQuery(sql, null);
+        cursor.moveToFirst();
+        if (!cursor.isAfterLast()) {
+            do {
+                SubCategoryModel pm = new SubCategoryModel();
+                pm.SubCategoryId = cursor.getInt(cursor.getColumnIndex("SubCategoryId"));
+                pm.CategoryId = cursor.getInt(cursor.getColumnIndex("CategoryId"));
+                pm.SubCategoryName = cursor.getString(cursor.getColumnIndex("SubCategoryName"));
+                pm.ImageName = cursor.getString(cursor.getColumnIndex("ImageName"));
+
+                list.add(pm);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        ArasDB.close();
+        return list;
+    }
+
 
 
 
