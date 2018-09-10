@@ -7,27 +7,28 @@ package com.example.tabrizguilds.tabrizguilds.models;
 public class PlacesModel {
 
     public int id;
-    public int type;
-    public String name;
-    public double lat;
-    public double lon;
-    public String address;
-    public String phone;
-    public double star;
-    public int starCount;
+    public int RootCategory;
+    public int Categroy;
+    public String AvailableDay;
+    public String StartTime;
+    public String EndTime;
+    public String Name;
+    public double Lat;
+    public double Long;
+    public String Address;
+    public String Phone;
+    public double Star;
+    public int StarCount;
     public int likeCount;
-    public String info;
-    public String website;
-    public int idStartDay;
-    public int idEndDay;
-    public String startTime;
-    public String endTime;
-    public boolean visibility;
+    public String Info;
+    public String webSite;
+    public boolean Visibility;
     public String lastUpdate;
-    public String placeStar;
-    public String cost;
-    public String tel;
     public String image;
+    public int Cost;
+    public int placeStar;
+
+
     public int mainType;
 
 }

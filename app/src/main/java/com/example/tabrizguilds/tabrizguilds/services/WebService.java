@@ -149,7 +149,7 @@ public class WebService {
 
         if (isInternetAvailable) {
 
-            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/1003", "GET");
+            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/6", "GET");
             Log.i("LOG", response + "");
 
 
@@ -184,7 +184,7 @@ public class WebService {
         if (isInternetAvailable) {
 
 //            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/1218", "GET");
-            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/695", "GET");
+            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/1003", "GET");
             Log.i("LOG", response + "");
 
 
@@ -218,7 +218,7 @@ public class WebService {
 
         if (isInternetAvailable) {
 
-            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/1566", "GET");
+            String response = connectToServer("https://prayer.aviny.com/api/prayertimes/1066", "GET");
             Log.i("LOG", response + "");
 
 
@@ -364,14 +364,14 @@ public class WebService {
             return null;
     }
 
-    public int getCulture(boolean isInternetAvailable) {
+    public int getPlaces(boolean isInternetAvailable) {
 
         if (isInternetAvailable) {
             DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Culturals");
+            String maxUpdate = helper.getLastUpdate("Tbl_Places");
             Log.i("TAG", maxUpdate + "");
 
-            String response = connectToServer(addr + "culture/select?lastUpdate=" + maxUpdate, "GET");
+            String response = connectToServer(addr + "Asnaf?lastUpdate=" + maxUpdate, "GET");
             Log.i("TAG", response + "");
 
             if (response != null) {
@@ -383,24 +383,26 @@ public class WebService {
                         JSONObject Object = Arrey.getJSONObject(i);
                         PlacesModel placesModel = new PlacesModel();
                         placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
+                        placesModel.RootCategory = Object.getInt("RootCategory");
+                        placesModel.Categroy = Object.getInt("Categroy");
+                        placesModel.AvailableDay = Object.getString("AvailableDay");
+                        placesModel.StartTime = Object.getString("StartTime");
+                        placesModel.EndTime = Object.getString("EndTime");
+                        placesModel.Name = Object.getString("Name");
+                        placesModel.Lat = Object.getDouble("Lat");
+                        placesModel.Long = Object.getDouble("Long");
+                        placesModel.Address = Object.getString("Address");
+                        placesModel.Phone = Object.getString("Phone");
+                        placesModel.Star = Object.getDouble("Star");
+                        placesModel.StarCount = Object.getInt("StarCount");
                         placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
+                        placesModel.Info = Object.getString("Info");
+                        placesModel.webSite = Object.getString("webSite");
+                        placesModel.Visibility = Object.getBoolean("Visibility");
                         placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
                         placesModel.image = Object.getString("image");
+                        placesModel.Cost = Object.getInt("Cost");
+                        placesModel.placeStar = Object.getInt("placeStar");
 
                         placeslList.add(placesModel);
 
@@ -413,19 +415,19 @@ public class WebService {
 
                         for (int i = 0; i < placeslList.size(); i++) {
                             placesModel = placeslList.get(i);
-                            List<String> s = helper.selectCaltureById(placesModel.id + "");
+                            List<String> s = helper.selectPlacesById(placesModel.id + "");
                             //List<String> s1 = helper.selectCity("name");
                             //Log.i("MAH", s1 + "");
                             if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewCalture(placesModel);
+                                if (placesModel.Visibility)
+                                    helper.insertNewPlace(placesModel);
                             } else {
                                 if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectCaltureByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteCalture(s.get(0));
+                                    List<String> v = helper.selectPlacesByLastUpdate(placesModel.id + "");
+                                    if (!placesModel.Visibility)
+                                        helper.deletePlaces(s.get(0));
                                     else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateCalture(placesModel);
+                                        helper.updatePlaces(placesModel);
                                     }
 
                                 }
@@ -444,625 +446,625 @@ public class WebService {
             return -10;
     }
 
-    public int getOffices(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Offices");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "office/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.tel = Object.getString("tell");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectOfficeById(placesModel.id + "");
-
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewOffice(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectOfficeByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteOffice(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateOffice(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getEatings(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Eating");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "eating/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectEatingById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewEating(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectEatingByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteEating(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateEating(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getMedicals(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Medicals");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "medical/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectMedicalById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewMedical(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectMedicalByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteMedical(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateMedical(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getServices(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Services");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "service/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectServiceById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewService(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectServiceByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteService(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateService(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getShoppings(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Shoppings");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "shopping/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectShoppingById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewShopping(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectShoppingByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteShopping(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateShopping(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getTourisms(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Tourisms");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "tourism/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.cost = Object.getString("Cost");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectTourismById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewTourism(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectTourismByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteTourism(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateTourism(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getTransports(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Transports");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "transport/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectTransportById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewTransport(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectTransportByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteTransport(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateTransport(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
-
-    public int getRests(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Rests");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "rest/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<PlacesModel> placeslList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        PlacesModel placesModel = new PlacesModel();
-                        placesModel.id = Object.getInt("id");
-                        placesModel.type = Object.getInt("Type");
-                        placesModel.idStartDay = Object.getInt("idStartDay");
-                        placesModel.idEndDay = Object.getInt("idEndDay");
-                        placesModel.startTime = Object.getString("StartTime");
-                        placesModel.endTime = Object.getString("EndTime");
-                        placesModel.name = Object.getString("Name");
-                        placesModel.lat = Object.getDouble("Lat");
-                        placesModel.lon = Object.getDouble("Long");
-                        placesModel.phone = Object.getString("Phone");
-                        placesModel.star = Object.getDouble("Star");
-                        placesModel.starCount = Object.getInt("StarCount");
-                        placesModel.likeCount = Object.getInt("likeCount");
-                        placesModel.info = Object.getString("Info");
-                        placesModel.website = Object.getString("webSite");
-                        placesModel.visibility = Object.getBoolean("Visibility");
-                        placesModel.lastUpdate = Object.getString("lastUpdate");
-                        placesModel.address = Object.getString("Address");
-                        placesModel.placeStar = Object.getString("placeStar");
-                        placesModel.image = Object.getString("image");
-
-                        placeslList.add(placesModel);
-
-                    }
-
-
-                    if (placeslList.size() > 0) {
-
-                        PlacesModel placesModel = new PlacesModel();
-
-                        for (int i = 0; i < placeslList.size(); i++) {
-                            placesModel = placeslList.get(i);
-                            List<String> s = helper.selectRestmById(placesModel.id + "");
-                            if (s.isEmpty()) {
-                                if (placesModel.visibility)
-                                    helper.insertNewRest(placesModel);
-                            } else {
-                                if (placesModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectRestByLastUpdate(placesModel.id + "");
-                                    if (!placesModel.visibility)
-                                        helper.deleteRest(s.get(0));
-                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateRest(placesModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
+//    public int getOffices(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Offices");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "office/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.tel = Object.getString("tell");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectOfficeById(placesModel.id + "");
+//
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewOffice(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectOfficeByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteOffice(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateOffice(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getEatings(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Eating");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "eating/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectEatingById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewEating(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectEatingByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteEating(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateEating(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getMedicals(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Medicals");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "medical/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectMedicalById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewMedical(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectMedicalByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteMedical(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateMedical(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getServices(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Services");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "service/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectServiceById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewService(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectServiceByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteService(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateService(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getShoppings(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Shoppings");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "shopping/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectShoppingById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewShopping(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectShoppingByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteShopping(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateShopping(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getTourisms(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Tourisms");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "tourism/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.cost = Object.getString("Cost");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectTourismById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewTourism(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectTourismByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteTourism(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateTourism(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getTransports(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Transports");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "transport/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectTransportById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewTransport(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectTransportByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteTransport(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateTransport(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
+//
+//    public int getRests(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Rests");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "rest/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<PlacesModel> placeslList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        PlacesModel placesModel = new PlacesModel();
+//                        placesModel.id = Object.getInt("id");
+//                        placesModel.type = Object.getInt("Type");
+//                        placesModel.idStartDay = Object.getInt("idStartDay");
+//                        placesModel.idEndDay = Object.getInt("idEndDay");
+//                        placesModel.startTime = Object.getString("StartTime");
+//                        placesModel.endTime = Object.getString("EndTime");
+//                        placesModel.name = Object.getString("Name");
+//                        placesModel.lat = Object.getDouble("Lat");
+//                        placesModel.lon = Object.getDouble("Long");
+//                        placesModel.phone = Object.getString("Phone");
+//                        placesModel.star = Object.getDouble("Star");
+//                        placesModel.starCount = Object.getInt("StarCount");
+//                        placesModel.likeCount = Object.getInt("likeCount");
+//                        placesModel.info = Object.getString("Info");
+//                        placesModel.website = Object.getString("webSite");
+//                        placesModel.visibility = Object.getBoolean("Visibility");
+//                        placesModel.lastUpdate = Object.getString("lastUpdate");
+//                        placesModel.address = Object.getString("Address");
+//                        placesModel.placeStar = Object.getString("placeStar");
+//                        placesModel.image = Object.getString("image");
+//
+//                        placeslList.add(placesModel);
+//
+//                    }
+//
+//
+//                    if (placeslList.size() > 0) {
+//
+//                        PlacesModel placesModel = new PlacesModel();
+//
+//                        for (int i = 0; i < placeslList.size(); i++) {
+//                            placesModel = placeslList.get(i);
+//                            List<String> s = helper.selectRestmById(placesModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (placesModel.visibility)
+//                                    helper.insertNewRest(placesModel);
+//                            } else {
+//                                if (placesModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectRestByLastUpdate(placesModel.id + "");
+//                                    if (!placesModel.visibility)
+//                                        helper.deleteRest(s.get(0));
+//                                    else if (placesModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateRest(placesModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
 
     public int getImages(boolean isInternetAvailable) {
 
@@ -1134,81 +1136,81 @@ public class WebService {
             return -10;
     }
 
-    public int getEvents(boolean isInternetAvailable) {
-
-        if (isInternetAvailable) {
-            DatabaseHelper helper = new DatabaseHelper(app.context);
-            String maxUpdate = helper.getLastUpdate("Tbl_Events");
-            Log.i("TAG", maxUpdate + "");
-
-            String response = connectToServer(addr + "events/select?lastUpdate=" + maxUpdate, "GET");
-            Log.i("TAG", response + "");
-
-            if (response != null) {
-                List<EventModel> eventList = new ArrayList<>();
-                try {
-
-                    JSONArray Arrey = new JSONArray(response);
-                    for (int i = 0; i < Arrey.length(); i++) {
-                        JSONObject Object = Arrey.getJSONObject(i);
-                        EventModel eventModel = new EventModel();
-                        eventModel.id = Object.getInt("id");
-                        eventModel.startDate = Object.getInt("startDate");
-                        eventModel.endDate = Object.getInt("endDate");
-                        eventModel.likeCount = Object.getInt("likeCount");
-                        eventModel.lat = Object.getDouble("Lat");
-                        eventModel.lon = Object.getDouble("Long");
-                        eventModel.visibility = Object.getBoolean("Visibility");
-                        eventModel.name = Object.getString("Title");
-                        eventModel.body = Object.getString("Body");
-                        eventModel.startTime = Object.getString("startTime");
-                        eventModel.endTime = Object.getString("endTime");
-                        eventModel.place = Object.getString("Place");
-                        eventModel.address = Object.getString("Address");
-                        eventModel.phone = Object.getString("Phone");
-                        eventModel.website = Object.getString("webSite");
-                        eventModel.lastUpdate = Object.getString("lastUpdate");
-                        eventModel.image = Object.getString("img");
-
-                        eventList.add(eventModel);
-
-                    }
-
-
-                    if (eventList.size() > 0) {
-
-                        EventModel eventModel = new EventModel();
-
-                        for (int i = 0; i < eventList.size(); i++) {
-                            eventModel = eventList.get(i);
-                            List<String> s = helper.selectEventId(eventModel.id + "");
-                            if (s.isEmpty()) {
-                                if (eventModel.visibility)
-                                    helper.insertNewEvent(eventModel);
-                            } else {
-                                if (eventModel.id == Integer.parseInt(s.get(0))) {
-                                    List<String> v = helper.selectEventByLastUpdate(eventModel.id + "");
-                                    if (!eventModel.visibility)
-                                        helper.deleteEvent(s.get(0));
-                                    if (eventModel.lastUpdate.compareTo(v.get(0)) > 0) {
-                                        helper.updateEvent(eventModel);
-                                    }
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    return 1;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return -2;
-        } else
-            return -10;
-    }
+//    public int getEvents(boolean isInternetAvailable) {
+//
+//        if (isInternetAvailable) {
+//            DatabaseHelper helper = new DatabaseHelper(app.context);
+//            String maxUpdate = helper.getLastUpdate("Tbl_Events");
+//            Log.i("TAG", maxUpdate + "");
+//
+//            String response = connectToServer(addr + "events/select?lastUpdate=" + maxUpdate, "GET");
+//            Log.i("TAG", response + "");
+//
+//            if (response != null) {
+//                List<EventModel> eventList = new ArrayList<>();
+//                try {
+//
+//                    JSONArray Arrey = new JSONArray(response);
+//                    for (int i = 0; i < Arrey.length(); i++) {
+//                        JSONObject Object = Arrey.getJSONObject(i);
+//                        EventModel eventModel = new EventModel();
+//                        eventModel.id = Object.getInt("id");
+//                        eventModel.startDate = Object.getInt("startDate");
+//                        eventModel.endDate = Object.getInt("endDate");
+//                        eventModel.likeCount = Object.getInt("likeCount");
+//                        eventModel.lat = Object.getDouble("Lat");
+//                        eventModel.lon = Object.getDouble("Long");
+//                        eventModel.visibility = Object.getBoolean("Visibility");
+//                        eventModel.name = Object.getString("Title");
+//                        eventModel.body = Object.getString("Body");
+//                        eventModel.startTime = Object.getString("startTime");
+//                        eventModel.endTime = Object.getString("endTime");
+//                        eventModel.place = Object.getString("Place");
+//                        eventModel.address = Object.getString("Address");
+//                        eventModel.phone = Object.getString("Phone");
+//                        eventModel.website = Object.getString("webSite");
+//                        eventModel.lastUpdate = Object.getString("lastUpdate");
+//                        eventModel.image = Object.getString("img");
+//
+//                        eventList.add(eventModel);
+//
+//                    }
+//
+//
+//                    if (eventList.size() > 0) {
+//
+//                        EventModel eventModel = new EventModel();
+//
+//                        for (int i = 0; i < eventList.size(); i++) {
+//                            eventModel = eventList.get(i);
+//                            List<String> s = helper.selectEventId(eventModel.id + "");
+//                            if (s.isEmpty()) {
+//                                if (eventModel.visibility)
+//                                    helper.insertNewEvent(eventModel);
+//                            } else {
+//                                if (eventModel.id == Integer.parseInt(s.get(0))) {
+//                                    List<String> v = helper.selectEventByLastUpdate(eventModel.id + "");
+//                                    if (!eventModel.visibility)
+//                                        helper.deleteEvent(s.get(0));
+//                                    if (eventModel.lastUpdate.compareTo(v.get(0)) > 0) {
+//                                        helper.updateEvent(eventModel);
+//                                    }
+//
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//
+//                    return 1;
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            return -2;
+//        } else
+//            return -10;
+//    }
 
     public int getHomePage(boolean isInternetAvailable) {
 
