@@ -921,7 +921,7 @@ public class mapFragment extends Fragment {
                         if (favoriteList.size() > 0) {
                             for (int i = 0; i < filteredList.size(); i++) {
                                 for (int j = 0; j < favoriteList.size(); j++) {
-                                    if (favoriteList.get(j).mainType == filteredList.get(i).mainType && favoriteList.get(j).id == filteredList.get(i).id) {
+                                    if (favoriteList.get(j).RootCategory == filteredList.get(i).mainType && favoriteList.get(j).id == filteredList.get(i).id) {
                                         sortedList.add(filteredList.get(i));
                                     }
                                 }

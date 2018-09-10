@@ -53,7 +53,7 @@ import static android.content.ContentValues.TAG;
 
 public class WebService {
 
-//    private String addr = "http://80.191.210.19:7862/api/";
+    //    private String addr = "http://80.191.210.19:7862/api/";
 //    private String addr = "http://gsharing.ir/api/";
     private String addr = "https://tabriz.touristsapp.com/api/";
 //    String addr = "http://172.16.42.96/api/";
@@ -401,8 +401,10 @@ public class WebService {
                         placesModel.Visibility = Object.getBoolean("Visibility");
                         placesModel.lastUpdate = Object.getString("lastUpdate");
                         placesModel.image = Object.getString("image");
-                        placesModel.Cost = Object.getInt("Cost");
-                        placesModel.placeStar = Object.getInt("placeStar");
+                        if (!Object.getString("Cost").equals("null"))
+                            placesModel.Cost = Object.getInt("Cost");
+                        if (!Object.getString("placeStar").equals("null"))
+                            placesModel.placeStar = Object.getInt("placeStar");
 
                         placeslList.add(placesModel);
 
@@ -1073,7 +1075,7 @@ public class WebService {
             String maxUpdate = helper.getLastUpdate("Tbl_Images");
             Log.i("TAG", maxUpdate + "");
 
-            String response = connectToServer(addr + "images/select?lastUpdate=" + maxUpdate, "GET");
+            String response = connectToServer(addr + "images/selectImage?lastUpdate=" + maxUpdate, "GET");
             Log.i("TAG", response + "");
 
             if (response != null) {

@@ -115,14 +115,14 @@ public class officeListAdapter  extends RecyclerView.Adapter<officeListAdapter.m
 
         public void setData(PlacesModel current, int position) {
 
-            this.txtName.setText(current.name);
-            this.txtAddress.setText(current.address);
-            //this.imgNews.setImageResource();
-            if (current.image != null)
-                if (!current.image.equals(""))
-            Glide.with(context).load(app.imgMainAddr + app.officeImgAddr + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
-
-            this.txtType.setText(getPlaceType(8, current.type));
+//            this.txtName.setText(current.name);
+//            this.txtAddress.setText(current.address);
+//            //this.imgNews.setImageResource();
+//            if (current.image != null)
+//                if (!current.image.equals(""))
+//            Glide.with(context).load(app.imgMainAddr + app.officeImgAddr + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
+//
+//            this.txtType.setText(getPlaceType(8, current.type));
 
             this.position = position;
             this.current = current;

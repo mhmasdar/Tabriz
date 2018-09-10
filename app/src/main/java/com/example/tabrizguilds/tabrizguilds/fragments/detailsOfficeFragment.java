@@ -107,14 +107,14 @@ public class detailsOfficeFragment extends Fragment {
         lytCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (placesModel.tel != null && !placesModel.tel.equals("") && !placesModel.tel.equals("null")) {
-
-                    Intent intentCall = new Intent(Intent.ACTION_DIAL);
-                    intentCall.setData(Uri.fromParts("tel", "0" + placesModel.tel, null));
-                    startActivity(intentCall);
-                }
-                else
-                    Toast.makeText(getContext(), "شماره تلفن موجود نیست", Toast.LENGTH_LONG).show();
+//                if (placesModel.tel != null && !placesModel.tel.equals("") && !placesModel.tel.equals("null")) {
+//
+//                    Intent intentCall = new Intent(Intent.ACTION_DIAL);
+//                    intentCall.setData(Uri.fromParts("tel", "0" + placesModel.tel, null));
+//                    startActivity(intentCall);
+//                }
+//                else
+//                    Toast.makeText(getContext(), "شماره تلفن موجود نیست", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -122,16 +122,16 @@ public class detailsOfficeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String url = "";
-                if (placesModel.website != null && !placesModel.website.equals("") && !placesModel.website.equals("null")) {
-                    url = placesModel.website;
-
-                    if (!url.startsWith("http://") && !url.startsWith("https://"))
-                        url = "http://" + url;
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browserIntent);
-                } else {
-                    Toast.makeText(getContext(), "وب سایت موجود نمی باشد", Toast.LENGTH_LONG).show();
-                }
+//                if (placesModel.website != null && !placesModel.website.equals("") && !placesModel.website.equals("null")) {
+//                    url = placesModel.website;
+//
+//                    if (!url.startsWith("http://") && !url.startsWith("https://"))
+//                        url = "http://" + url;
+//                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                    startActivity(browserIntent);
+//                } else {
+//                    Toast.makeText(getContext(), "وب سایت موجود نمی باشد", Toast.LENGTH_LONG).show();
+//                }
             }
         });
 
@@ -185,11 +185,11 @@ public class detailsOfficeFragment extends Fragment {
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String address = "http://maps.google.com/maps?daddr=" + placesModel.lat + "," + placesModel.lon;
+//                String address = "http://maps.google.com/maps?daddr=" + placesModel.lat + "," + placesModel.lon;
 
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(address));
-                startActivity(intent);
-                dialog.dismiss();
+//                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(address));
+//                startActivity(intent);
+//                dialog.dismiss();
             }
         });
 
@@ -197,14 +197,14 @@ public class detailsOfficeFragment extends Fragment {
         btnInside.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-                iRouting.putExtra("PlaceName", placesModel.name);
-                iRouting.putExtra("PlaceLat", placesModel.lat);
-                iRouting.putExtra("PlaceLon", placesModel.lon);
-                iRouting.putExtra("PlaceType", placesModel.type);
-                iRouting.putExtra("PlaceMainType", 8);
-                startActivity(iRouting);
-                dialog.dismiss();
+//                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
+//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceLat", placesModel.lat);
+//                iRouting.putExtra("PlaceLon", placesModel.lon);
+//                iRouting.putExtra("PlaceType", placesModel.type);
+//                iRouting.putExtra("PlaceMainType", 8);
+//                startActivity(iRouting);
+//                dialog.dismiss();
             }
         });
 
@@ -313,8 +313,6 @@ public class detailsOfficeFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesModel = databaseHelper.selectOfficesDetail(tblName, id);
-
             imgList = databaseHelper.selectPlacesImages(8, id, 1);
 
             return null;
@@ -324,16 +322,16 @@ public class detailsOfficeFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            if (placesModel.address != null && !placesModel.address.equals("null"))
-            txtAddress.setText("آدرس: " + placesModel.address);
-            if (placesModel.info != null && !placesModel.info.equals("null"))
-            txtInfo.setText(placesModel.info);
-            if (placesModel.name != null && !placesModel.name.equals("null"))
-            txtName.setText(placesModel.name);
-
-            if (imgList != null)
-                if (imgList.size() > 0)
-                    initSlider(getView());
+//            if (placesModel.address != null && !placesModel.address.equals("null"))
+//            txtAddress.setText("آدرس: " + placesModel.address);
+//            if (placesModel.info != null && !placesModel.info.equals("null"))
+//            txtInfo.setText(placesModel.info);
+//            if (placesModel.name != null && !placesModel.name.equals("null"))
+//            txtName.setText(placesModel.name);
+//
+//            if (imgList != null)
+//                if (imgList.size() > 0)
+//                    initSlider(getView());
 
         }
 

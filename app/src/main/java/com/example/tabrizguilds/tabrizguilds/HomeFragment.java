@@ -266,10 +266,6 @@ public class HomeFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-//            weatherModelJolfa = weatherService.getWeatherJolfa();
-//            weatherModelZonoz = weatherService.getWeatherNordoz();
-//            weatherModelKhod = weatherService.getWeatherKhod();
-
             timesModelJolfa = webService.getReligiousTimesJolfa(app.isInternetOn());
             timesModelZonoz = webService.getReligiousTimesNordoz(app.isInternetOn());
             timesModelKhod = webService.getReligiousTimesKhod(app.isInternetOn());

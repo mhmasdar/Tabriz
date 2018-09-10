@@ -103,7 +103,7 @@ public class tourismFragment extends Fragment {
                 else {
 
                     for (int i = 0; i < placesList.size(); i++) {
-                        if (placesList.get(i).type == totalTabsCount - (tab.getPosition() + 1))
+                        if (placesList.get(i).Categroy == totalTabsCount - (tab.getPosition() + 1))
                             filteredList.add(placesList.get(i));
                     }
                     setUpRecyclerView(filteredList);

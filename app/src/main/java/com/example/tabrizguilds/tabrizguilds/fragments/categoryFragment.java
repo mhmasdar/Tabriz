@@ -13,19 +13,6 @@ import android.widget.RelativeLayout;
 
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.app;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.carsFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.clothesFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.educationFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.housingFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.medicalFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.officesFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.restaurantsListFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.servicesFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.shoppingFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.sportFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.stayFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.tourismFragment;
-import com.example.tabrizguilds.tabrizguilds.fragments.categories.transportFragment;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.carSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.clothesSub;
 import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.educationSub;
@@ -62,7 +49,7 @@ public class categoryFragment extends Fragment {
     private LinearLayout lytOffice;
     private LinearLayout lytUtilities;
 
-    private int idCategory;
+    private int rootCategory;
 
 
     public categoryFragment() {
@@ -110,8 +97,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 1;
-                restaurantSub fragment = new restaurantSub();
+                rootCategory = 1;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "رستوران و خوراکی");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -125,8 +116,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 2;
-                shoppingSub fragment = new shoppingSub();
+                rootCategory = 2;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "مراکز خرید");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -141,8 +136,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 3;
-                staySub fragment = new staySub();
+                rootCategory = 4;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "گردشگری");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -156,8 +155,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 4;
-                clothesSub fragment = new clothesSub();
+                rootCategory = 5;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "مد و لباس");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -171,8 +174,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 5;
-                housingSub fragment = new housingSub();
+                rootCategory = 6;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "خانه و مسکن");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -186,8 +193,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 6;
-                educationSub fragment = new educationSub();
+                rootCategory = 7;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "آموزش");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -201,8 +212,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 7;
-                sportSub fragment = new sportSub();
+                rootCategory = 8;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "ورزشی");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -216,8 +231,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 8;
-                carSub fragment = new carSub();
+                rootCategory = 9;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "اتومبیل");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -231,8 +250,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 9;
-                transportSub fragment = new transportSub();
+                rootCategory = 10;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "حمل و نقل");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -246,8 +269,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 10;
-                utilitySub fragment = new utilitySub();
+                rootCategory = 11;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "خدمات و تسهیلات");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -261,8 +288,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 11;
-                officeSub fragment = new officeSub();
+                rootCategory = 12;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "اماکن و ادارات");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);
@@ -276,8 +307,12 @@ public class categoryFragment extends Fragment {
             public void onClick(View view) {
                 app.check = 5;
 
-                idCategory = 12;
-                medicalSub fragment = new medicalSub();
+                rootCategory = 13;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "مراکز درمانی");
+                fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
                 ft.replace(R.id.container, fragment);

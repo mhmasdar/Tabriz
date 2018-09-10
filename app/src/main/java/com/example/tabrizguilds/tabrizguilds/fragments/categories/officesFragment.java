@@ -173,7 +173,7 @@ public class officesFragment extends Fragment {
                 if (placesList.size() > 0) {
 
                     for (int i = 0; i < placesList.size(); i++){
-                        if (placesList.get(i).type == 6)
+                        if (placesList.get(i).Categroy == 6)
                             placesList.remove(i);
                     }
 

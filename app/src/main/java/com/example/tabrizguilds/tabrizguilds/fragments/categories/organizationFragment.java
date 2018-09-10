@@ -184,16 +184,16 @@ public class organizationFragment extends Fragment {
             public void onClick(View view) {
                 // open website in explorer
                 String url = "";
-                if (placesModel.website != null && !placesModel.website.equals("") && !placesModel.website.equals("null")) {
-                    url = placesModel.website;
-
-                    if (!url.startsWith("http://") && !url.startsWith("https://"))
-                        url = "http://" + url;
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browserIntent);
-                } else {
-                    Toast.makeText(getContext(), "وب سایت موجود نمی باشد", Toast.LENGTH_LONG).show();
-                }
+//                if (placesModel.website != null && !placesModel.website.equals("") && !placesModel.website.equals("null")) {
+//                    url = placesModel.website;
+//
+//                    if (!url.startsWith("http://") && !url.startsWith("https://"))
+//                        url = "http://" + url;
+//                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                    startActivity(browserIntent);
+//                } else {
+//                    Toast.makeText(getContext(), "وب سایت موجود نمی باشد", Toast.LENGTH_LONG).show();
+//                }
             }
         });
 
@@ -244,11 +244,11 @@ public class organizationFragment extends Fragment {
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String address = "http://maps.google.com/maps?daddr=" + placesModel.lat + "," + placesModel.lon;
-
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(address));
-                startActivity(intent);
-                dialog.dismiss();
+//                String address = "http://maps.google.com/maps?daddr=" + placesModel.lat + "," + placesModel.lon;
+//
+//                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(address));
+//                startActivity(intent);
+//                dialog.dismiss();
             }
         });
 
@@ -256,14 +256,14 @@ public class organizationFragment extends Fragment {
         btnInside.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-                iRouting.putExtra("PlaceName", placesModel.name);
-                iRouting.putExtra("PlaceLat", placesModel.lat);
-                iRouting.putExtra("PlaceLon", placesModel.lon);
-                iRouting.putExtra("PlaceType", placesModel.type);
-                iRouting.putExtra("PlaceMainType", 8);
-                startActivity(iRouting);
-                dialog.dismiss();
+//                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
+//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceLat", placesModel.lat);
+//                iRouting.putExtra("PlaceLon", placesModel.lon);
+//                iRouting.putExtra("PlaceType", placesModel.type);
+//                iRouting.putExtra("PlaceMainType", 8);
+//                startActivity(iRouting);
+//                dialog.dismiss();
             }
         });
 
@@ -398,8 +398,6 @@ public class organizationFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesModel = databaseHelper.selectOrgDetail("Tbl_Offices", 6);
-
             imgList = databaseHelper.selectPlacesImages(8, placesModel.id,1);
 
             return null;
@@ -415,8 +413,8 @@ public class organizationFragment extends Fragment {
 
             if (placesModel != null) {
 
-                txtOrgAddress.setText(placesModel.address);
-                txtOrgintroduce.setText(placesModel.info);
+//                txtOrgAddress.setText(placesModel.address);
+//                txtOrgintroduce.setText(placesModel.info);
             }
 
         }

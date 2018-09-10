@@ -31,7 +31,7 @@ public class app extends Application {
 
     public static String supportAddr = "http://80.191.210.19:7862/";
 
-    public static String imgMainAddr = "https://tabriz.touristsapp.com/Content/Upload/Img/";
+    public static String imgMainAddr = "https://tabriz.touristsapp.com/Content/Upload/image/";
 //    public static String imgMainAddr = "http://gsharing.ir/Content/Upload/Img/";
 
     public static String homeImgAddr = "Home/";

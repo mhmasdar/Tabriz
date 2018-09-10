@@ -28,7 +28,4 @@ public class PlacesModel {
     public int Cost;
     public int placeStar;
 
-
-    public int mainType;
-
 }

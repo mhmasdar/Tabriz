@@ -486,7 +486,7 @@ public class eventsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            currentModel = databaseHelper.selectEventsDetail(tblName, id);
+//            currentModel = databaseHelper.selectEventsDetail(tblName, id);
 
             //imgList = databaseHelper.selectPlacesImages(10, id);
 

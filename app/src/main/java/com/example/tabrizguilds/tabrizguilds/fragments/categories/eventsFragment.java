@@ -196,7 +196,7 @@ public class eventsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            eventList = databaseHelper.selectAllEventsToList(tblName);
+//            eventList = databaseHelper.selectAllEventsToList(tblName);
 
             return null;
         }

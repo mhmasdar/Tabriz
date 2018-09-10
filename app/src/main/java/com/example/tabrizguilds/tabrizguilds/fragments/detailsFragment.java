@@ -262,10 +262,10 @@ public class detailsFragment extends Fragment {
         lytCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (placesModel.phone != null && !placesModel.phone.equals("") && !placesModel.phone.equals("null")) {
+                if (placesModel.Phone != null && !placesModel.Phone.equals("") && !placesModel.Phone.equals("null")) {
 
                     Intent intentCall = new Intent(Intent.ACTION_DIAL);
-                    intentCall.setData(Uri.fromParts("tel", "0" + placesModel.phone, null));
+                    intentCall.setData(Uri.fromParts("tel", "0" + placesModel.Phone, null));
                     startActivity(intentCall);
                 } else
                     Toast.makeText(getContext(), "شماره تلفن موجود نیست", Toast.LENGTH_LONG).show();
@@ -278,7 +278,7 @@ public class detailsFragment extends Fragment {
             public void onClick(View v) {
                 Intent share = new Intent(Intent.ACTION_SEND);
                 share.setType("text/plain");
-                share.putExtra(Intent.EXTRA_TEXT, placesModel.name + " را در همراه ارس ببین\n" + "http://arkatech.ir/");
+                share.putExtra(Intent.EXTRA_TEXT, placesModel.Name + " را در همراه ارس ببین\n" + "http://arkatech.ir/");
                 startActivity(Intent.createChooser(share, "به اشتراک گذاری از طریق..."));
             }
         });
@@ -287,8 +287,8 @@ public class detailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String url = "";
-                if (placesModel.website != null && !placesModel.website.equals("") && !placesModel.website.equals("null")) {
-                    url = placesModel.website;
+                if (placesModel.webSite != null && !placesModel.webSite.equals("") && !placesModel.webSite.equals("null")) {
+                    url = placesModel.webSite;
 
                     if (!url.startsWith("http://") && !url.startsWith("https://"))
                         url = "http://" + url;
@@ -404,7 +404,7 @@ public class detailsFragment extends Fragment {
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String address = "http://maps.google.com/maps?daddr=" + placesModel.lat + "," + placesModel.lon;
+                String address = "http://maps.google.com/maps?daddr=" + placesModel.Lat + "," + placesModel.Long;
 
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(address));
                 startActivity(intent);
@@ -417,10 +417,10 @@ public class detailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-                iRouting.putExtra("PlaceName", placesModel.name);
-                iRouting.putExtra("PlaceLat", placesModel.lat);
-                iRouting.putExtra("PlaceLon", placesModel.lon);
-                iRouting.putExtra("PlaceType", placesModel.type);
+                iRouting.putExtra("PlaceName", placesModel.Name);
+                iRouting.putExtra("PlaceLat", placesModel.Lat);
+                iRouting.putExtra("PlaceLon", placesModel.Long);
+                iRouting.putExtra("PlaceType", placesModel.Categroy);
                 iRouting.putExtra("PlaceMainType", mainType);
                 startActivity(iRouting);
                 dialog.dismiss();
@@ -825,20 +825,20 @@ public class detailsFragment extends Fragment {
                 if (imgList.size() > 0)
                     initSlider();
 
-            if (tblName.equals("Tbl_Transports") && placesModel.type == 1) {
+            if (tblName.equals("Tbl_Transports") && placesModel.Categroy == 1) {
                 lytMenu.setVisibility(View.GONE);
                 lytDrivers.setVisibility(View.VISIBLE);
             }
 
             txtLikeCount.setText(placesModel.likeCount + "");
-            txtAddress.setText("آدرس: " + placesModel.address);
+            txtAddress.setText("آدرس: " + placesModel.Address);
 
-            if (!placesModel.info.equals("null"))
-                txtInfo.setText(placesModel.info);
-            txtName.setText(placesModel.name);
+            if (!placesModel.Info.equals("null"))
+                txtInfo.setText(placesModel.Info);
+            txtName.setText(placesModel.Name);
 
             if (!tblName.equals("Tbl_Rests") && !tblName.equals("Tbl_Eating"))
-                txtHour.setText("از" + placesModel.startTime + " الی " + placesModel.endTime);
+                txtHour.setText("از" + placesModel.StartTime + " الی " + placesModel.EndTime);
             else
                 txtHour.setText("24 ساعته");
 
@@ -846,8 +846,8 @@ public class detailsFragment extends Fragment {
             if (tblName.equals("Tbl_Tourisms")) {
                 imgMenuAndCost.setImageResource(R.drawable.cost);
                 txtMenuAndCost.setText("");
-                if (!placesModel.cost.equals("null"))
-                    txtMenuAndCost.setText(placesModel.cost + " ریال");
+                if (!String.valueOf(placesModel.Cost).equals("null"))
+                    txtMenuAndCost.setText(placesModel.Cost + " ریال");
                 else
                     txtMenuAndCost.setText("رایگان");
             }
@@ -860,56 +860,56 @@ public class detailsFragment extends Fragment {
                 txtHotelStars.setText(placesModel.placeStar);
             }
 
-            if (!tblName.equals("Tbl_Rests") && !tblName.equals("Tbl_Eating")) {
-                switch (placesModel.idStartDay) {
-                    case 1:
-                        txtDay.setText("شنبه تا ");
-                        break;
-                    case 2:
-                        txtDay.setText("یکشنبه تا ");
-                        break;
-                    case 3:
-                        txtDay.setText("دوشنبه تا ");
-                        break;
-                    case 4:
-                        txtDay.setText("سه شنبه تا ");
-                        break;
-                    case 5:
-                        txtDay.setText("چهارشنبه تا ");
-                        break;
-                    case 6:
-                        txtDay.setText("پنجشنبه تا ");
-                        break;
-                    case 7:
-                        txtDay.setText("جمعه تا ");
-                        break;
-                }
-                switch (placesModel.idEndDay) {
-                    case 1:
-                        txtDay.setText(txtDay.getText().toString() + "شنبه");
-                        break;
-                    case 2:
-                        txtDay.setText(txtDay.getText().toString() + "یکشنبه");
-                        break;
-                    case 3:
-                        txtDay.setText(txtDay.getText().toString() + "دوشنبه");
-                        break;
-                    case 4:
-                        txtDay.setText(txtDay.getText().toString() + "سه شنبه");
-                        break;
-                    case 5:
-                        txtDay.setText(txtDay.getText().toString() + "چهارشنبه");
-                        break;
-                    case 6:
-                        txtDay.setText(txtDay.getText().toString() + "پنجشنبه");
-                        break;
-                    case 7:
-                        txtDay.setText(txtDay.getText().toString() + "جمعه");
-                        break;
-                }
-            } else{
-                txtDay.setText("شنبه تا جمعه");
-            }
+//            if (!tblName.equals("Tbl_Rests") && !tblName.equals("Tbl_Eating")) {
+//                switch (placesModel.AvailableDay) {
+//                    case 1:
+//                        txtDay.setText("شنبه تا ");
+//                        break;
+//                    case 2:
+//                        txtDay.setText("یکشنبه تا ");
+//                        break;
+//                    case 3:
+//                        txtDay.setText("دوشنبه تا ");
+//                        break;
+//                    case 4:
+//                        txtDay.setText("سه شنبه تا ");
+//                        break;
+//                    case 5:
+//                        txtDay.setText("چهارشنبه تا ");
+//                        break;
+//                    case 6:
+//                        txtDay.setText("پنجشنبه تا ");
+//                        break;
+//                    case 7:
+//                        txtDay.setText("جمعه تا ");
+//                        break;
+//                }
+//                switch (placesModel.idEndDay) {
+//                    case 1:
+//                        txtDay.setText(txtDay.getText().toString() + "شنبه");
+//                        break;
+//                    case 2:
+//                        txtDay.setText(txtDay.getText().toString() + "یکشنبه");
+//                        break;
+//                    case 3:
+//                        txtDay.setText(txtDay.getText().toString() + "دوشنبه");
+//                        break;
+//                    case 4:
+//                        txtDay.setText(txtDay.getText().toString() + "سه شنبه");
+//                        break;
+//                    case 5:
+//                        txtDay.setText(txtDay.getText().toString() + "چهارشنبه");
+//                        break;
+//                    case 6:
+//                        txtDay.setText(txtDay.getText().toString() + "پنجشنبه");
+//                        break;
+//                    case 7:
+//                        txtDay.setText(txtDay.getText().toString() + "جمعه");
+//                        break;
+//                }
+//            } else{
+//                txtDay.setText("شنبه تا جمعه");
+//            }
 
         }
 

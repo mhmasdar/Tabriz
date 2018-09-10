@@ -80,10 +80,10 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
             @Override
             public void onClick(View view) {
 
-                getTblName(currentObj.mainType);
+                getTblName(currentObj.RootCategory);
 
                 if (tblName.equals("")) {
-                    getTblName(currentObj.mainType);
+                    getTblName(currentObj.RootCategory);
                 }
 
 
@@ -224,15 +224,15 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
 
         private void setData(PlacesModel current, int position) {
 
-            this.rating.setRating(Float.parseFloat(current.star + ""));
-            this.txtName.setText(current.name);
-            this.txtAddress.setText(current.address);
+            this.rating.setRating(Float.parseFloat(current.Star + ""));
+            this.txtName.setText(current.Name);
+            this.txtAddress.setText(current.Address);
             //this.imgNews.setImageResource();
             if (current.image != null)
                 if (!current.image.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + getImgAddr(current.mainType) + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
-            this.txtRank.setText(current.star + "");
-            this.txtType.setText(getPlaceType(current.mainType, current.type));
+                    Glide.with(context).load(app.imgMainAddr + getImgAddr(current.RootCategory) + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
+            this.txtRank.setText(current.Star + "");
+            this.txtType.setText(getPlaceType(current.RootCategory, current.Categroy));
 
             this.position = position;
             this.current = current;

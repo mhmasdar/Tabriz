@@ -119,8 +119,6 @@ public class favoriteFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            eventList = databaseHelper.selectAllEventsByFavorite("Tbl_Events");
-
             placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Eating"));
             placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Shoppings"));
             placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Rests"));

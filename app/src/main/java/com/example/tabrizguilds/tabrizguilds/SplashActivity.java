@@ -203,31 +203,11 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.getCulture(app.isInternetOn());
-
-            result = webService.getOffices(app.isInternetOn());
-
-            result = webService.getEatings(app.isInternetOn());
-
-            result = webService.getMedicals(app.isInternetOn());
-
-            result = webService.getServices(app.isInternetOn());
-
-            result = webService.getShoppings(app.isInternetOn());
-
-            result = webService.getTourisms(app.isInternetOn());
-
-            result = webService.getTransports(app.isInternetOn());
-
-            result = webService.getRests(app.isInternetOn());
-
-            result = webService.getEvents(app.isInternetOn());
+            result = webService.getPlaces(app.isInternetOn());
 
             result = webService.getImages(app.isInternetOn());
 
             result = webService.getHomePage(app.isInternetOn());
-
-            result = webService.getOfficePhone(app.isInternetOn());
 
             result = webService.getSubCategory(app.isInternetOn());
 
