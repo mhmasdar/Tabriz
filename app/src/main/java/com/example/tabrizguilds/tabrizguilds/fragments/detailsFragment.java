@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.location.GnssClock;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -55,7 +54,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import fr.castorflex.android.circularprogressbar.CircularProgressBar;
 import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
 
 
@@ -98,8 +96,6 @@ public class detailsFragment extends Fragment {
 
     private SharedPreferences prefs;
 
-    private int mainType;
-    private String tblName;
     private int id;
     private PlacesModel placesModel;
     private List<ImgModel> imgList;
@@ -142,8 +138,6 @@ public class detailsFragment extends Fragment {
         Bundle args = getArguments();
         id = args.getInt("ID");
         isFromFavorite = args.getBoolean("isFromFaavorite");
-        tblName = args.getString("TBL_NAME");
-        mainType = getMainType(tblName);
 
         initView(view);
 //        initSlider(view);
@@ -151,21 +145,14 @@ public class detailsFragment extends Fragment {
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
         txtInfo.setTypeface(typeface);
 
-        DatabaseCallback databaseCallback = new DatabaseCallback(getContext(), tblName, id);
+        DatabaseCallback databaseCallback = new DatabaseCallback(getContext(), id);
         databaseCallback.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
-        lytMenu.setVisibility(View.GONE);
-        lytDrivers.setVisibility(View.GONE);
-        if (tblName.equals("Tbl_Tourisms") || tblName.equals("Tbl_Rests") || tblName.equals("Tbl_Eating")) {
-            lytDrivers.setVisibility(View.GONE);
-            lytMenu.setVisibility(View.VISIBLE);
-        }
 
 
         prefs = getContext().getSharedPreferences("MYPREFS", 0);
         idUser = prefs.getInt("UserId", -1);
         if (idUser > 0) {
-            DatabaseCallFavoriteLikeRate databaseCallFavoriteLikeRate = new DatabaseCallFavoriteLikeRate(getContext(), tblName, id);
+            DatabaseCallFavoriteLikeRate databaseCallFavoriteLikeRate = new DatabaseCallFavoriteLikeRate(getContext(), id);
             databaseCallFavoriteLikeRate.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 
@@ -199,7 +186,7 @@ public class detailsFragment extends Fragment {
             public void onClick(View v) {
 
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceName", placesModel.Name);
 //                iRouting.putExtra("PlaceLat", placesModel.lat);
 //                iRouting.putExtra("PlaceLon", placesModel.lon);
 //                //iRouting.putExtra("PlaceType", placesModel.type);
@@ -389,7 +376,6 @@ public class detailsFragment extends Fragment {
         });
 
 
-
         return view;
     }
 
@@ -420,7 +406,7 @@ public class detailsFragment extends Fragment {
                 iRouting.putExtra("PlaceName", placesModel.Name);
                 iRouting.putExtra("PlaceLat", placesModel.Lat);
                 iRouting.putExtra("PlaceLon", placesModel.Long);
-                iRouting.putExtra("PlaceType", placesModel.Categroy);
+                iRouting.putExtra("PlaceType", placesModel.Category);
                 iRouting.putExtra("PlaceMainType", mainType);
                 startActivity(iRouting);
                 dialog.dismiss();
@@ -435,8 +421,6 @@ public class detailsFragment extends Fragment {
 
 
         mPager.setAdapter(new detailsSliderAdapter(app.context, imgList));
-
-
 
 
         indicator.setViewPager(mPager);
@@ -789,12 +773,10 @@ public class detailsFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
         int id;
 
-        public DatabaseCallback(Context context, String tblName, int id) {
+        public DatabaseCallback(Context context, int id) {
             this.context = context;
-            this.tblName = tblName;
             this.id = id;
         }
 
@@ -810,9 +792,9 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesModel = databaseHelper.selectPlacesDetail(tblName, id);
+            placesModel = databaseHelper.selectPlacesDetail(id);
 
-            imgList = databaseHelper.selectPlacesImages(mainType, id, 1);
+            imgList = databaseHelper.selectPlacesImages(id);
 
             return null;
         }
@@ -825,91 +807,21 @@ public class detailsFragment extends Fragment {
                 if (imgList.size() > 0)
                     initSlider();
 
-            if (tblName.equals("Tbl_Transports") && placesModel.Categroy == 1) {
-                lytMenu.setVisibility(View.GONE);
-                lytDrivers.setVisibility(View.VISIBLE);
-            }
-
             txtLikeCount.setText(placesModel.likeCount + "");
             txtAddress.setText("آدرس: " + placesModel.Address);
 
             if (!placesModel.Info.equals("null"))
                 txtInfo.setText(placesModel.Info);
             txtName.setText(placesModel.Name);
-
-            if (!tblName.equals("Tbl_Rests") && !tblName.equals("Tbl_Eating"))
-                txtHour.setText("از" + placesModel.StartTime + " الی " + placesModel.EndTime);
-            else
-                txtHour.setText("24 ساعته");
+            txtHour.setText("24 ساعته");
 
 
-            if (tblName.equals("Tbl_Tourisms")) {
-                imgMenuAndCost.setImageResource(R.drawable.cost);
-                txtMenuAndCost.setText("");
-                if (!String.valueOf(placesModel.Cost).equals("null"))
-                    txtMenuAndCost.setText(placesModel.Cost + " ریال");
-                else
-                    txtMenuAndCost.setText("رایگان");
-            }
-            if (tblName.equals("Tbl_Transports")) {
-                imgMenuAndCost.setImageResource(R.drawable.ic_detail_menu);
-                txtMenuAndCost.setText("راننده ها");
-            }
-            if (tblName.equals("Tbl_Rests")) {
+            txtMenuAndCost.setText(placesModel.Cost + " ریال");
+
+            if (placesModel.RootCategory == 3) {
                 txtHotelStars.setVisibility(View.VISIBLE);
                 txtHotelStars.setText(placesModel.placeStar);
             }
-
-//            if (!tblName.equals("Tbl_Rests") && !tblName.equals("Tbl_Eating")) {
-//                switch (placesModel.AvailableDay) {
-//                    case 1:
-//                        txtDay.setText("شنبه تا ");
-//                        break;
-//                    case 2:
-//                        txtDay.setText("یکشنبه تا ");
-//                        break;
-//                    case 3:
-//                        txtDay.setText("دوشنبه تا ");
-//                        break;
-//                    case 4:
-//                        txtDay.setText("سه شنبه تا ");
-//                        break;
-//                    case 5:
-//                        txtDay.setText("چهارشنبه تا ");
-//                        break;
-//                    case 6:
-//                        txtDay.setText("پنجشنبه تا ");
-//                        break;
-//                    case 7:
-//                        txtDay.setText("جمعه تا ");
-//                        break;
-//                }
-//                switch (placesModel.idEndDay) {
-//                    case 1:
-//                        txtDay.setText(txtDay.getText().toString() + "شنبه");
-//                        break;
-//                    case 2:
-//                        txtDay.setText(txtDay.getText().toString() + "یکشنبه");
-//                        break;
-//                    case 3:
-//                        txtDay.setText(txtDay.getText().toString() + "دوشنبه");
-//                        break;
-//                    case 4:
-//                        txtDay.setText(txtDay.getText().toString() + "سه شنبه");
-//                        break;
-//                    case 5:
-//                        txtDay.setText(txtDay.getText().toString() + "چهارشنبه");
-//                        break;
-//                    case 6:
-//                        txtDay.setText(txtDay.getText().toString() + "پنجشنبه");
-//                        break;
-//                    case 7:
-//                        txtDay.setText(txtDay.getText().toString() + "جمعه");
-//                        break;
-//                }
-//            } else{
-//                txtDay.setText("شنبه تا جمعه");
-//            }
 
         }
 
@@ -920,12 +832,10 @@ public class detailsFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
         int id;
 
-        public DatabaseCallFavoriteLikeRate(Context context, String tblName, int id) {
+        public DatabaseCallFavoriteLikeRate(Context context, int id) {
             this.context = context;
-            this.tblName = tblName;
             this.id = id;
         }
 
@@ -939,13 +849,13 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            idUserFavorite = databaseHelper.selectFavoriteById(tblName, id);
+            idUserFavorite = databaseHelper.selectFavoriteById(id);
 
-            idUserLike = databaseHelper.selectLikeById(tblName, id);
+            idUserLike = databaseHelper.selectLikeById(id);
 
-            idUserRate = databaseHelper.selectRateById(tblName, id);
+            idUserRate = databaseHelper.selectRateById(id);
 
-            userRate = databaseHelper.selectRateValueById(tblName, id);
+            userRate = databaseHelper.selectRateValueById(id);
 
             return null;
         }

@@ -38,7 +38,7 @@ public class imageActivity extends Activity {
 
         if (imageName != null)
             if (!imageName.equals(""))
-                Glide.with(this).load(app.imgMainAddr + getImgAddr(mainType) + imageName).asBitmap().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(new SimpleTarget<Bitmap>() {
+                Glide.with(this).load(app.imgMainAddr + app.placesImgAddr + imageName).asBitmap().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bm, GlideAnimation<? super Bitmap> glideAnimation) {
                         img.setImageBitmap(bm);
@@ -46,47 +46,6 @@ public class imageActivity extends Activity {
                         img.setVisibility(View.VISIBLE);
                     }
                 });
-    }
-
-    public String getImgAddr(int type) {
-
-        String imgAddress = "";
-
-        switch (type) {
-            case 1:
-                imgAddress = app.eatingImgAddr;
-                break;
-            case 2:
-                imgAddress = app.shoppingImgAddr;
-                break;
-            case 3:
-                imgAddress = app.restImgAddr;
-                break;
-            case 4:
-                imgAddress = app.tourismImgAddr;
-                break;
-            case 5:
-                imgAddress = app.culturalImgAddr;
-                break;
-            case 6:
-                imgAddress = app.transportImgAddr;
-                break;
-            case 7:
-                imgAddress = app.serviceImgAddr;
-                break;
-            case 8:
-                imgAddress = app.officeImgAddr;
-                break;
-            case 9:
-                imgAddress = app.medicalImgAddr;
-                break;
-            case 10:
-                imgAddress = app.eventImgAddr;
-                break;
-            default:
-                imgAddress = "";
-        }
-        return imgAddress;
     }
 
 }

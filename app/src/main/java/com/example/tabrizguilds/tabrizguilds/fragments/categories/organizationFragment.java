@@ -201,7 +201,7 @@ public class organizationFragment extends Fragment {
             @Override
             public void onClick(View v) {
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceName", placesModel.Name);
 //                iRouting.putExtra("PlaceLat", placesModel.lat);
 //                iRouting.putExtra("PlaceLon", placesModel.lon);
 //                //iRouting.putExtra("PlaceType", placesModel.type);
@@ -257,7 +257,7 @@ public class organizationFragment extends Fragment {
             @Override
             public void onClick(View view) {
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceName", placesModel.Name);
 //                iRouting.putExtra("PlaceLat", placesModel.lat);
 //                iRouting.putExtra("PlaceLon", placesModel.lon);
 //                iRouting.putExtra("PlaceType", placesModel.type);
@@ -398,7 +398,7 @@ public class organizationFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            imgList = databaseHelper.selectPlacesImages(8, placesModel.id,1);
+//            imgList = databaseHelper.selectPlacesImages(8, placesModel.id,1);
 
             return null;
         }

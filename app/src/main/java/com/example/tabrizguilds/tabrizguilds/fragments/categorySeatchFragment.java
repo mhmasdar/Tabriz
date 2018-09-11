@@ -56,7 +56,7 @@ public class categorySeatchFragment extends Fragment {
     private Dialog dialog;
     private RecyclerView recycle;
 
-    private String sortType = "name";
+    private String sortType = "Name";
     private List<String> allFilters;
     private List<String> selectedFilters;
     private List<PlacesModel> placeList = new ArrayList<>();
@@ -418,7 +418,7 @@ public class categorySeatchFragment extends Fragment {
             public void onClick(View v) {
 
                 if (radioName.isChecked()){
-                    sortType = "name";
+                    sortType = "Name";
                 }
                 else if (radioLike.isChecked()){
                     sortType = "likeCount";

@@ -4,37 +4,23 @@ package com.example.tabrizguilds.tabrizguilds.fragments;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.TouchImageView;
 import com.example.tabrizguilds.tabrizguilds.app;
 import com.example.tabrizguilds.tabrizguilds.db.DatabaseHelper;
 import com.example.tabrizguilds.tabrizguilds.imageActivity;
 import com.example.tabrizguilds.tabrizguilds.models.ImgModel;
-import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
-import com.example.tabrizguilds.tabrizguilds.services.WebService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +77,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(0).name);
+                intent.putExtra("ImgName", imgList.get(0).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -100,7 +86,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(1).name);
+                intent.putExtra("ImgName", imgList.get(1).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -109,7 +95,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(2).name);
+                intent.putExtra("ImgName", imgList.get(2).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -118,7 +104,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(3).name);
+                intent.putExtra("ImgName", imgList.get(3).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -127,7 +113,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(4).name);
+                intent.putExtra("ImgName", imgList.get(4).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -136,7 +122,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(5).name);
+                intent.putExtra("ImgName", imgList.get(5).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -145,7 +131,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(6).name);
+                intent.putExtra("ImgName", imgList.get(6).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -154,7 +140,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(7).name);
+                intent.putExtra("ImgName", imgList.get(7).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -163,7 +149,7 @@ public class galleryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
-                intent.putExtra("ImgName", imgList.get(8).name);
+                intent.putExtra("ImgName", imgList.get(8).Name);
                 intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
@@ -208,7 +194,7 @@ public class galleryFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            imgList = databaseHelper.selectPlacesImages(mainType, idRow, 1);
+//            imgList = databaseHelper.selectPlacesImages(mainType, idRow, 1);
 
             return null;
         }
@@ -221,9 +207,9 @@ public class galleryFragment extends Fragment {
                 if (imgList.size() > 0) {
                     for (int i = 0; i < imgList.size(); i++) {
                         img[i].setVisibility(View.VISIBLE);
-                        if (imgList.get(i).name != null) {
-                            if (!imgList.get(i).name.equals("")) {
-                                Glide.with(context).load(app.imgMainAddr + getImgAddr(imgList.get(i).type) + imgList.get(i).name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img[i]);
+                        if (imgList.get(i).Name != null) {
+                            if (!imgList.get(i).Name.equals("")) {
+//                                Glide.with(context).load(app.imgMainAddr + getImgAddr(imgList.get(i).type) + imgList.get(i).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img[i]);
                             }
                         }
                     }
@@ -234,48 +220,6 @@ public class galleryFragment extends Fragment {
 
 
 
-    }
-
-
-    public String getImgAddr(int type) {
-
-        String imgAddress = "";
-
-        switch (type) {
-            case 1:
-                imgAddress = app.eatingImgAddr;
-                break;
-            case 2:
-                imgAddress = app.shoppingImgAddr;
-                break;
-            case 3:
-                imgAddress = app.restImgAddr;
-                break;
-            case 4:
-                imgAddress = app.tourismImgAddr;
-                break;
-            case 5:
-                imgAddress = app.culturalImgAddr;
-                break;
-            case 6:
-                imgAddress = app.transportImgAddr;
-                break;
-            case 7:
-                imgAddress = app.serviceImgAddr;
-                break;
-            case 8:
-                imgAddress = app.officeImgAddr;
-                break;
-            case 9:
-                imgAddress = app.medicalImgAddr;
-                break;
-            case 10:
-                imgAddress = app.eventImgAddr;
-                break;
-            default:
-                imgAddress = "";
-        }
-        return imgAddress;
     }
 
 }

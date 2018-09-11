@@ -102,7 +102,7 @@ public class eventsDetailsFragment extends Fragment {
 //        Bundle args = getArguments();
 //        currentModel.id = args.getInt("id");
 //        currentModel.body = args.getString("body");
-//        currentModel.name = args.getString("name");
+//        currentModel.Name = args.getString("Name");
 //        currentModel.startTime = args.getString("startTime");
 //        currentModel.startDate = args.getInt("startDate");
 //        currentModel.endTime = args.getString("endTime");
@@ -113,7 +113,7 @@ public class eventsDetailsFragment extends Fragment {
 //        currentModel.address = args.getString("address");
 //        currentModel.phone = args.getString("phone");
 //        currentModel.website = args.getString("website");
-//        currentModel.visibility = args.getBoolean("visibility");
+//        currentModel.Visibility = args.getBoolean("Visibility");
 
         Bundle args = getArguments();
         id = args.getInt("ID");
@@ -167,7 +167,7 @@ public class eventsDetailsFragment extends Fragment {
             public void onClick(View v) {
 
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", currentModel.name);
+//                iRouting.putExtra("PlaceName", currentModel.Name);
 //                iRouting.putExtra("PlaceLat", currentModel.lat);
 //                iRouting.putExtra("PlaceLon", currentModel.lon);
 //                //iRouting.putExtra("PlaceType", "");
@@ -506,9 +506,9 @@ public class eventsDetailsFragment extends Fragment {
             txtAddress.setText(currentModel.address);
             txtInfo.setText(currentModel.body);
             txtLikeCount.setText(currentModel.likeCount + "");
-            if (currentModel.image != null)
-                if (!currentModel.image.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + app.eventImgAddr + currentModel.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgTitle);
+//            if (currentModel.image != null)
+//                if (!currentModel.image.equals(""))
+//                    Glide.with(context).load(app.imgMainAddr + app.eventImgAddr + currentModel.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgTitle);
         }
 
     }

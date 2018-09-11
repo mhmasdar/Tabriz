@@ -33,7 +33,7 @@
 
 
     <style name="AudioFileInfoOverlayText2">
-        <!--<item name="android:textColor">#ffffffff</item>-->
+        <!--<item Name="android:textColor">#ffffffff</item>-->
         <item name="android:shadowColor">#c2c2c2</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>

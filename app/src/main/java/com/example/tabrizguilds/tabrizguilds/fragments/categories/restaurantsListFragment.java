@@ -2,21 +2,16 @@ package com.example.tabrizguilds.tabrizguilds.fragments.categories;
 
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,7 +25,6 @@ import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 import java.util.TimerTask;
 
 
@@ -55,10 +49,9 @@ public class restaurantsListFragment extends Fragment {
     private int totalTabsCount;
     private DatabaseCallback databaseCallback;
 
-    public restaurantsListFragment() {
-        // Required empty public constructor
-    }
-
+    private int rootCategory = 0;
+    private int subCategory = 0;
+    TextView txtToolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,9 +61,12 @@ public class restaurantsListFragment extends Fragment {
         initView(view);
         initSlider();
 
+        Bundle args = getArguments();
+        rootCategory = args.getInt("rootCategory");
+        subCategory = args.getInt("subCategory");
+        txtToolbar.setText(args.getString("subCategoryName"));
 
-
-        databaseCallback = new DatabaseCallback(getContext(), "Tbl_Eating");
+        databaseCallback = new DatabaseCallback(getContext(), rootCategory, subCategory);
         databaseCallback.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
 
@@ -82,85 +78,10 @@ public class restaurantsListFragment extends Fragment {
             }
         });
 
-//        catListTabLayout.addTab(catListTabLayout.newTab().setText("بستنی"));
-//        catListTabLayout.addTab(catListTabLayout.newTab().setText("شیرینی و آجیل"));
-//        catListTabLayout.addTab(catListTabLayout.newTab().setText("کافی شاپ"));
-//        catListTabLayout.addTab(catListTabLayout.newTab().setText("فست فود"));
-//        catListTabLayout.addTab(catListTabLayout.newTab().setText("رستوران"));
-//        catListTabLayout.addTab(catListTabLayout.newTab().setText("همه"));
-//
-//        totalTabsCount = catListTabLayout.getTabCount();
-//
-//        catListTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                filteredList = new ArrayList<>();
-//
-//                if (tab.getPosition() == totalTabsCount - 1){
-//                    setUpRecyclerView(placesList);
-//                }
-//                else {
-//
-//                    for (int i = 0; i < placesList.size(); i++) {
-//                        if (placesList.get(i).type == totalTabsCount - (tab.getPosition() + 1))
-//                            filteredList.add(placesList.get(i));
-//                    }
-//                    setUpRecyclerView(filteredList);
-//                }
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-//
-//        View root = catListTabLayout.getChildAt(0);
-//        if (root instanceof LinearLayout) {
-//            ((LinearLayout) root).setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-//            GradientDrawable drawable = new GradientDrawable();
-//            drawable.setColor(getResources().getColor(R.color.colorPrimary));
-//            drawable.setSize(2, 1);
-//            ((LinearLayout) root).setDividerPadding(10);
-//            ((LinearLayout) root).setDividerDrawable(drawable);
-//        }
-//
-//        changeTabsFont();
-//
-//        boolean handler = new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                catListTabLayout.getTabAt(5).select();
-//            }
-//        }, 2);
-
         recycler.setNestedScrollingEnabled(false);
 
         return view;
     }
-
-//    private void changeTabsFont() {
-//
-//        ViewGroup vg = (ViewGroup) catListTabLayout.getChildAt(0);
-//        int tabsCount = vg.getChildCount();
-//        for (int j = 0; j < tabsCount; j++) {
-//            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
-//            int tabChildsCount = vgTab.getChildCount();
-//            for (int i = 0; i < tabChildsCount; i++) {
-//                View tabViewChild = vgTab.getChildAt(i);
-//                if (tabViewChild instanceof TextView) {
-//
-//                    ((TextView) tabViewChild).setTypeface(typeface);
-//                }
-//            }
-//        }
-//
-//    }
 
     private void initView(View view) {
         relativeBack = (RelativeLayout) view.findViewById(R.id.relative_back);
@@ -168,6 +89,7 @@ public class restaurantsListFragment extends Fragment {
         recycler = (RecyclerView) view.findViewById(R.id.recycler);
         mPager = (ViewPagerCustomDuration) view.findViewById(R.id.pager);
         txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+        txtToolbar = view.findViewById(R.id.txtToolbar);
     }
 
     private void setUpRecyclerView(List<PlacesModel> placesList) {
@@ -217,11 +139,13 @@ public class restaurantsListFragment extends Fragment {
         private DatabaseHelper databaseHelper;
 
         private Context context;
-        private String tblName;
+        private int rootCategory;
+        private int subCategory;
 
-        public DatabaseCallback(Context context, String tblName) {
+        public DatabaseCallback(Context context, int rootCategory, int subCategory) {
             this.context = context;
-            this.tblName = tblName;
+            this.subCategory = subCategory;
+            this.rootCategory = rootCategory;
         }
 
         @Override
@@ -235,7 +159,7 @@ public class restaurantsListFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesList = databaseHelper.selectAllPlacesToList(tblName);
+            placesList = databaseHelper.selectPlacesToList(rootCategory, subCategory);
 
             return null;
         }

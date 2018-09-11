@@ -260,7 +260,7 @@ public class referendumFragment extends Fragment {
 
                     Toast.makeText(getContext(), "با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
                     txtSend.setText("قبلا شرکت کردین");
-//                    txtCompetitionTitle.setText(referendumList.get(0).name);
+//                    txtCompetitionTitle.setText(referendumList.get(0).Name);
                     //lytRepetitive.setVisibility(View.GONE);
 //                    lytLoading.setVisibility(View.GONE);
 //                    lytMain.setVisibility(View.VISIBLE);

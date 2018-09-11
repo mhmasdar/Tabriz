@@ -8,7 +8,7 @@ public class PlacesModel {
 
     public int id;
     public int RootCategory;
-    public int Categroy;
+    public int Category;
     public String AvailableDay;
     public String StartTime;
     public String EndTime;

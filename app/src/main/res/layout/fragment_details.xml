@@ -269,7 +269,7 @@
                 <ImageView
                     android:id="@+id/imgMenuAndCost"
                     android:layout_width="30dp"
-                    android:src="@drawable/ic_detail_menu"
+                    android:src="@drawable/cost"
                     android:layout_height="30dp" />
 
                 <TextView
@@ -428,7 +428,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/full_shadow_border"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -314,7 +314,7 @@ public class mapFragment extends Fragment {
             public void onClick(View v) {
 
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", tapedPlace.name);
+//                iRouting.putExtra("PlaceName", tapedPlace.Name);
 //                iRouting.putExtra("PlaceLat", tapedPlace.lat);
 //                iRouting.putExtra("PlaceLon", tapedPlace.lon);
 //                //iRouting.putExtra("PlaceType", placesModel.type);
@@ -1016,7 +1016,7 @@ public class mapFragment extends Fragment {
                             txtAddress.setText(placesList.get(index).address);
                             if (placesList.get(index).image != null)
                                 if (!placesList.get(index).image.equals(""))
-                                    Glide.with(getContext()).load(app.imgMainAddr + getImgAddr(placesList.get(index).mainType) + placesList.get(index).image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgDetails);
+                                    Glide.with(getContext()).load(app.imgMainAddr + app.placesImgAddr + placesList.get(index).image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgDetails);
 
                             if (placesList.get(index).mainType != 10 && placesList.get(index).mainType != 8)
                                 rating.setRating(Float.parseFloat(placesList.get(index).star + ""));
@@ -1040,47 +1040,6 @@ public class mapFragment extends Fragment {
 
     }
 
-
-    public String getImgAddr(int type) {
-
-        String imgAddress = "";
-
-        switch (type) {
-            case 1:
-                imgAddress = app.eatingImgAddr;
-                break;
-            case 2:
-                imgAddress = app.shoppingImgAddr;
-                break;
-            case 3:
-                imgAddress = app.restImgAddr;
-                break;
-            case 4:
-                imgAddress = app.tourismImgAddr;
-                break;
-            case 5:
-                imgAddress = app.culturalImgAddr;
-                break;
-            case 6:
-                imgAddress = app.transportImgAddr;
-                break;
-            case 7:
-                imgAddress = app.serviceImgAddr;
-                break;
-            case 8:
-                imgAddress = app.officeImgAddr;
-                break;
-            case 9:
-                imgAddress = app.medicalImgAddr;
-                break;
-            case 10:
-                imgAddress = app.eventImgAddr;
-                break;
-            default:
-                imgAddress = "";
-        }
-        return imgAddress;
-    }
 
     private static double getDistance(double lat1, double lon1, double lat2, double lon2, String unit) {
         double theta = lon1 - lon2;

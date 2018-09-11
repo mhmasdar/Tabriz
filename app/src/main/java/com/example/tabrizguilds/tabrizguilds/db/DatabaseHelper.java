@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.tabrizguilds.tabrizguilds.models.EventModel;
 import com.example.tabrizguilds.tabrizguilds.models.HomePageModel;
 import com.example.tabrizguilds.tabrizguilds.models.ImgModel;
 import com.example.tabrizguilds.tabrizguilds.models.MapModel;
@@ -68,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (!tblName.equals("Tbl_Events"))
                     pm.type = cursor.getInt(cursor.getColumnIndex("type"));
                 pm.mainType = cursor.getInt(cursor.getColumnIndex("mainType"));
-                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+                pm.name = cursor.getString(cursor.getColumnIndex("Name"));
                 pm.address = cursor.getString(cursor.getColumnIndex("address"));
                 pm.image = cursor.getString(cursor.getColumnIndex("image"));
                 pm.lat = cursor.getDouble(cursor.getColumnIndex("lat"));
@@ -89,27 +88,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    public List<PlacesModel> selectAllPlacesToList(String tblName) {
+    public List<PlacesModel> selectPlacesToList(int rootCategory, int subCategory) {
 
         List<PlacesModel> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
         //String order = "orderb";
-        String sql = "SELECT * FROM " + tblName;
+        String sql = "SELECT * FROM Tbl_Places WHERE RootCategory=" + rootCategory + " AND Categroy=" + subCategory;
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
         if (!cursor.isAfterLast()) {
             do {
                 PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.Categroy = cursor.getInt(cursor.getColumnIndex("type"));
-                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("mainType"));
-                pm.Name = cursor.getString(cursor.getColumnIndex("name"));
-                pm.Address = cursor.getString(cursor.getColumnIndex("address"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("Categroy"));
+                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("RootCategory"));
+                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
+                pm.Address = cursor.getString(cursor.getColumnIndex("Address"));
                 pm.image = cursor.getString(cursor.getColumnIndex("image"));
-                if (!tblName.equals("Tbl_Offices"))
-                    pm.Star = cursor.getDouble(cursor.getColumnIndex("star"));
-                //pm.imgPersonal = cursor.getString(cursor.getColumnIndex("imgPersonal"));
-
+                pm.Star = cursor.getFloat(cursor.getColumnIndex("Star"));
 
                 list.add(pm);
             } while (cursor.moveToNext());
@@ -133,7 +129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                EventModel pm = new EventModel();
 //                pm.id = cursor.getInt(cursor.getColumnIndex("id"));
 //                pm.startDate = cursor.getInt(cursor.getColumnIndex("startDate"));
-//                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+//                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
 //                pm.address = cursor.getString(cursor.getColumnIndex("address"));
 //                pm.image = cursor.getString(cursor.getColumnIndex("image"));
 //                //pm.imgPersonal = cursor.getString(cursor.getColumnIndex("imgPersonal"));
@@ -148,10 +144,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        return list;
 //    }
 
-    public PlacesModel selectPlacesDetail(String tblName, int id) {
+    public PlacesModel selectPlacesDetail(int id) {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql = "SELECT * FROM " + tblName + " WHERE id=" + id;
+        String sql = "SELECT * FROM Tbl_Places WHERE id=" + id;
         PlacesModel pm = new PlacesModel();
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
@@ -159,25 +155,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
 
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.Name = cursor.getString(cursor.getColumnIndex("name"));
-                pm.Categroy = cursor.getInt(cursor.getColumnIndex("type"));
-                pm.Lat = cursor.getDouble(cursor.getColumnIndex("lat"));
-                pm.Long = cursor.getDouble(cursor.getColumnIndex("lon"));
-                pm.Address = cursor.getString(cursor.getColumnIndex("address"));
-                pm.Phone = cursor.getString(cursor.getColumnIndex("phone"));
-                pm.Star = cursor.getDouble(cursor.getColumnIndex("star"));
-                pm.StarCount = cursor.getInt(cursor.getColumnIndex("starCount"));
+                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("Categroy"));
+                pm.Lat = cursor.getDouble(cursor.getColumnIndex("Lat"));
+                pm.Long = cursor.getDouble(cursor.getColumnIndex("Long"));
+                pm.Address = cursor.getString(cursor.getColumnIndex("Address"));
+                pm.Phone = cursor.getString(cursor.getColumnIndex("Phone"));
+                pm.Star = cursor.getDouble(cursor.getColumnIndex("Star"));
+                pm.StarCount = cursor.getInt(cursor.getColumnIndex("StarCount"));
                 pm.likeCount = cursor.getInt(cursor.getColumnIndex("likeCount"));
                 pm.Info = cursor.getString(cursor.getColumnIndex("Info"));
                 pm.webSite = cursor.getString(cursor.getColumnIndex("webSite"));
-                pm.StartTime = cursor.getString(cursor.getColumnIndex("startTime"));
-                pm.EndTime = cursor.getString(cursor.getColumnIndex("endTime"));
-                if (tblName.equals("Tbl_Tourisms"))
-                    pm.Cost = cursor.getInt(cursor.getColumnIndex("cost"));
-                if (tblName.equals("Tbl_Rests"))
-                    pm.placeStar = cursor.getInt(cursor.getColumnIndex("placeStar"));
-//                pm.visibility = cursor.getInt(cursor.getColumnIndex("visibility"));
-//                pm.lastUpdate = cursor.getInt(cursor.getColumnIndex("lastUpdate"));
+                pm.StartTime = cursor.getString(cursor.getColumnIndex("StartTime"));
+                pm.EndTime = cursor.getString(cursor.getColumnIndex("EndTime"));
+                pm.Cost = cursor.getInt(cursor.getColumnIndex("Cost"));
+                pm.placeStar = cursor.getInt(cursor.getColumnIndex("placeStar"));
 
 
             } while (cursor.moveToNext());
@@ -200,7 +192,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //                pm.id = cursor.getInt(cursor.getColumnIndex("id"));
 //                pm.body = cursor.getString(cursor.getColumnIndex("body"));
-//                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+//                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
 //                pm.startTime = cursor.getString(cursor.getColumnIndex("startTime"));
 //                pm.startDate = cursor.getInt(cursor.getColumnIndex("startDate"));
 //                pm.endDate = cursor.getInt(cursor.getColumnIndex("endDate"));
@@ -214,7 +206,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                pm.phone = cursor.getString(cursor.getColumnIndex("phone"));
 //                pm.image = cursor.getString(cursor.getColumnIndex("image"));
 //
-////                pm.visibility = cursor.getInt(cursor.getColumnIndex("visibility"));
+////                pm.Visibility = cursor.getInt(cursor.getColumnIndex("Visibility"));
 ////                pm.lastUpdate = cursor.getInt(cursor.getColumnIndex("lastUpdate"));
 //
 //
@@ -237,7 +229,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //            do {
 //
 //                pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-//                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+//                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
 //                pm.type = cursor.getInt(cursor.getColumnIndex("type"));
 //                pm.lat = cursor.getDouble(cursor.getColumnIndex("lat"));
 //                pm.lon = cursor.getDouble(cursor.getColumnIndex("lon"));
@@ -265,7 +257,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //            do {
 //
 //                pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-//                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+//                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
 //                pm.type = cursor.getInt(cursor.getColumnIndex("type"));
 //                pm.lat = cursor.getDouble(cursor.getColumnIndex("lat"));
 //                pm.lon = cursor.getDouble(cursor.getColumnIndex("lon"));
@@ -273,7 +265,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                pm.phone = cursor.getString(cursor.getColumnIndex("tel"));
 //                pm.info = cursor.getString(cursor.getColumnIndex("Info"));
 //                pm.website = cursor.getString(cursor.getColumnIndex("webSite"));
-////                pm.visibility = cursor.getInt(cursor.getColumnIndex("visibility"));
+////                pm.Visibility = cursor.getInt(cursor.getColumnIndex("Visibility"));
 ////                pm.lastUpdate = cursor.getInt(cursor.getColumnIndex("lastUpdate"));
 //
 //
@@ -471,7 +463,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql = "";
         sql = "INSERT INTO Tbl_Places (id,RootCategory,Categroy,AvailableDay,StartTime,EndTime,Name,Lat,Long,Address,Phone,Star,StarCount,likeCount,Info,webSite,Visibility,lastUpdate,image,Cost,placeStar) VALUES('"
-                + placesModel.id + "','" + placesModel.RootCategory + "','" + placesModel.Categroy + "','" + placesModel.AvailableDay + "','" + placesModel.StartTime + "','" + placesModel.EndTime + "','" + placesModel.Name + "','" + placesModel.Lat + "','" + placesModel.Long + "','" + placesModel.Address + "','" + placesModel.Phone + "','" + placesModel.Star + "','" + placesModel.StarCount + "','" + placesModel.likeCount + "','" + placesModel.Info + "','" + placesModel.webSite + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.image + "','" + placesModel.Cost + "','" + placesModel.placeStar + "')";
+                + placesModel.id + "','" + placesModel.RootCategory + "','" + placesModel.Category + "','" + placesModel.AvailableDay + "','" + placesModel.StartTime + "','" + placesModel.EndTime + "','" + placesModel.Name + "','" + placesModel.Lat + "','" + placesModel.Long + "','" + placesModel.Address + "','" + placesModel.Phone + "','" + placesModel.Star + "','" + placesModel.StarCount + "','" + placesModel.likeCount + "','" + placesModel.Info + "','" + placesModel.webSite + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.image + "','" + placesModel.Cost + "','" + placesModel.placeStar + "')";
         ArasDB.execSQL(sql);
 
         ArasDB.close();
@@ -500,7 +492,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE Tbl_Places SET RootCategory=" + placesModel.RootCategory + ",Categroy=" + placesModel.Categroy + ",AvailableDay=" + placesModel.AvailableDay + ",StartTime='" + placesModel.StartTime + "',EndTime='" + placesModel.EndTime + "',Name='" + placesModel.Name + "',Lat=" + placesModel.Lat + ",Long=" + placesModel.Long + ",Address='" + placesModel.Address + "',Phone=" + placesModel.Phone + ",Star=" + placesModel.Star + ",StarCount=" + placesModel.StarCount + ",likeCount='" + placesModel.likeCount + "',Info='" + placesModel.Info + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",webSite='" + placesModel.webSite + "',lastUpdate='" + placesModel.lastUpdate + "',image='" + placesModel.image + "',Cost=" + placesModel.Cost + ",placeStar=" + placesModel.placeStar + " WHERE id=" + placesModel.id;
+        sql = "UPDATE Tbl_Places SET RootCategory=" + placesModel.RootCategory + ",Categroy=" + placesModel.Category + ",AvailableDay=" + placesModel.AvailableDay + ",StartTime='" + placesModel.StartTime + "',EndTime='" + placesModel.EndTime + "',Name='" + placesModel.Name + "',Lat=" + placesModel.Lat + ",Long=" + placesModel.Long + ",Address='" + placesModel.Address + "',Phone=" + placesModel.Phone + ",Star=" + placesModel.Star + ",StarCount=" + placesModel.StarCount + ",likeCount='" + placesModel.likeCount + "',Info='" + placesModel.Info + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",webSite='" + placesModel.webSite + "',lastUpdate='" + placesModel.lastUpdate + "',image='" + placesModel.image + "',Cost=" + placesModel.Cost + ",placeStar=" + placesModel.placeStar + " WHERE id=" + placesModel.id;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
@@ -539,8 +531,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Offices (id,type,name,lat,lon,info,website,visibility,lastUpdate,address,tel,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.tel + "','" + placesModel.image + "','" + 8 + "')";
+//        sql = "INSERT INTO Tbl_Offices (id,type,Name,lat,lon,info,website,Visibility,lastUpdate,address,tel,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.tel + "','" + placesModel.image + "','" + 8 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -579,7 +571,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Offices SET type=" + placesModel.type + ",name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',tel='" + placesModel.tel + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Offices SET type=" + placesModel.type + ",Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',tel='" + placesModel.tel + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -608,8 +600,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Eating (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 1 + "')";
+//        sql = "INSERT INTO Tbl_Eating (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 1 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -638,7 +630,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Eating SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Eating SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -677,8 +669,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Medicals (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 9 + "')";
+//        sql = "INSERT INTO Tbl_Medicals (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 9 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -707,7 +699,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Medicals SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Medicals SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -746,8 +738,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Services (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 7 + "')";
+//        sql = "INSERT INTO Tbl_Services (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 7 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -776,7 +768,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Services SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Services SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -815,8 +807,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Shoppings (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 2 + "')";
+//        sql = "INSERT INTO Tbl_Shoppings (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 2 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -855,7 +847,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Shoppings SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Shoppings SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -884,8 +876,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Tourisms (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,cost,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.cost + "','" + placesModel.image + "','" + 4 + "')";
+//        sql = "INSERT INTO Tbl_Tourisms (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,cost,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.cost + "','" + placesModel.image + "','" + 4 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -924,7 +916,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Tourisms SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',cost='" + placesModel.cost + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Tourisms SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',cost='" + placesModel.cost + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -953,8 +945,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Transports (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 6 + "')";
+//        sql = "INSERT INTO Tbl_Transports (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.image + "','" + 6 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -993,7 +985,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Transports SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Transports SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -1022,8 +1014,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Rests (id,type,idStartDay,idEndDay,startTime,endTime,name,lat,lon,phone,star,starCount,likeCount,info,website,visibility,lastUpdate,address,placeStar,image,mainType) VALUES('"
-//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.placeStar + "','" + placesModel.image + "','" + 3 + "')";
+//        sql = "INSERT INTO Tbl_Rests (id,type,idStartDay,idEndDay,startTime,endTime,Name,lat,lon,phone,star,starCount,likeCount,info,website,Visibility,lastUpdate,address,placeStar,image,mainType) VALUES('"
+//                + placesModel.id + "','" + placesModel.type + "','" + placesModel.idStartDay + "','" + placesModel.idEndDay + "','" + placesModel.startTime + "','" + placesModel.endTime + "','" + placesModel.Name + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.phone + "','" + placesModel.star + "','" + placesModel.starCount + "','" + placesModel.likeCount + "','" + placesModel.info + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.address + "','" + placesModel.placeStar + "','" + placesModel.image + "','" + 3 + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -1062,7 +1054,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Rests SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',name='" + placesModel.name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',placeStar='" + placesModel.placeStar + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Rests SET type=" + placesModel.type + ",idStartDay=" + placesModel.idStartDay + ",idEndDay=" + placesModel.idEndDay + ",startTime='" + placesModel.startTime + "',endTime='" + placesModel.endTime + "',Name='" + placesModel.Name + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",phone='" + placesModel.phone + "',star=" + placesModel.star + ",starCount=" + placesModel.starCount + ",likeCount=" + placesModel.likeCount + ",Info='" + placesModel.info + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',address='" + placesModel.address + "',placeStar='" + placesModel.placeStar + "',image='" + placesModel.image + "' WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -1091,8 +1083,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql = "";
-//        sql = "INSERT INTO Tbl_Events (id,body,name,startTime,startDate,endDate,endTime,place,lat,lon,address,phone,website,visibility,lastUpdate,image,mainType,likeCount) VALUES('"
-//                + placesModel.id + "','" + placesModel.body + "','" + placesModel.name + "','" + placesModel.startTime + "','" + placesModel.startDate + "','" + placesModel.endDate + "','" + placesModel.endTime + "','" + placesModel.place + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.address + "','" + placesModel.phone + "','" + placesModel.website + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "','" + placesModel.image + "','" + 10 + "','" + placesModel.likeCount + "')";
+//        sql = "INSERT INTO Tbl_Events (id,body,Name,startTime,startDate,endDate,endTime,place,lat,lon,address,phone,website,Visibility,lastUpdate,image,mainType,likeCount) VALUES('"
+//                + placesModel.id + "','" + placesModel.body + "','" + placesModel.Name + "','" + placesModel.startTime + "','" + placesModel.startDate + "','" + placesModel.endDate + "','" + placesModel.endTime + "','" + placesModel.place + "','" + placesModel.lat + "','" + placesModel.lon + "','" + placesModel.address + "','" + placesModel.phone + "','" + placesModel.website + "','" + placesModel.Visibility + "','" + placesModel.lastUpdate + "','" + placesModel.image + "','" + 10 + "','" + placesModel.likeCount + "')";
 //        ArasDB.execSQL(sql);
 //
 //        ArasDB.close();
@@ -1121,7 +1113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        SQLiteDatabase ArasDB = getReadableDatabase();
 //        String sql;
-//        sql = "UPDATE Tbl_Events SET body='" + placesModel.body + "',name='" + placesModel.name + "',startTime='" + placesModel.startTime + "',startDate=" + placesModel.startDate + ",endDate=" + placesModel.endDate + ",endTime='" + placesModel.endTime + "',place='" + placesModel.place + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",address='" + placesModel.address + "',phone='" + placesModel.phone + "',webSite='" + placesModel.website + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',image='" + placesModel.image + "',likeCount=" + placesModel.likeCount + " WHERE id=" + placesModel.id;
+//        sql = "UPDATE Tbl_Events SET body='" + placesModel.body + "',Name='" + placesModel.Name + "',startTime='" + placesModel.startTime + "',startDate=" + placesModel.startDate + ",endDate=" + placesModel.endDate + ",endTime='" + placesModel.endTime + "',place='" + placesModel.place + "',lat=" + placesModel.lat + ",lon=" + placesModel.lon + ",address='" + placesModel.address + "',phone='" + placesModel.phone + "',webSite='" + placesModel.website + "',Visibility=" + ((placesModel.Visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "',image='" + placesModel.image + "',likeCount=" + placesModel.likeCount + " WHERE id=" + placesModel.id;
 //        ArasDB.execSQL(sql);
 //        ArasDB.close();
 //    }
@@ -1231,8 +1223,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public List<String> selectSubCategoryById(String r) {
         List<String> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
@@ -1327,8 +1317,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public List<String> selectOfficePhoneById(String r) {
         List<String> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
@@ -1409,7 +1397,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 PhoneModel pm = new PhoneModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+                pm.name = cursor.getString(cursor.getColumnIndex("Name"));
                 pm.phone = cursor.getString(cursor.getColumnIndex("phone"));
 
                 list.add(pm);
@@ -1445,8 +1433,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql = "";
-        sql = "INSERT INTO Tbl_Images (id,type,name,lastUpdate,idRow,isAdmin,idUser) VALUES('"
-                + imgModel.id + "','" + imgModel.type + "','" + imgModel.name + "','" + imgModel.lastUpdate + "','" + imgModel.idRow + "','" + ((imgModel.isAdmin) ? 1 : 0) + "','" + imgModel.idUser + "')";
+        sql = "INSERT INTO Tbl_Images (id,Name,lastUpdate,idRow) VALUES('"
+                + imgModel.id + "','" + imgModel.Name + "','" + imgModel.lastUpdate + "','" + imgModel.idRow + "')";
         ArasDB.execSQL(sql);
 
         ArasDB.close();
@@ -1475,7 +1463,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE Tbl_Images SET type=" + imgModel.type + ",name='" + imgModel.name + "',lastUpdate='" + imgModel.lastUpdate + "',idRow=" + imgModel.idRow + ",isAdmin=" + ((imgModel.isAdmin) ? 1 : 0) + ",idUser=" + imgModel.idUser + " WHERE id=" + imgModel.id;
+        sql = "UPDATE Tbl_Images SET Name='" + imgModel.Name + "',lastUpdate='" + imgModel.lastUpdate + "',idRow=" + imgModel.idRow + " WHERE id=" + imgModel.id;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
@@ -1491,12 +1479,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<ImgModel> selectPlacesImages(int mainType, int idRow, int isAdmin) {
+    public List<ImgModel> selectPlacesImages(int idRow) {
 
         List<ImgModel> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
         //String order = "orderb";
-        String sql = "SELECT * FROM Tbl_Images WHERE type=" + mainType + " AND idRow=" + idRow + " AND isAdmin=" + isAdmin;
+        String sql = "SELECT * FROM Tbl_Images WHERE idRow=" + idRow;
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
         if (!cursor.isAfterLast()) {
@@ -1504,8 +1492,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ImgModel pm = new ImgModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
                 pm.idRow = cursor.getInt(cursor.getColumnIndex("idRow"));
-                pm.type = cursor.getInt(cursor.getColumnIndex("type"));
-                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
 
                 list.add(pm);
             } while (cursor.moveToNext());
@@ -1525,7 +1512,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql = "SELECT id,type,name,address,star,likeCount,mainType,image FROM " + tblNames.get(0) + " WHERE name LIKE '%" + searchValue + "%'";
 
         for (int i = 1; i < tblNames.size(); i++) {
-            sql += " UNION SELECT id,type,name,address,star,likeCount,mainType,image FROM " + tblNames.get(i) + " WHERE name LIKE '%" + searchValue + "%'";
+            sql += " UNION SELECT id,type,Name,address,star,likeCount,mainType,image FROM " + tblNames.get(i) + " WHERE Name LIKE '%" + searchValue + "%'";
         }
 
         sql += "order by " + sort + " DESC";
@@ -1536,8 +1523,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.Categroy = cursor.getInt(cursor.getColumnIndex("type"));
-                pm.Name = cursor.getString(cursor.getColumnIndex("name"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("type"));
+                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
                 pm.Address = cursor.getString(cursor.getColumnIndex("address"));
                 if (!tblNames.equals("Tbl_Offices"))
                     pm.Star = cursor.getDouble(cursor.getColumnIndex("star"));
@@ -1568,9 +1555,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
                 if (!tblName.equals("Tbl_Events"))
-                    pm.Categroy = cursor.getInt(cursor.getColumnIndex("type"));
+                    pm.Category = cursor.getInt(cursor.getColumnIndex("type"));
                 pm.RootCategory = cursor.getInt(cursor.getColumnIndex("mainType"));
-                pm.Name = cursor.getString(cursor.getColumnIndex("name"));
+                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
                 pm.Address = cursor.getString(cursor.getColumnIndex("address"));
                 pm.image = cursor.getString(cursor.getColumnIndex("image"));
                 if (!tblName.equals("Tbl_Offices") && !tblName.equals("Tbl_Events"))
@@ -1600,7 +1587,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                EventModel pm = new EventModel();
 //                pm.id = cursor.getInt(cursor.getColumnIndex("id"));
 //                pm.startDate = cursor.getInt(cursor.getColumnIndex("startDate"));
-//                pm.name = cursor.getString(cursor.getColumnIndex("name"));
+//                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
 //                pm.address = cursor.getString(cursor.getColumnIndex("address"));
 //                pm.image = cursor.getString(cursor.getColumnIndex("image"));
 //

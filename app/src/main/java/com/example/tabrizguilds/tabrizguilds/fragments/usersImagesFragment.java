@@ -264,7 +264,7 @@ public class usersImagesFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            imgList = databaseHelper.selectPlacesImages(mainType, idRow, 0);
+//            imgList = databaseHelper.selectPlacesImages(mainType, idRow, 0);
 
             return null;
         }

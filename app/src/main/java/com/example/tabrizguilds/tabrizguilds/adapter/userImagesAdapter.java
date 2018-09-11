@@ -14,7 +14,6 @@ import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.app;
 import com.example.tabrizguilds.tabrizguilds.imageActivity;
 import com.example.tabrizguilds.tabrizguilds.models.ImgModel;
-import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 
 import java.util.List;
 
@@ -55,7 +54,7 @@ public class userImagesAdapter extends RecyclerView.Adapter<userImagesAdapter.my
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, imageActivity.class);
-                intent.putExtra("ImgName", currentObj.name);
+                intent.putExtra("ImgName", currentObj.Name);
                 intent.putExtra("MainType", mainType);
                 context.startActivity(intent);
             }
@@ -81,56 +80,15 @@ public class userImagesAdapter extends RecyclerView.Adapter<userImagesAdapter.my
 
         private void setData(ImgModel current, int position) {
 
-            if (current.name != null)
-                if (!current.name.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + getImgAddr(current.type) + current.name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img);
+            if (current.Name != null)
+                if (!current.Name.equals(""))
+//                    Glide.with(context).load(app.imgMainAddr + getImgAddr(current.type) + current.Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img);
 
             this.position = position;
             this.current = current;
 
         }
 
-    }
-
-    public String getImgAddr(int type) {
-
-        String imgAddress = "";
-
-        switch (type) {
-            case 1:
-                imgAddress = app.eatingImgAddr;
-                break;
-            case 2:
-                imgAddress = app.shoppingImgAddr;
-                break;
-            case 3:
-                imgAddress = app.restImgAddr;
-                break;
-            case 4:
-                imgAddress = app.tourismImgAddr;
-                break;
-            case 5:
-                imgAddress = app.culturalImgAddr;
-                break;
-            case 6:
-                imgAddress = app.transportImgAddr;
-                break;
-            case 7:
-                imgAddress = app.serviceImgAddr;
-                break;
-            case 8:
-                imgAddress = app.officeImgAddr;
-                break;
-            case 9:
-                imgAddress = app.medicalImgAddr;
-                break;
-            case 10:
-                imgAddress = app.eventImgAddr;
-                break;
-            default:
-                imgAddress = "";
-        }
-        return imgAddress;
     }
 
 }

@@ -57,7 +57,7 @@ public class WeatherService {
                 JSONObject details = json.getJSONArray("weather").getJSONObject(0);
                 JSONObject main = json.getJSONObject("main");
                 DateFormat df = DateFormat.getDateTimeInstance();
-                weatherModel.city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
+                weatherModel.city = json.getString("Name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                 weatherModel.description = details.getString("description").toUpperCase(Locale.US);
                 weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
                 int dot;
@@ -93,7 +93,7 @@ public class WeatherService {
                 JSONObject details = json.getJSONArray("weather").getJSONObject(0);
                 JSONObject main = json.getJSONObject("main");
                 DateFormat df = DateFormat.getDateTimeInstance();
-                weatherModel.city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
+                weatherModel.city = json.getString("Name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                 weatherModel.description = details.getString("description").toUpperCase(Locale.US);
                 weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
                 int dot;
@@ -129,7 +129,7 @@ public class WeatherService {
                 JSONObject details = json.getJSONArray("weather").getJSONObject(0);
                 JSONObject main = json.getJSONObject("main");
                 DateFormat df = DateFormat.getDateTimeInstance();
-                weatherModel.city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
+                weatherModel.city = json.getString("Name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                 weatherModel.description = details.getString("description").toUpperCase(Locale.US);
                 weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
                 int dot;

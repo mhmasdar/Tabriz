@@ -61,9 +61,9 @@ public class organizationSliderAdapter extends PagerAdapter {
 //        //set image dark
         imageView.setColorFilter(Color.rgb(200, 200, 200), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-        if (imageList.get(position).name != null)
-            if (!imageList.get(position).name.equals(""))
-                Glide.with(context).load(app.imgMainAddr + app.officeImgAddr + imageList.get(position).name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+        if (imageList.get(position).Name != null)
+            if (!imageList.get(position).Name.equals(""))
+//                Glide.with(context).load(app.imgMainAddr + app.officeImgAddr + imageList.get(position).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
 
 
         view.addView(imageLayout, 0);

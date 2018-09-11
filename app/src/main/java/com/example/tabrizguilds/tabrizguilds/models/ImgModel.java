@@ -8,11 +8,8 @@ public class ImgModel {
 
     public int id;
     public int idRow;
-    public int type;
-    public String name;
+    public String Name;
     public String lastUpdate;
-    public boolean visibility;
-    public boolean isAdmin;
-    public int idUser;
+    public boolean Visibility;
 
 }

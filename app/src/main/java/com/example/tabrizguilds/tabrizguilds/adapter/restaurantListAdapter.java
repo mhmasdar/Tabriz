@@ -1,13 +1,8 @@
 package com.example.tabrizguilds.tabrizguilds.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -30,8 +24,6 @@ import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Created by mohamadHasan on 30/11/2017.
@@ -80,19 +72,10 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
             @Override
             public void onClick(View view) {
 
-                getTblName(currentObj.RootCategory);
-
-                if (tblName.equals("")) {
-                    getTblName(currentObj.RootCategory);
-                }
-
-
 
                 detailsFragment fragment = new detailsFragment();
                 Bundle args = new Bundle();
                 args.putInt("ID", currentObj.id);
-                args.putString("TBL_NAME", tblName);
-
 
                 if (context instanceof MainActivity) {
 //                    MainActivity activity = (MainActivity) context;
@@ -115,85 +98,6 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
             }
         });
 
-    }
-
-    public void getTblName(int type) {
-
-        switch (type) {
-            case 1:
-                tblName = "Tbl_Eating";
-                break;
-            case 2:
-                tblName = "Tbl_Shoppings";
-                break;
-            case 3:
-                tblName = "Tbl_Rests";
-                break;
-            case 4:
-                tblName = "Tbl_Tourisms";
-                break;
-            case 5:
-                tblName = "Tbl_Culturals";
-                break;
-            case 6:
-                tblName = "Tbl_Transports";
-                break;
-            case 7:
-                tblName = "Tbl_Services";
-                break;
-            case 8:
-                tblName = "Tbl_Offices";
-                break;
-            case 9:
-                tblName = "Tbl_Medicals";
-                break;
-            case 10:
-                tblName = "Tbl_Events";
-                break;
-            default:
-                tblName = "";
-        }
-    }
-
-    public String getImgAddr(int type) {
-
-        String imgAddress = "";
-
-        switch (type) {
-            case 1:
-                imgAddress = app.eatingImgAddr;
-                break;
-            case 2:
-                imgAddress = app.shoppingImgAddr;
-                break;
-            case 3:
-                imgAddress = app.restImgAddr;
-                break;
-            case 4:
-                imgAddress = app.tourismImgAddr;
-                break;
-            case 5:
-                imgAddress = app.culturalImgAddr;
-                break;
-            case 6:
-                imgAddress = app.transportImgAddr;
-                break;
-            case 7:
-                imgAddress = app.serviceImgAddr;
-                break;
-            case 8:
-                imgAddress = app.officeImgAddr;
-                break;
-            case 9:
-                imgAddress = app.medicalImgAddr;
-                break;
-            case 10:
-                imgAddress = app.eventImgAddr;
-                break;
-            default:
-                imgAddress = "";
-        }
-        return imgAddress;
     }
 
 
@@ -230,9 +134,8 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
             //this.imgNews.setImageResource();
             if (current.image != null)
                 if (!current.image.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + getImgAddr(current.RootCategory) + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
+                    Glide.with(context).load(app.imgMainAddr + app.placesImgAddr + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
             this.txtRank.setText(current.Star + "");
-            this.txtType.setText(getPlaceType(current.RootCategory, current.Categroy));
 
             this.position = position;
             this.current = current;
@@ -240,191 +143,6 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
         }
 
 
-    }
-
-    public String getPlaceType(int mainType, int type) {
-
-        String returnType = "";
-
-        switch (mainType) {
-            case 1:
-                tblName = "Tbl_Eating";
-
-                switch (type) {
-                    case 1:
-                        returnType = "رستوران";
-                        break;
-                    case 2:
-                        returnType = "فست فود";
-                        break;
-                    case 3:
-                        returnType = "کافی شاپ";
-                        break;
-                    case 4:
-                        returnType = "شیرینی و آجیل";
-                        break;
-                    case 5:
-                        returnType = "بستنی";
-                        break;
-                    default:
-                }
-
-                break;
-            case 2:
-                tblName = "Tbl_Shoppings";
-                switch (type) {
-                    case 1:
-                        returnType = "مرکز خرید";
-                        break;
-                    case 2:
-                        returnType = "فروشگاه";
-                        break;
-                    case 3:
-                        returnType = "بازارچه";
-                        break;
-                    default:
-                }
-                break;
-            case 3:
-                tblName = "Tbl_Rests";
-                switch (type) {
-                    case 1:
-                        returnType = "هتل";
-                        break;
-                    case 2:
-                        returnType = "هتل آپارتمان";
-                        break;
-                    case 3:
-                        returnType = "مهمان پذیر";
-                        break;
-                    case 4:
-                        returnType = "کاشانه مهمان";
-                        break;
-                    case 5:
-                        returnType = "اقامتگاه بوم گردی";
-                        break;
-                    default:
-                }
-                break;
-            case 4:
-                tblName = "Tbl_Tourisms";
-                switch (type) {
-                    case 1:
-                        returnType = "تفریحی";
-                        break;
-                    case 2:
-                        returnType = "میراث فرهنگی";
-                        break;
-                    case 3:
-                        returnType = "پارک";
-                        break;
-                    case 4:
-                        returnType = "جاذبه های طبیعی";
-                        break;
-                    default:
-                }
-                break;
-            case 5:
-                tblName = "Tbl_Culturals";
-                switch (type) {
-                    case 1:
-                        returnType = "موزه";
-                        break;
-                    case 2:
-                        returnType = "تئاتر و سینما";
-                        break;
-                    case 3:
-                        returnType = "جشنواره";
-                        break;
-                    default:
-                }
-                break;
-            case 6:
-                tblName = "Tbl_Transports";
-                switch (type) {
-                    case 1:
-                        returnType = "تاکسی";
-                        break;
-                    case 2:
-                        returnType = "اتوبوس";
-                        break;
-                    case 3:
-                        returnType = "قطار";
-                        break;
-                    case 4:
-                        returnType = "آژانس تلفنی";
-                        break;
-                    default:
-                }
-                break;
-            case 7:
-                tblName = "Tbl_Services";
-                switch (type) {
-                    case 1:
-                        returnType = "سالن ورزشی";
-                        break;
-                    case 2:
-                        returnType = "تعمیر گاه";
-                        break;
-                    case 3:
-                        returnType = "پارکینگ";
-                        break;
-                    case 4:
-                        returnType = "پمپ بنزین";
-                        break;
-                    case 5:
-                        returnType = "مراکز صدور پلاک";
-                        break;
-                    default:
-                }
-                break;
-            case 8:
-                tblName = "Tbl_Offices";
-                switch (type) {
-                    case 1:
-                        returnType = "مسجد و امام زاده";
-                        break;
-                    case 2:
-                        returnType = "دانشگاه";
-                        break;
-                    case 3:
-                        returnType = "ادارات";
-                        break;
-                    case 4:
-                        returnType = "کلانتری";
-                        break;
-                    case 5:
-                        returnType = "بانک";
-                        break;
-                    default:
-                }
-                break;
-            case 9:
-                tblName = "Tbl_Medicals";
-                switch (type) {
-                    case 1:
-                        returnType = "بیمارستان";
-                        break;
-                    case 2:
-                        returnType = "درمانگاه";
-                        break;
-                    case 3:
-                        returnType = "داروخاه";
-                        break;
-                    case 4:
-                        returnType = "کلینیک";
-                        break;
-                    default:
-                }
-                break;
-            case 10:
-                tblName = "Tbl_Events";
-                break;
-            default:
-                tblName = "";
-        }
-
-        return returnType;
     }
 
 

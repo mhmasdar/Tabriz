@@ -140,7 +140,7 @@ public class detailsOfficeFragment extends Fragment {
             public void onClick(View v) {
 
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceName", placesModel.Name);
 //                iRouting.putExtra("PlaceLat", placesModel.lat);
 //                iRouting.putExtra("PlaceLon", placesModel.lon);
 //                //iRouting.putExtra("PlaceType", placesModel.type);
@@ -198,7 +198,7 @@ public class detailsOfficeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 //                Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-//                iRouting.putExtra("PlaceName", placesModel.name);
+//                iRouting.putExtra("PlaceName", placesModel.Name);
 //                iRouting.putExtra("PlaceLat", placesModel.lat);
 //                iRouting.putExtra("PlaceLon", placesModel.lon);
 //                iRouting.putExtra("PlaceType", placesModel.type);
@@ -313,7 +313,7 @@ public class detailsOfficeFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            imgList = databaseHelper.selectPlacesImages(8, id, 1);
+//            imgList = databaseHelper.selectPlacesImages(8, id, 1);
 
             return null;
         }
@@ -326,8 +326,8 @@ public class detailsOfficeFragment extends Fragment {
 //            txtAddress.setText("آدرس: " + placesModel.address);
 //            if (placesModel.info != null && !placesModel.info.equals("null"))
 //            txtInfo.setText(placesModel.info);
-//            if (placesModel.name != null && !placesModel.name.equals("null"))
-//            txtName.setText(placesModel.name);
+//            if (placesModel.Name != null && !placesModel.Name.equals("null"))
+//            txtName.setText(placesModel.Name);
 //
 //            if (imgList != null)
 //                if (imgList.size() > 0)

@@ -63,9 +63,9 @@ public class detailsSliderAdapter extends PagerAdapter {
 //        //set image dark
         imageView.setColorFilter(Color.rgb(183, 183, 183), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-        if (imageList.get(position).name != null)
-            if (!imageList.get(position).name.equals(""))
-        Glide.with(context).load(app.imgMainAddr + getImgAddr(imageList.get(position).type) + imageList.get(position).name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+        if (imageList.get(position).Name != null)
+            if (!imageList.get(position).Name.equals(""))
+        Glide.with(context).load(app.imgMainAddr + app.placesImgAddr + imageList.get(position).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
 
 
         view.addView(imageLayout, 0);
@@ -86,45 +86,4 @@ public class detailsSliderAdapter extends PagerAdapter {
         return view.equals(object);
     }
 
-
-    public String getImgAddr(int type) {
-
-        String imgAddress = "";
-
-        switch (type) {
-            case 1:
-                imgAddress = app.eatingImgAddr;
-                break;
-            case 2:
-                imgAddress = app.shoppingImgAddr;
-                break;
-            case 3:
-                imgAddress = app.restImgAddr;
-                break;
-            case 4:
-                imgAddress = app.tourismImgAddr;
-                break;
-            case 5:
-                imgAddress = app.culturalImgAddr;
-                break;
-            case 6:
-                imgAddress = app.transportImgAddr;
-                break;
-            case 7:
-                imgAddress = app.serviceImgAddr;
-                break;
-            case 8:
-                imgAddress = app.officeImgAddr;
-                break;
-            case 9:
-                imgAddress = app.medicalImgAddr;
-                break;
-            case 10:
-                imgAddress = app.eventImgAddr;
-                break;
-            default:
-                imgAddress = "";
-        }
-        return imgAddress;
-    }
 }

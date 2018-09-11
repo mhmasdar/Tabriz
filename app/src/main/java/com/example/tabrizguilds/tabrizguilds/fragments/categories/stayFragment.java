@@ -2,12 +2,9 @@ package com.example.tabrizguilds.tabrizguilds.fragments.categories;
 
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -17,7 +14,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,7 +27,6 @@ import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 import java.util.TimerTask;
 
 /**
@@ -167,7 +162,7 @@ public class stayFragment extends Fragment {
         protected Void doInBackground(Object... objects) {
 
             Log.i("TIME", "possssssssst");
-            placesList = databaseHelper.selectAllPlacesToList(tblName);
+//            placesList = databaseHelper.selectPlacesToList(tblName);
             Log.i("TIME", "fiiiiiiiniish");
             return null;
         }

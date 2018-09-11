@@ -112,7 +112,7 @@ public class driversAdapter extends RecyclerView.Adapter<driversAdapter.myViewHo
             this.txtCarModel.setText(current.Model);
             if (current.Img != null)
                 if (!current.Img.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + app.driverImgAddr + current.Img).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgTitle);
+//                    Glide.with(context).load(app.imgMainAddr + app.driverImgAddr + current.Img).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgTitle);
 
             this.txtCarColor.setText("رنگ: " + current.Color);
             this.txtPlate.setText(current.Plate);

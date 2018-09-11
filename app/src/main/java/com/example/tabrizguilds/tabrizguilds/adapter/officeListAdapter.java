@@ -115,7 +115,7 @@ public class officeListAdapter  extends RecyclerView.Adapter<officeListAdapter.m
 
         public void setData(PlacesModel current, int position) {
 
-//            this.txtName.setText(current.name);
+//            this.txtName.setText(current.Name);
 //            this.txtAddress.setText(current.address);
 //            //this.imgNews.setImageResource();
 //            if (current.image != null)

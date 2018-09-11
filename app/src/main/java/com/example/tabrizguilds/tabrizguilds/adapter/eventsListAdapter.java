@@ -62,7 +62,7 @@ public class eventsListAdapter extends RecyclerView.Adapter<eventsListAdapter.my
 //                Bundle args = new Bundle();
 //                args.putInt("id", currentObj.id);
 //                args.putString("body", currentObj.body);
-//                args.putString("name", currentObj.name);
+//                args.putString("Name", currentObj.Name);
 //                args.putString("startTime", currentObj.startTime);
 //                args.putInt("startDate", currentObj.startDate);
 //                args.putString("endTime", currentObj.endTime);
@@ -73,7 +73,7 @@ public class eventsListAdapter extends RecyclerView.Adapter<eventsListAdapter.my
 //                args.putString("address", currentObj.address);
 //                args.putString("phone", currentObj.phone);
 //                args.putString("website", currentObj.website);
-//                args.putBoolean("visibility", currentObj.visibility);
+//                args.putBoolean("Visibility", currentObj.Visibility);
 //                fragment.setArguments(args);
 
                 Bundle args = new Bundle();
@@ -137,7 +137,7 @@ public class eventsListAdapter extends RecyclerView.Adapter<eventsListAdapter.my
             //this.imgNews.setImageResource();
             if (current.image != null)
                 if (!current.image.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + app.eventImgAddr + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgTitle);
+//                    Glide.with(context).load(app.imgMainAddr + app.eventImgAddr + current.image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgTitle);
             this.position = position;
             this.current = current;
 

@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,16 +21,12 @@ import android.widget.TextView;
 
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.ViewPagerCustomDuration;
-import com.example.tabrizguilds.tabrizguilds.adapter.categoriesSliderAdapter;
 import com.example.tabrizguilds.tabrizguilds.adapter.restaurantListAdapter;
-import com.example.tabrizguilds.tabrizguilds.app;
 import com.example.tabrizguilds.tabrizguilds.db.DatabaseHelper;
 import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -103,7 +98,7 @@ public class artFragment extends Fragment {
                 else {
 
                     for (int i = 0; i < placesList.size(); i++) {
-                        if (placesList.get(i).Categroy == totalTabsCount - (tab.getPosition() + 1))
+                        if (placesList.get(i).Category == totalTabsCount - (tab.getPosition() + 1))
                             filteredList.add(placesList.get(i));
                     }
                     setUpRecyclerView(filteredList);
@@ -234,7 +229,7 @@ public class artFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesList = databaseHelper.selectAllPlacesToList(tblName);
+//            placesList = databaseHelper.selectPlacesToList(tblName);
 
             return null;
         }

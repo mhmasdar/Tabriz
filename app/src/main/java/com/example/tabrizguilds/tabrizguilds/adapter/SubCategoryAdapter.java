@@ -2,6 +2,8 @@ package com.example.tabrizguilds.tabrizguilds.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.tabrizguilds.tabrizguilds.MainActivity;
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.app;
+import com.example.tabrizguilds.tabrizguilds.fragments.categories.restaurantsListFragment;
+import com.example.tabrizguilds.tabrizguilds.fragments.detailsFragment;
 import com.example.tabrizguilds.tabrizguilds.models.SubCategoryModel;
 
 import java.util.ArrayList;
@@ -48,6 +53,18 @@ public class SubCategoryAdapter extends RecyclerView.Adapter<SubCategoryAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                restaurantsListFragment fragment = new restaurantsListFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", currentObj.CategoryId);
+                args.putInt("subCategory", currentObj.SubCategoryId);
+                args.putString("subCategoryName", currentObj.SubCategoryName);
+                fragment.setArguments(args);
+                FragmentTransaction ft = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
+                ft.replace(R.id.container, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
 
             }
         });

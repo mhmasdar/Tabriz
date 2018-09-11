@@ -168,7 +168,7 @@ public class newsListAdapter extends RecyclerView.Adapter<newsListAdapter.myView
             this.txtType.setText(getPlaceType(current.Type));
             if (current.Img != null)
                 if (!current.Img.equals(""))
-                    Glide.with(context).load(app.imgMainAddr + app.newsImgAddr + current.Img).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
+//                    Glide.with(context).load(app.imgMainAddr + app.newsImgAddr + current.Img).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgNews);
 
 
             this.position = position;
