@@ -527,7 +527,7 @@ public class eventsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postFavorite(app.isInternetOn(), id, idUser, mainType);
+//            result = webService.postFavorite(app.isInternetOn(), id, idUser, mainType);
 
             return null;
         }
@@ -628,7 +628,7 @@ public class eventsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            databaseHelper.updateTblByFavorite(tblName, idRow, idFavorite);
+//            databaseHelper.updateTblByFavorite(tblName, idRow, idFavorite);
 
             return null;
         }
@@ -671,7 +671,7 @@ public class eventsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            idUserFavorite = databaseHelper.selectFavoriteById(tblName, id);
+//            idUserFavorite = databaseHelper.selectFavoriteById(tblName, id);
 
             idUserLike = databaseHelper.selectLikeById(tblName, id);
 
@@ -724,7 +724,7 @@ public class eventsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, mainType, 0, -1);
+//            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, mainType, 0, -1);
 
             return null;
         }
@@ -783,7 +783,7 @@ public class eventsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            databaseHelper.updateTblByLike(tblName, idRow, idLike, currentModel.likeCount);
+//            databaseHelper.updateTblByLike(tblName, idRow, idLike, currentModel.likeCount);
 
             return null;
         }
@@ -819,7 +819,7 @@ public class eventsDetailsFragment extends Fragment {
         protected Void doInBackground(Object... params) {
 
             // id is for place
-            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, mainType, 1, -1);
+//            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, mainType, 1, -1);
 
             return null;
         }

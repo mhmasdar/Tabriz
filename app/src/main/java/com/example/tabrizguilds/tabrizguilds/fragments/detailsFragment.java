@@ -44,6 +44,7 @@ import com.example.tabrizguilds.tabrizguilds.models.FacilityModel;
 import com.example.tabrizguilds.tabrizguilds.models.ImgModel;
 import com.example.tabrizguilds.tabrizguilds.models.MenuModel;
 import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
+import com.example.tabrizguilds.tabrizguilds.models.UserActivityModel;
 import com.example.tabrizguilds.tabrizguilds.services.WebService;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -99,10 +100,7 @@ public class detailsFragment extends Fragment {
     private int id;
     private PlacesModel placesModel;
     private List<ImgModel> imgList;
-    private int idUserFavorite = -1;
-    private int idUserLike = -1;
-    private int idUserRate = -1;
-    private double userRate = -1;
+    private UserActivityModel userActivityModel;
     private int idUser;
     private boolean isFromFavorite;
 
@@ -167,7 +165,6 @@ public class detailsFragment extends Fragment {
 
                 Bundle args = new Bundle();
                 args.putInt("ID", id);
-                args.putInt("MainType", mainType);
 
                 fragment.setArguments(args);
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
@@ -240,7 +237,6 @@ public class detailsFragment extends Fragment {
 
                 Intent i = new Intent(getContext(), commentsActivity.class);
                 i.putExtra("IdRow", id);
-                i.putExtra("MainType", mainType);
                 startActivity(i);
                 getActivity().overridePendingTransition(R.anim.fragment_enter, R.anim.fragment_exit);
             }
@@ -306,13 +302,13 @@ public class detailsFragment extends Fragment {
 
                         CanLike = false;
 
-                        if (idUserRate > 0 && idUserLike < 1) {
+                        if (userActivityModel.idUserRate > 0 && userActivityModel.idUserLike < 1) {
                             //btnLike.setLiked(true);
                             placesModel.likeCount++;
                             txtLikeCount.setText(placesModel.likeCount + "");
                             WebServiceCallLikeAdd webServiceCallLikeAdd = new WebServiceCallLikeAdd();
                             webServiceCallLikeAdd.execute();
-                        } else if (idUserRate < 1 && idUserLike < 1) {
+                        } else if (userActivityModel.idUserRate < 1 && userActivityModel.idUserLike < 1) {
                             //btnLike.setLiked(true);
                             placesModel.likeCount++;
                             txtLikeCount.setText(placesModel.likeCount + "");
@@ -349,7 +345,7 @@ public class detailsFragment extends Fragment {
 
                         CanLike = false;
 
-                        if (idUserLike > 0) {
+                        if (userActivityModel.idUserLike > 0) {
                             //btnLike.setLiked(false);
                             placesModel.likeCount--;
                             txtLikeCount.setText(placesModel.likeCount + "");
@@ -407,7 +403,6 @@ public class detailsFragment extends Fragment {
                 iRouting.putExtra("PlaceLat", placesModel.Lat);
                 iRouting.putExtra("PlaceLon", placesModel.Long);
                 iRouting.putExtra("PlaceType", placesModel.Category);
-                iRouting.putExtra("PlaceMainType", mainType);
                 startActivity(iRouting);
                 dialog.dismiss();
             }
@@ -580,24 +575,24 @@ public class detailsFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            if (!tblName.equals("Tbl_Tourisms")) {
-
-                Dialog dialog = new Dialog(getActivity());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.dialog_menu);
-                dialog.setCancelable(true);
-                dialog.setCanceledOnTouchOutside(true);
-                dialog.show();
-
-                recyclerMenu = dialog.findViewById(R.id.recycler);
-                lytLoadingM = dialog.findViewById(R.id.lytLoading);
-                lytEmptyM = dialog.findViewById(R.id.lytEmpty);
-                lytDisconnectM = dialog.findViewById(R.id.lytDisconnect);
-
-                WebServiceCallBackMenu webServiceCallBackMenu = new WebServiceCallBackMenu();
-                webServiceCallBackMenu.execute();
-
-            }
+//            if (!tblName.equals("Tbl_Tourisms")) {
+//
+//                Dialog dialog = new Dialog(getActivity());
+//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                dialog.setContentView(R.layout.dialog_menu);
+//                dialog.setCancelable(true);
+//                dialog.setCanceledOnTouchOutside(true);
+//                dialog.show();
+//
+//                recyclerMenu = dialog.findViewById(R.id.recycler);
+//                lytLoadingM = dialog.findViewById(R.id.lytLoading);
+//                lytEmptyM = dialog.findViewById(R.id.lytEmpty);
+//                lytDisconnectM = dialog.findViewById(R.id.lytDisconnect);
+//
+//                WebServiceCallBackMenu webServiceCallBackMenu = new WebServiceCallBackMenu();
+//                webServiceCallBackMenu.execute();
+//
+//            }
 
         }
     };
@@ -605,20 +600,20 @@ public class detailsFragment extends Fragment {
     View.OnClickListener lytOptionsClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Dialog dialog = new Dialog(getActivity());
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.dialog_facilities);
-            dialog.setCancelable(true);
-            dialog.setCanceledOnTouchOutside(true);
-            dialog.show();
-
-            recyclerFacility = dialog.findViewById(R.id.recycler);
-            lytLoadingF = dialog.findViewById(R.id.lytLoading);
-            lytEmptyF = dialog.findViewById(R.id.lytEmpty);
-            lytDisconnectF = dialog.findViewById(R.id.lytDisconnect);
-
-            WebServiceCallBackFacilities webServiceCallBackFacilities = new WebServiceCallBackFacilities();
-            webServiceCallBackFacilities.execute();
+//            Dialog dialog = new Dialog(getActivity());
+//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//            dialog.setContentView(R.layout.dialog_facilities);
+//            dialog.setCancelable(true);
+//            dialog.setCanceledOnTouchOutside(true);
+//            dialog.show();
+//
+//            recyclerFacility = dialog.findViewById(R.id.recycler);
+//            lytLoadingF = dialog.findViewById(R.id.lytLoading);
+//            lytEmptyF = dialog.findViewById(R.id.lytEmpty);
+//            lytDisconnectF = dialog.findViewById(R.id.lytDisconnect);
+//
+//            WebServiceCallBackFacilities webServiceCallBackFacilities = new WebServiceCallBackFacilities();
+//            webServiceCallBackFacilities.execute();
 
         }
     };
@@ -633,7 +628,7 @@ public class detailsFragment extends Fragment {
 
                     CanAddFavorite = false;
 
-                    if (idUserFavorite > 0) {
+                    if (userActivityModel.idUserFavorite > 0) {
                         imgBookmark.setImageResource(R.drawable.ic_bookmark1);
                         WebServiceCallBackFavoriteDelete favoriteDelete = new WebServiceCallBackFavoriteDelete();
                         favoriteDelete.execute();
@@ -670,20 +665,20 @@ public class detailsFragment extends Fragment {
 
                     CanLike = false;
 
-                    if (idUserLike > 0) {
+                    if (userActivityModel.idUserLike > 0) {
                         btnLike.setLiked(false);
                         placesModel.likeCount--;
                         txtLikeCount.setText(placesModel.likeCount + "");
                         WebServiceCallLikeDelete likeDelete = new WebServiceCallLikeDelete();
                         likeDelete.execute();
 
-                    } else if (idUserRate > 0 && idUserLike < 1) {
+                    } else if (userActivityModel.idUserRate > 0 && userActivityModel.idUserLike < 1) {
                         btnLike.setLiked(true);
                         placesModel.likeCount++;
                         txtLikeCount.setText(placesModel.likeCount + "");
                         WebServiceCallLikeAdd webServiceCallLikeAdd = new WebServiceCallLikeAdd();
                         webServiceCallLikeAdd.execute();
-                    } else if (idUserRate < 1 && idUserLike < 1) {
+                    } else if (userActivityModel.idUserRate < 1 && userActivityModel.idUserLike < 1) {
                         btnLike.setLiked(true);
                         placesModel.likeCount++;
                         txtLikeCount.setText(placesModel.likeCount + "");
@@ -705,46 +700,6 @@ public class detailsFragment extends Fragment {
             }
         }
     };
-
-
-    private int getMainType(String name) {
-        int type = 0;
-
-        assert name != null;
-        switch (name) {
-            case "Tbl_Eating":
-                type = 1;
-                break;
-            case "Tbl_Shoppings":
-                type = 2;
-                break;
-            case "Tbl_Rests":
-                type = 3;
-                break;
-            case "Tbl_Tourisms":
-                type = 4;
-                break;
-            case "Tbl_Culturals":
-                type = 5;
-                break;
-            case "Tbl_Transports":
-                type = 6;
-                break;
-            case "Tbl_Services":
-                type = 7;
-                break;
-            case "Tbl_Offices":
-                type = 8;
-                break;
-            case "Tbl_Medicals":
-                type = 9;
-                break;
-            default:
-        }
-
-        return type;
-
-    }
 
     private void setUpRecyclerViewMenu(List<MenuModel> menuList) {
 
@@ -843,19 +798,14 @@ public class detailsFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             databaseHelper = new DatabaseHelper(context);
+            userActivityModel = new UserActivityModel();
         }
 
 
         @Override
         protected Void doInBackground(Object... objects) {
 
-            idUserFavorite = databaseHelper.selectFavoriteById(id);
-
-            idUserLike = databaseHelper.selectLikeById(id);
-
-            idUserRate = databaseHelper.selectRateById(id);
-
-            userRate = databaseHelper.selectRateValueById(id);
+            userActivityModel = databaseHelper.selectUserActivityByPlaceId(id);
 
             return null;
         }
@@ -864,19 +814,19 @@ public class detailsFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            if (idUserFavorite > 0) {
+            if (userActivityModel.idUserFavorite > 0) {
                 imgBookmark.setImageResource(R.drawable.ic_bookmark1_selected);
             } else {
                 imgBookmark.setImageResource(R.drawable.ic_bookmark1);
             }
-            if (idUserLike > 0) {
+            if (userActivityModel.idUserLike > 0) {
                 btnLike.setLiked(true);
 
             } else {
                 btnLike.setLiked(false);
             }
-            if (idUserRate > 0) {
-                rateBar.setRating((float) userRate);
+            if (userActivityModel.idUserRate > 0) {
+                rateBar.setRating((float) userActivityModel.userRate);
             }
 
         }
@@ -888,12 +838,10 @@ public class detailsFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
         int idRow, idFavorite;
 
-        public DatabaseCallUpdateFavorite(Context context, String tblName, int idRow, int idFavorite) {
+        public DatabaseCallUpdateFavorite(Context context, int idRow, int idFavorite) {
             this.context = context;
-            this.tblName = tblName;
             this.idRow = idRow;
             this.idFavorite = idFavorite;
         }
@@ -908,7 +856,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            databaseHelper.updateTblByFavorite(tblName, idRow, idFavorite);
+            databaseHelper.updateTblByFavorite(idRow, idFavorite);
 
             return null;
         }
@@ -917,7 +865,7 @@ public class detailsFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            if (idUserFavorite > 0) {
+            if (userActivityModel.idUserFavorite > 0) {
                 imgBookmark.setImageResource(R.drawable.ic_bookmark1_selected);
             } else {
                 imgBookmark.setImageResource(R.drawable.ic_bookmark1);
@@ -932,12 +880,10 @@ public class detailsFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
         int idRow, idLike;
 
-        public DatabaseCallUpdateLike(Context context, String tblName, int idRow, int idLike) {
+        public DatabaseCallUpdateLike(Context context, int idRow, int idLike) {
             this.context = context;
-            this.tblName = tblName;
             this.idRow = idRow;
             this.idLike = idLike;
         }
@@ -952,7 +898,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            databaseHelper.updateTblByLike(tblName, idRow, idLike, placesModel.likeCount);
+            databaseHelper.updateTblByLike(idRow, idLike, placesModel.likeCount);
 
             return null;
         }
@@ -977,13 +923,11 @@ public class detailsFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
         int idRow, idRate;
         double rateValue;
 
-        public DatabaseCallUpdateRate(Context context, String tblName, int idRow, int idRate, double rateValue) {
+        public DatabaseCallUpdateRate(Context context, int idRow, int idRate, double rateValue) {
             this.context = context;
-            this.tblName = tblName;
             this.idRow = idRow;
             this.idRate = idRate;
             this.rateValue = rateValue;
@@ -999,7 +943,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            databaseHelper.updateTblByRate(tblName, idRow, idRate, rateValue);
+            databaseHelper.updateTblByRate(idRow, idRate, rateValue);
 
             return null;
         }
@@ -1008,7 +952,7 @@ public class detailsFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            if (idUserRate > 0) {
+            if (userActivityModel.idUserRate > 0) {
                 //rating_dialog.setRating(R.drawable.ic_bookmark1_selected);
             } else {
                 rating_dialog.setRating((float) 2.5);
@@ -1037,7 +981,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            menuList = webService.getMenu(app.isInternetOn(), mainType, placesModel.id);
+//            menuList = webService.getMenu(app.isInternetOn(), placesModel.id);
 
             return null;
         }
@@ -1085,7 +1029,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            facilityList = webService.getfacility(app.isInternetOn(), placesModel.id, mainType);
+//            facilityList = webService.getfacility(app.isInternetOn(), placesModel.id, mainType);
 
             return null;
         }
@@ -1128,7 +1072,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postFavorite(app.isInternetOn(), id, idUser, mainType);
+            result = webService.postFavorite(app.isInternetOn(), id, idUser);
 
             return null;
         }
@@ -1140,8 +1084,8 @@ public class detailsFragment extends Fragment {
             if (result != null) {
 
                 if (Integer.parseInt(result) > 0) {
-                    idUserFavorite = Integer.parseInt(result);
-                    DatabaseCallUpdateFavorite favoriteUpdate = new DatabaseCallUpdateFavorite(getContext(), tblName, id, Integer.parseInt(result));
+                    userActivityModel.idUserFavorite = Integer.parseInt(result);
+                    DatabaseCallUpdateFavorite favoriteUpdate = new DatabaseCallUpdateFavorite(getContext(), id, Integer.parseInt(result));
                     favoriteUpdate.execute();
                 } else {
                     Toast.makeText(getContext(), "ثبت علاقه مندی نا موفق", Toast.LENGTH_LONG).show();
@@ -1173,7 +1117,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.deleteFavorite(app.isInternetOn(), idUserFavorite);
+            result = webService.deleteFavorite(app.isInternetOn(), userActivityModel.idUserFavorite);
 
             return null;
         }
@@ -1185,8 +1129,8 @@ public class detailsFragment extends Fragment {
             if (result != null) {
 
                 if (result.equals("true")) {
-                    idUserFavorite = -1;
-                    DatabaseCallUpdateFavorite favoriteUpdate = new DatabaseCallUpdateFavorite(getContext(), tblName, id, -1);
+                    userActivityModel.idUserFavorite = -1;
+                    DatabaseCallUpdateFavorite favoriteUpdate = new DatabaseCallUpdateFavorite(getContext(), id, -1);
                     favoriteUpdate.execute();
                 } else {
                     Toast.makeText(getContext(), "حذف علاقه مندی نا موفق", Toast.LENGTH_LONG).show();
@@ -1214,10 +1158,10 @@ public class detailsFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             webService = new WebService();
-            if (idUserLike > 0)
-                idLR = idUserLike;
-            else if (idUserRate > 0 && idUserLike < 1)
-                idLR = idUserRate;
+            if (userActivityModel.idUserLike > 0)
+                idLR = userActivityModel.idUserLike;
+            else if (userActivityModel.idUserRate > 0 && userActivityModel.idUserLike < 1)
+                idLR = userActivityModel.idUserRate;
             else
                 idLR = -1;
         }
@@ -1226,7 +1170,7 @@ public class detailsFragment extends Fragment {
         protected Void doInBackground(Object... params) {
 
             // id is for place
-            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, mainType, 1, -1);
+            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, 1, -1);
 
             return null;
         }
@@ -1238,8 +1182,8 @@ public class detailsFragment extends Fragment {
             if (result != null) {
 
                 if (Integer.parseInt(result) > 0) {
-                    idUserLike = Integer.parseInt(result);
-                    DatabaseCallUpdateLike likeUpdate = new DatabaseCallUpdateLike(getContext(), tblName, id, Integer.parseInt(result));
+                    userActivityModel.idUserLike = Integer.parseInt(result);
+                    DatabaseCallUpdateLike likeUpdate = new DatabaseCallUpdateLike(getContext(), id, Integer.parseInt(result));
                     likeUpdate.execute();
                 } else {
                     Toast.makeText(getContext(), "ثبت پسندیدن نا موفق", Toast.LENGTH_LONG).show();
@@ -1285,7 +1229,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, mainType, 0, -1);
+            result = webService.postLike(app.isInternetOn(), userActivityModel.idUserLike, id, idUser, 0, -1);
 
             return null;
         }
@@ -1297,8 +1241,8 @@ public class detailsFragment extends Fragment {
             if (result != null) {
 
                 if (Integer.parseInt(result) >= 0) {
-                    idUserLike = -1;
-                    DatabaseCallUpdateLike LikeUpdate = new DatabaseCallUpdateLike(getContext(), tblName, id, -1);
+                    userActivityModel.idUserLike = -1;
+                    DatabaseCallUpdateLike LikeUpdate = new DatabaseCallUpdateLike(getContext(), id, -1);
                     LikeUpdate.execute();
                 } else {
                     Toast.makeText(getContext(), "ثبت نپسندیدن نا موفق", Toast.LENGTH_LONG).show();
@@ -1332,10 +1276,10 @@ public class detailsFragment extends Fragment {
             super.onPreExecute();
             webService = new WebService();
             lytLoading.setVisibility(View.VISIBLE);
-            if (idUserRate > 0)
-                idLR = idUserRate;
-            else if (idUserRate < 1 && idUserLike > 0)
-                idLR = idUserLike;
+            if (userActivityModel.idUserRate > 0)
+                idLR = userActivityModel.idUserRate;
+            else if (userActivityModel.idUserRate < 1 && userActivityModel.idUserLike > 0)
+                idLR = userActivityModel.idUserLike;
             else
                 idLR = -1;
 
@@ -1346,7 +1290,7 @@ public class detailsFragment extends Fragment {
         protected Void doInBackground(Object... params) {
 
             // id is for place
-            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, mainType, -1, rate);
+            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, -1, rate);
 
             return null;
         }
@@ -1360,8 +1304,8 @@ public class detailsFragment extends Fragment {
             if (result != null) {
 
                 if (Integer.parseInt(result) > 0) {
-                    idUserRate = Integer.parseInt(result);
-                    DatabaseCallUpdateRate rateUpdate = new DatabaseCallUpdateRate(getContext(), tblName, id, Integer.parseInt(result), rate);
+                    userActivityModel.idUserRate = Integer.parseInt(result);
+                    DatabaseCallUpdateRate rateUpdate = new DatabaseCallUpdateRate(getContext(), id, Integer.parseInt(result), rate);
                     rateUpdate.execute();
                     rateBar.setRating((float) rate);
                     dialog.dismiss();
@@ -1387,7 +1331,7 @@ public class detailsFragment extends Fragment {
         prefs = getContext().getSharedPreferences("MYPREFS", 0);
         idUser = prefs.getInt("UserId", -1);
         if (idUser > 0) {
-            DatabaseCallFavoriteLikeRate databaseCallFavoriteLikeRate = new DatabaseCallFavoriteLikeRate(getContext(), tblName, id);
+            DatabaseCallFavoriteLikeRate databaseCallFavoriteLikeRate = new DatabaseCallFavoriteLikeRate(getContext(), id);
             databaseCallFavoriteLikeRate.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
     }

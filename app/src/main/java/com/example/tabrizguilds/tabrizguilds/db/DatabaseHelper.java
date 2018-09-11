@@ -11,6 +11,7 @@ import com.example.tabrizguilds.tabrizguilds.models.MapModel;
 import com.example.tabrizguilds.tabrizguilds.models.PhoneModel;
 import com.example.tabrizguilds.tabrizguilds.models.PlacesModel;
 import com.example.tabrizguilds.tabrizguilds.models.SubCategoryModel;
+import com.example.tabrizguilds.tabrizguilds.models.UserActivityModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -349,53 +350,53 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateTblByLike(String tblName, int idRow, int idLike, int likeCount) {
+    public void updateTblByLike(int idRow, int idLike, int likeCount) {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE " + tblName + " SET userLike=" + idLike + ",likeCount=" + likeCount + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET userLike=" + idLike + ",likeCount=" + likeCount + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
 
-    public void updateTblByRate(String tblName, int idRow, int idRate, double rateValue) {
+    public void updateTblByRate(int idRow, int idRate, double rateValue) {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE " + tblName + " SET userRate=" + rateValue + ",idUserRate=" + idRate + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET userRate=" + rateValue + ",idUserRate=" + idRate + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
 
-    public int selectFavoriteById(String tblName, int r) {
+    public UserActivityModel selectUserActivityByPlaceId(int r) {
         String userFavorite = "";
         SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql = "SELECT * FROM " + tblName + " WHERE id=" + r;
-        String request = "userFavorite";
+        String sql = "SELECT * FROM Tbl_Places WHERE id=" + r;
+//        String request = "userFavorite";
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
+
+        UserActivityModel model = new UserActivityModel();
+
         if (!cursor.isAfterLast()) {
 
-            userFavorite = cursor.getString(cursor.getColumnIndex(request));
+            model.idUserFavorite = cursor.getInt(cursor.getColumnIndex("idUserFavorite"));
+            model.idUserLike = cursor.getInt(cursor.getColumnIndex("idUserLike"));
+            model.idUserRate = cursor.getInt(cursor.getColumnIndex("idUserRate"));
+            model.userRate = cursor.getInt(cursor.getColumnIndex("userRate"));
 
         }
         cursor.close();
         ArasDB.close();
-        if (userFavorite != null) {
-            if (Integer.parseInt(userFavorite) > 0)
-                return Integer.parseInt(userFavorite);
-            else
-                return -1;
-        } else
-            return -1;
+        return model;
 
     }
 
-    public void updateTblByFavorite(String tblName, int idRow, int idFavorite) {
+    public void updateTblByFavorite(int idRow, int idFavorite) {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE " + tblName + " SET userFavorite=" + idFavorite + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET userFavorite=" + idFavorite + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
@@ -419,10 +420,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<String> selectAllById(String tblName, String r) {
+    public List<String> selectAllById(String r) {
         List<String> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql = "SELECT * FROM " + tblName + " WHERE id=" + r;
+        String sql = "SELECT * FROM Tbl_Places WHERE id=" + r;
         String request = "id";
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();

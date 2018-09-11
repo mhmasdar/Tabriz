@@ -1542,11 +1542,11 @@ public class WebService {
 //            return null;
 //    }
 
-    public String postFavorite(boolean isInternetAvailable, int idRow, int idUser, int Type) {
+    public String postFavorite(boolean isInternetAvailable, int idRow, int idUser) {
 
         if (isInternetAvailable) {
 
-            String req = "{\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"Type\":" + Type + "}";
+            String req = "{\"idRow\":" + idRow + ",\"idUser\":" + idUser + "}";
             String response = connectToServerByJson(addr + "favorite/add", "POST", req);
             Log.i("LOG", response + "");
 
@@ -1572,12 +1572,12 @@ public class WebService {
             return null;
     }
 
-    public String postLike(boolean isInternetAvailable, int idLR, int idRow, int idUser, int Type, int like, double rate) {
+    public String postLike(boolean isInternetAvailable, int idLR, int idRow, int idUser, int like, double rate) {
 
         if (isInternetAvailable) {
 
 
-            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"Type\":" + Type + ",\"likes\":" + like + ",\"rate\":\"" + rate + "\"}";
+            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"likes\":" + like + ",\"rate\":\"" + rate + "\"}";
             String response = connectToServerByJson(addr + "like/add", "POST", req);
             Log.i("LOG", response + "");
 
@@ -1621,45 +1621,10 @@ public class WebService {
                         for (int i = 0; i < actionList.size(); i++) {
 
                             actionModel = actionList.get(i);
-                            String tblName = "";
 
-                            switch (actionModel.type) {
-                                case 1:
-                                    tblName = "Tbl_Eating";
-                                    break;
-                                case 2:
-                                    tblName = "Tbl_Shoppings";
-                                    break;
-                                case 3:
-                                    tblName = "Tbl_Rests";
-                                    break;
-                                case 4:
-                                    tblName = "Tbl_Tourisms";
-                                    break;
-                                case 5:
-                                    tblName = "Tbl_Culturals";
-                                    break;
-                                case 6:
-                                    tblName = "Tbl_Transports";
-                                    break;
-                                case 7:
-                                    tblName = "Tbl_Services";
-                                    break;
-                                case 8:
-                                    tblName = "Tbl_Offices";
-                                    break;
-                                case 9:
-                                    tblName = "Tbl_Medicals";
-                                    break;
-                                case 10:
-                                    tblName = "Tbl_Events";
-                                    break;
-                                default:
-                            }
-
-                            List<String> s = helper.selectAllById(tblName, actionModel.idRow + "");
+                            List<String> s = helper.selectAllById(actionModel.idRow + "");
                             if (!s.isEmpty())
-                                helper.updateTblByFavorite(tblName, actionModel.idRow, actionModel.id);
+                                helper.updateTblByFavorite(actionModel.idRow, actionModel.id);
                         }
                     }
 
@@ -1753,7 +1718,7 @@ public class WebService {
                                 editor.apply();
 
                             } else {
-                                List<String> s = helper.selectAllById(tblName, actionModel.idRow + "");
+                                List<String> s = helper.selectAllById(actionModel.idRow + "");
                                 if (!s.isEmpty())
                                     helper.updateTblByLikeAndRate(tblName, actionModel.idRow, actionModel.id, actionModel.rate, actionModel.likes);
                             }

@@ -245,7 +245,7 @@ public class newsDetailsFragment extends Fragment {
         protected Void doInBackground(Object... params) {
 
             // id is for place
-            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, 11, 1, -1);
+            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, 1, -1);
 
             return null;
         }
@@ -308,7 +308,7 @@ public class newsDetailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, 11, 0, -1);
+            result = webService.postLike(app.isInternetOn(), idUserLike, id, idUser, 0, -1);
 
             return null;
         }
