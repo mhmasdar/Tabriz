@@ -64,7 +64,7 @@ public class usersImagesFragment extends Fragment {
 
     private int idUser;
     private SharedPreferences prefs;
-    int idRow, mainType;
+    int idRow;
     String detailsResult;
     Dialog dialog2;
 
@@ -89,7 +89,6 @@ public class usersImagesFragment extends Fragment {
 //        mainType = args.getInt("MainType");
 
         idRow = imagesFragment.idRow;
-        mainType = imagesFragment.mainType;
 
 
         prefs = getContext().getSharedPreferences("MYPREFS", 0);
@@ -182,7 +181,7 @@ public class usersImagesFragment extends Fragment {
 
     private void setUpRecyclerView(List<ImgModel> list) {
 
-        userImagesAdapter adapter = new userImagesAdapter(getContext(), list, mainType);
+        userImagesAdapter adapter = new userImagesAdapter(getContext(), list);
         recycler.setAdapter(adapter);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recycler.setLayoutManager(gridLayoutManager);
@@ -219,7 +218,7 @@ public class usersImagesFragment extends Fragment {
 
                     String extension = selectedFilePath.substring(selectedFilePath.lastIndexOf(".") + 1, selectedFilePath.length());
                     ClassDate classDate = new ClassDate();
-                    selectedImgName = classDate.getDateTime() + "_" + mainType + "." + extension;
+                    selectedImgName = classDate.getDateTime()  + "." + extension;
 
                     CallBackFileDetails callBackFileDetails = new CallBackFileDetails();
                     callBackFileDetails.execute();
@@ -309,7 +308,7 @@ public class usersImagesFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            detailsResult = webService.postUserImages(app.isInternetOn(), idRow, mainType, selectedImgName, idUser, Long.parseLong(lastUpdate));
+            detailsResult = webService.postUserImages(app.isInternetOn(), idRow, selectedImgName, idUser, Long.parseLong(lastUpdate));
 
             return null;
         }

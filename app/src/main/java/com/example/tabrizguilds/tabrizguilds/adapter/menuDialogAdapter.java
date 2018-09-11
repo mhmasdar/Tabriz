@@ -30,15 +30,15 @@ public class menuDialogAdapter extends RecyclerView.Adapter<menuDialogAdapter.my
     }
 
     @Override
-    public menuDialogAdapter.myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_menu_list, parent, false);
-        menuDialogAdapter.myViewHolder holder = new menuDialogAdapter.myViewHolder(view);
+        myViewHolder holder = new myViewHolder(view);
         return holder;
     }
 
 
     @Override
-    public void onBindViewHolder(menuDialogAdapter.myViewHolder holder, int position) {
+    public void onBindViewHolder(myViewHolder holder, int position) {
         final MenuModel currentObj = menuList.get(position);
         holder.setData(currentObj, position);
     }

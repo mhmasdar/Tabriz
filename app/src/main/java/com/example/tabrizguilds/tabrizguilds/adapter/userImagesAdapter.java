@@ -27,12 +27,10 @@ public class userImagesAdapter extends RecyclerView.Adapter<userImagesAdapter.my
     private Context context;
     private LayoutInflater mInflater;
     List<ImgModel> imgList;
-    int mainType;
 
-    public userImagesAdapter(Context context, List<ImgModel> imgList,  int mainType) {
+    public userImagesAdapter(Context context, List<ImgModel> imgList) {
         this.context = context;
         this.imgList = imgList;
-        this.mainType = mainType;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -55,7 +53,6 @@ public class userImagesAdapter extends RecyclerView.Adapter<userImagesAdapter.my
             public void onClick(View v) {
                 Intent intent = new Intent(context, imageActivity.class);
                 intent.putExtra("ImgName", currentObj.Name);
-                intent.putExtra("MainType", mainType);
                 context.startActivity(intent);
             }
         });

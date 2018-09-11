@@ -22,7 +22,6 @@ public class imageActivity extends Activity {
     private TouchImageView img;
     private CircularProgressBar lytLoading;
 
-    int mainType;
     String imageName;
 
     @Override
@@ -33,7 +32,6 @@ public class imageActivity extends Activity {
         img = (TouchImageView) findViewById(R.id.img);
         lytLoading = (CircularProgressBar) findViewById(R.id.lytLoading);
 
-        mainType = getIntent().getIntExtra("MainType", 0);
         imageName = getIntent().getStringExtra("ImgName");
 
         if (imageName != null)

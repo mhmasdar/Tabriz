@@ -46,15 +46,15 @@ public class driversAdapter extends RecyclerView.Adapter<driversAdapter.myViewHo
     }
 
     @Override
-    public driversAdapter.myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_drivers_list, parent, false);
-        driversAdapter.myViewHolder holder = new driversAdapter.myViewHolder(view);
+        myViewHolder holder = new myViewHolder(view);
         return holder;
     }
 
 
     @Override
-    public void onBindViewHolder(driversAdapter.myViewHolder holder, int position) {
+    public void onBindViewHolder(myViewHolder holder, int position) {
 
         final DriverModel currentObj = driversList.get(position);
         holder.setData(currentObj, position);

@@ -14,9 +14,7 @@ import android.widget.TextView;
 
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.adapter.SubCategoryAdapter;
-import com.example.tabrizguilds.tabrizguilds.adapter.driversAdapter;
 import com.example.tabrizguilds.tabrizguilds.db.DatabaseHelper;
-import com.example.tabrizguilds.tabrizguilds.models.DriverModel;
 import com.example.tabrizguilds.tabrizguilds.models.SubCategoryModel;
 
 import java.util.ArrayList;

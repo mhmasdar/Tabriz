@@ -366,19 +366,19 @@ public class mapFragment extends Fragment {
                     ft.addToBackStack(null);
                     ft.commit();
                 } else if (tapedPlace.mainType == 8) {
-                    app.check = 7;
-                    detailsOfficeFragment fragment = new detailsOfficeFragment();
-
-                    Bundle args = new Bundle();
-                    args.putInt("ID", tapedPlace.id);
-                    args.putString("TBL_NAME", "Tbl_Offices");
-                    fragment.setArguments(args);
-
-                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
-                    ft.replace(R.id.container, fragment);
-                    ft.addToBackStack(null);
-                    ft.commit();
+//                    app.check = 7;
+//                    detailsOfficeFragment fragment = new detailsOfficeFragment();
+//
+//                    Bundle args = new Bundle();
+//                    args.putInt("ID", tapedPlace.id);
+//                    args.putString("TBL_NAME", "Tbl_Offices");
+//                    fragment.setArguments(args);
+//
+//                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+//                    ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
+//                    ft.replace(R.id.container, fragment);
+//                    ft.addToBackStack(null);
+//                    ft.commit();
                 } else {
                     app.check = 7;
                     detailsFragment fragment = new detailsFragment();

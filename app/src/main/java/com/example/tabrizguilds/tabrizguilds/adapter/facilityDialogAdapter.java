@@ -32,15 +32,15 @@ public class facilityDialogAdapter extends RecyclerView.Adapter<facilityDialogAd
     }
 
     @Override
-    public facilityDialogAdapter.myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_facility_list, parent, false);
-        facilityDialogAdapter.myViewHolder holder = new facilityDialogAdapter.myViewHolder(view);
+        myViewHolder holder = new myViewHolder(view);
         return holder;
     }
 
 
     @Override
-    public void onBindViewHolder(facilityDialogAdapter.myViewHolder holder, int position) {
+    public void onBindViewHolder(myViewHolder holder, int position) {
         final FacilityModel currentObj = facilityList.get(position);
         holder.setData(currentObj, position);
     }

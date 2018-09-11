@@ -13,18 +13,6 @@ import android.widget.RelativeLayout;
 
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.app;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.carSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.clothesSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.educationSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.housingSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.medicalSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.officeSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.restaurantSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.shoppingSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.sportSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.staySub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.transportSub;
-import com.example.tabrizguilds.tabrizguilds.fragments.subGroups.utilitySub;
 import com.example.tabrizguilds.tabrizguilds.navigationDrawerActivity;
 
 

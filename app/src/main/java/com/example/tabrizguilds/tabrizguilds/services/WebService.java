@@ -1406,11 +1406,11 @@ public class WebService {
             return -10;
     }
 
-    public List<MenuModel> getMenu(boolean isInternetAvailable, int idType, int id) {
+    public List<MenuModel> getMenu(boolean isInternetAvailable, int id) {
 
         if (isInternetAvailable) {
 
-            String response = connectToServer(addr + "menu/select?idType=" + idType + "&id=" + id, "GET");
+            String response = connectToServer(addr + "menu/select?idType=" + 1 + "&id=" + id, "GET");
             Log.i("LOG", response + "");
 
             if (response != null) {
@@ -1423,9 +1423,9 @@ public class WebService {
                     for (int i = 0; i < Arrey.length(); i++) {
                         JSONObject Object = Arrey.getJSONObject(i);
                         MenuModel menuModel = new MenuModel();
-                        menuModel.id = Object.getInt("id");
+//                        menuModel.id = Object.getInt("id");
                         menuModel.idRow = Object.getInt("idRow");
-                        menuModel.Type = Object.getInt("Type");
+//                        menuModel.Type = Object.getInt("Type");
                         menuModel.Price = Object.getString("Price");
                         menuModel.Des = Object.getString("Des");
                         menuModel.Name = Object.getString("Name");
@@ -1445,11 +1445,11 @@ public class WebService {
             return null;
     }
 
-    public List<FacilityModel> getfacility(boolean isInternetAvailable, int id, int idType) {
+    public List<FacilityModel> getfacility(boolean isInternetAvailable, int id) {
 
         if (isInternetAvailable) {
 
-            String response = connectToServer(addr + "facility/select?idType=" + idType + "&id=" + id, "GET");
+            String response = connectToServer(addr + "facility/select?idType=" + 1 + "&id=" + id, "GET");
             Log.i("LOG", response + "");
 
             if (response != null) {
@@ -1462,9 +1462,9 @@ public class WebService {
                     for (int i = 0; i < Arrey.length(); i++) {
                         JSONObject Object = Arrey.getJSONObject(i);
                         FacilityModel facilityModel = new FacilityModel();
-                        facilityModel.id = Object.getInt("id");
+//                        facilityModel.id = Object.getInt("id");
                         facilityModel.idRow = Object.getInt("idRow");
-                        facilityModel.Type = Object.getInt("Type");
+//                        facilityModel.Type = Object.getInt("Type");
                         facilityModel.Name = Object.getString("Name");
 
                         facilityList.add(facilityModel);
@@ -1542,11 +1542,11 @@ public class WebService {
 //            return null;
 //    }
 
-    public String postFavorite(boolean isInternetAvailable, int idRow, int idUser) {
+    public String postFavorite(boolean isInternetAvailable, int idRow, int idUser, int type) {
 
         if (isInternetAvailable) {
 
-            String req = "{\"idRow\":" + idRow + ",\"idUser\":" + idUser + "}";
+            String req = "{\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"type\":\"" + type + "}";
             String response = connectToServerByJson(addr + "favorite/add", "POST", req);
             Log.i("LOG", response + "");
 
@@ -1572,12 +1572,12 @@ public class WebService {
             return null;
     }
 
-    public String postLike(boolean isInternetAvailable, int idLR, int idRow, int idUser, int like, double rate) {
+    public String postLike(boolean isInternetAvailable, int idLR, int idRow, int idUser, int like, double rate, int type) {
 
         if (isInternetAvailable) {
 
 
-            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"likes\":" + like + ",\"rate\":\"" + rate + "\"}";
+            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"likes\":" + like + ",\"rate\":\"" + rate + ",\"type\":\"" + type + "\"}";
             String response = connectToServerByJson(addr + "like/add", "POST", req);
             Log.i("LOG", response + "");
 
@@ -1823,7 +1823,7 @@ public class WebService {
 
         if (isInternetAvailable) {
 
-            String response = connectToServer(addr + "news/select?num=" + count, "GET");
+            String response = connectToServer(addr + "news?num=" + count, "GET");
             Log.i("LOG", response + "");
 
             if (response != null) {
@@ -1839,7 +1839,7 @@ public class WebService {
 
                         model.id = Object.getInt("id");
                         model.likeCount = Object.getInt("likeCount");
-                        model.Type = Object.getInt("Type");
+                        //model.Type = Object.getInt("Type");
                         model.commentCount = Object.getInt("commentCount");
                         model.Date = Object.getInt("Date");
                         model.Title = Object.getString("Title");
@@ -2049,11 +2049,11 @@ public class WebService {
     }
 
 
-    public String postUserImages(boolean isInternetAvailable, int idRow, int Type, String Name, int idUser, long lastUpdate) {
+    public String postUserImages(boolean isInternetAvailable, int idRow, String Name, int idUser, long lastUpdate) {
 
         if (isInternetAvailable) {
 
-            String req = "{\"idRow\":" + idRow + ",\"Type\":" + Type + ",\"Name\":\"" + Name + "\",\"Visibility\":" + 0 + ",\"isAdmin\":" + 0 + ",\"idUser\":" + idUser + ",\"lastUpdate\":" + lastUpdate + "}";
+            String req = "{\"idRow\":" + idRow + ",\"Name\":\"" + Name + "\",\"Visibility\":" + 0 + ",\"isAdmin\":" + 0 + ",\"idUser\":" + idUser + ",\"lastUpdate\":" + lastUpdate + "}";
             String response = connectToServerByJson(addr + "images/add", "POST", req);
             Log.i("LOG", response + "");
 

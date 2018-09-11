@@ -46,7 +46,7 @@ public class galleryFragment extends Fragment {
     private android.app.FragmentManager fm;
 
     List<ImgModel> imgList;
-    int idRow, mainType;
+    int idRow;
     int i;
 
     public galleryFragment() {
@@ -63,7 +63,6 @@ public class galleryFragment extends Fragment {
 
         Bundle args = getArguments();
         idRow = args.getInt("ID");
-        mainType = args.getInt("MainType");
 
         DatabaseCallback databaseCallback = new DatabaseCallback(getContext());
         databaseCallback.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -78,7 +77,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(0).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -87,7 +85,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(1).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -96,7 +93,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(2).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -105,7 +101,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(3).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -114,7 +109,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(4).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -123,7 +117,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(5).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -132,7 +125,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(6).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -141,7 +133,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(7).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -150,7 +141,6 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(8).Name);
-                intent.putExtra("MainType", mainType);
                 startActivity(intent);
             }
         });
@@ -209,7 +199,7 @@ public class galleryFragment extends Fragment {
                         img[i].setVisibility(View.VISIBLE);
                         if (imgList.get(i).Name != null) {
                             if (!imgList.get(i).Name.equals("")) {
-//                                Glide.with(context).load(app.imgMainAddr + getImgAddr(imgList.get(i).type) + imgList.get(i).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img[i]);
+                                Glide.with(context).load(app.imgMainAddr + app.placesImgAddr + imgList.get(i).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img[i]);
                             }
                         }
                     }

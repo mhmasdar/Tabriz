@@ -147,6 +147,11 @@ public class detailsFragment extends Fragment {
         databaseCallback.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
 
+        if (placesModel.RootCategory == 10) {
+            lytDrivers.setVisibility(View.VISIBLE);
+            lytMenu.setVisibility(View.GONE);
+        }
+
         prefs = getContext().getSharedPreferences("MYPREFS", 0);
         idUser = prefs.getInt("UserId", -1);
         if (idUser > 0) {
@@ -575,24 +580,20 @@ public class detailsFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-//            if (!tblName.equals("Tbl_Tourisms")) {
-//
-//                Dialog dialog = new Dialog(getActivity());
-//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                dialog.setContentView(R.layout.dialog_menu);
-//                dialog.setCancelable(true);
-//                dialog.setCanceledOnTouchOutside(true);
-//                dialog.show();
-//
-//                recyclerMenu = dialog.findViewById(R.id.recycler);
-//                lytLoadingM = dialog.findViewById(R.id.lytLoading);
-//                lytEmptyM = dialog.findViewById(R.id.lytEmpty);
-//                lytDisconnectM = dialog.findViewById(R.id.lytDisconnect);
-//
-//                WebServiceCallBackMenu webServiceCallBackMenu = new WebServiceCallBackMenu();
-//                webServiceCallBackMenu.execute();
-//
-//            }
+                Dialog dialog = new Dialog(getActivity());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_menu);
+                dialog.setCancelable(true);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.show();
+
+                recyclerMenu = dialog.findViewById(R.id.recycler);
+                lytLoadingM = dialog.findViewById(R.id.lytLoading);
+                lytEmptyM = dialog.findViewById(R.id.lytEmpty);
+                lytDisconnectM = dialog.findViewById(R.id.lytDisconnect);
+
+                WebServiceCallBackMenu webServiceCallBackMenu = new WebServiceCallBackMenu();
+                webServiceCallBackMenu.execute();
 
         }
     };
@@ -600,20 +601,20 @@ public class detailsFragment extends Fragment {
     View.OnClickListener lytOptionsClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            Dialog dialog = new Dialog(getActivity());
-//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//            dialog.setContentView(R.layout.dialog_facilities);
-//            dialog.setCancelable(true);
-//            dialog.setCanceledOnTouchOutside(true);
-//            dialog.show();
-//
-//            recyclerFacility = dialog.findViewById(R.id.recycler);
-//            lytLoadingF = dialog.findViewById(R.id.lytLoading);
-//            lytEmptyF = dialog.findViewById(R.id.lytEmpty);
-//            lytDisconnectF = dialog.findViewById(R.id.lytDisconnect);
-//
-//            WebServiceCallBackFacilities webServiceCallBackFacilities = new WebServiceCallBackFacilities();
-//            webServiceCallBackFacilities.execute();
+            Dialog dialog = new Dialog(getActivity());
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.dialog_facilities);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
+
+            recyclerFacility = dialog.findViewById(R.id.recycler);
+            lytLoadingF = dialog.findViewById(R.id.lytLoading);
+            lytEmptyF = dialog.findViewById(R.id.lytEmpty);
+            lytDisconnectF = dialog.findViewById(R.id.lytDisconnect);
+
+            WebServiceCallBackFacilities webServiceCallBackFacilities = new WebServiceCallBackFacilities();
+            webServiceCallBackFacilities.execute();
 
         }
     };
@@ -764,14 +765,11 @@ public class detailsFragment extends Fragment {
 
             txtLikeCount.setText(placesModel.likeCount + "");
             txtAddress.setText("آدرس: " + placesModel.Address);
-
             if (!placesModel.Info.equals("null"))
                 txtInfo.setText(placesModel.Info);
             txtName.setText(placesModel.Name);
-            txtHour.setText("24 ساعته");
-
-
-            txtMenuAndCost.setText(placesModel.Cost + " ریال");
+            txtHour.setText(placesModel.StartTime + " تا " + placesModel.EndTime);
+            txtDay.setText(placesModel.AvailableDay);
 
             if (placesModel.RootCategory == 3) {
                 txtHotelStars.setVisibility(View.VISIBLE);
@@ -981,7 +979,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-//            menuList = webService.getMenu(app.isInternetOn(), placesModel.id);
+            menuList = webService.getMenu(app.isInternetOn(), placesModel.id);
 
             return null;
         }
@@ -1029,7 +1027,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-//            facilityList = webService.getfacility(app.isInternetOn(), placesModel.id, mainType);
+            facilityList = webService.getfacility(app.isInternetOn(), placesModel.id);
 
             return null;
         }
@@ -1072,7 +1070,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postFavorite(app.isInternetOn(), id, idUser);
+            result = webService.postFavorite(app.isInternetOn(), id, idUser, 1);
 
             return null;
         }
@@ -1170,7 +1168,7 @@ public class detailsFragment extends Fragment {
         protected Void doInBackground(Object... params) {
 
             // id is for place
-            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, 1, -1);
+            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, 1, -1, 1);
 
             return null;
         }
@@ -1229,7 +1227,7 @@ public class detailsFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... params) {
 
-            result = webService.postLike(app.isInternetOn(), userActivityModel.idUserLike, id, idUser, 0, -1);
+            result = webService.postLike(app.isInternetOn(), userActivityModel.idUserLike, id, idUser, 0, -1, 1);
 
             return null;
         }
@@ -1290,7 +1288,7 @@ public class detailsFragment extends Fragment {
         protected Void doInBackground(Object... params) {
 
             // id is for place
-            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, -1, rate);
+            result = webService.postLike(app.isInternetOn(), idLR, id, idUser, -1, rate, 1);
 
             return null;
         }

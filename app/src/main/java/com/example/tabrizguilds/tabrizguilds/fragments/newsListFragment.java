@@ -137,6 +137,7 @@ public class newsListFragment extends Fragment {
                 } else {
 
                     for (int i = 0; i < newsList.size(); i++) {
+
                         if (newsList.get(i).Type == totalTabsCount - (tab.getPosition() + 1))
                             filteredList.add(newsList.get(i));
                     }
