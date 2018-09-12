@@ -5,11 +5,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tabrizguilds.tabrizguilds.R;
@@ -33,6 +35,7 @@ public class SubCategoryFragment extends Fragment {
     private int rootCategory = 0;
     TextView txtToolbar;
     RecyclerView recycler;
+    RelativeLayout lytBack;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +45,14 @@ public class SubCategoryFragment extends Fragment {
 
         txtToolbar = view.findViewById(R.id.txtToolbar);
         recycler = view.findViewById(R.id.recycler);
+        lytBack = view.findViewById(R.id.lytBack);
+        lytBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.popBackStack();
+            }
+        });
 
 
         Bundle args = getArguments();

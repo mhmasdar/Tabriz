@@ -36,7 +36,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     style="@style/SelectableItemBackground"
-
                     android:padding="8dp">
 
                     <ImageView

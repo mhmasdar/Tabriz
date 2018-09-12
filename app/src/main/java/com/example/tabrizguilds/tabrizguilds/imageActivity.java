@@ -22,7 +22,7 @@ public class imageActivity extends Activity {
     private TouchImageView img;
     private CircularProgressBar lytLoading;
 
-    String imageName;
+    String imageName, imageAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,11 @@ public class imageActivity extends Activity {
         lytLoading = (CircularProgressBar) findViewById(R.id.lytLoading);
 
         imageName = getIntent().getStringExtra("ImgName");
+        imageAddress = getIntent().getStringExtra("ImgAddress");
 
         if (imageName != null)
             if (!imageName.equals(""))
-                Glide.with(this).load(app.imgMainAddr + app.placesImgAddr + imageName).asBitmap().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(new SimpleTarget<Bitmap>() {
+                Glide.with(this).load(app.imgMainAddr + imageAddress + imageName).asBitmap().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap bm, GlideAnimation<? super Bitmap> glideAnimation) {
                         img.setImageBitmap(bm);

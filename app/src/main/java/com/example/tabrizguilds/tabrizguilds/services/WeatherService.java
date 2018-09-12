@@ -46,8 +46,45 @@ public class WeatherService {
         return stringBuilder.toString();
     }
 
+    public WeatherModel getWeatherTabriz() {
+
+        String response = connectToServer("http://api.openweathermap.org/data/2.5/weather?lat=38.0802852&lon=46.1536414&APPID=b996dd71d70d2b9f4e72a87e5c3b9260&units=metric", "GET");
+        if (response != null) {
+            WeatherModel weatherModel = new WeatherModel();
+
+            try {
+
+                JSONObject json = new JSONObject(response);
+                JSONObject details = json.getJSONArray("weather").getJSONObject(0);
+                JSONObject main = json.getJSONObject("main");
+                DateFormat df = DateFormat.getDateTimeInstance();
+                weatherModel.city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
+                weatherModel.description = details.getString("description").toUpperCase(Locale.US);
+                weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
+                int dot;
+                if (weatherModel.temperature.contains("٫"))
+                    dot = weatherModel.temperature.indexOf("٫");
+                else
+                    dot = weatherModel.temperature.indexOf(".");
+                weatherModel.temperature = weatherModel.temperature.substring(0, dot) + "°";
+                weatherModel.humidity = main.getString("humidity") + "%";
+                weatherModel.pressure = main.getString("pressure") + " hPa";
+                weatherModel.updatedOn = df.format(new Date(json.getLong("dt") * 1000));
+                weatherModel.iconText = setWeatherIcon(details.getInt("id"),
+                        json.getJSONObject("sys").getLong("sunrise") * 1000,
+                        json.getJSONObject("sys").getLong("sunset") * 1000);
+
+
+                return weatherModel;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public WeatherModel getWeatherJolfa() {
-        String response = connectToServer("http://api.openweathermap.org/data/2.5/weather?lat=38.9275559&lon=45.6499703&APPID=b996dd71d70d2b9f4e72a87e5c3b9260&units=metric", "GET");
+        String response = connectToServer("http://api.openweathermap.org/data/2.5/weather?lat=38.9339216&lon=45.6146334&APPID=b996dd71d70d2b9f4e72a87e5c3b9260&units=metric", "GET");
         if (response != null) {
             WeatherModel weatherModel = new WeatherModel();
 
@@ -57,7 +94,7 @@ public class WeatherService {
                 JSONObject details = json.getJSONArray("weather").getJSONObject(0);
                 JSONObject main = json.getJSONObject("main");
                 DateFormat df = DateFormat.getDateTimeInstance();
-                weatherModel.city = json.getString("Name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
+                weatherModel.city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                 weatherModel.description = details.getString("description").toUpperCase(Locale.US);
                 weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
                 int dot;
@@ -82,8 +119,8 @@ public class WeatherService {
         return null;
     }
 
-    public WeatherModel getWeatherNordoz() {
-        String response = connectToServer("http://api.openweathermap.org/data/2.5/weather?lat=38.843511&lon=46.2027724&APPID=b996dd71d70d2b9f4e72a87e5c3b9260&units=metric", "GET");
+    public WeatherModel getWeatherHashtrood() {
+        String response = connectToServer("http://api.openweathermap.org/data/2.5/weather?lat=37.4774688&lon=47.0369873&APPID=b996dd71d70d2b9f4e72a87e5c3b9260&units=metric", "GET");
         if (response != null) {
             WeatherModel weatherModel = new WeatherModel();
 
@@ -93,43 +130,7 @@ public class WeatherService {
                 JSONObject details = json.getJSONArray("weather").getJSONObject(0);
                 JSONObject main = json.getJSONObject("main");
                 DateFormat df = DateFormat.getDateTimeInstance();
-                weatherModel.city = json.getString("Name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
-                weatherModel.description = details.getString("description").toUpperCase(Locale.US);
-                weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
-                int dot;
-                if (weatherModel.temperature.contains("٫"))
-                    dot = weatherModel.temperature.indexOf("٫");
-                else
-                    dot = weatherModel.temperature.indexOf(".");
-                weatherModel.temperature = weatherModel.temperature.substring(0, dot) + "°";
-                weatherModel.humidity = main.getString("humidity") + "%";
-                weatherModel.pressure = main.getString("pressure") + " hPa";
-                weatherModel.updatedOn = df.format(new Date(json.getLong("dt") * 1000));
-                weatherModel.iconText = setWeatherIcon(details.getInt("id"),
-                        json.getJSONObject("sys").getLong("sunrise") * 1000,
-                        json.getJSONObject("sys").getLong("sunset") * 1000);
-
-
-                return weatherModel;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    public WeatherModel getWeatherKhod() {
-        String response = connectToServer("http://api.openweathermap.org/data/2.5/weather?lat=39.1375218&lon=46.9523732&APPID=b996dd71d70d2b9f4e72a87e5c3b9260&units=metric", "GET");
-        if (response != null) {
-            WeatherModel weatherModel = new WeatherModel();
-
-            try {
-
-                JSONObject json = new JSONObject(response);
-                JSONObject details = json.getJSONArray("weather").getJSONObject(0);
-                JSONObject main = json.getJSONObject("main");
-                DateFormat df = DateFormat.getDateTimeInstance();
-                weatherModel.city = json.getString("Name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
+                weatherModel.city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                 weatherModel.description = details.getString("description").toUpperCase(Locale.US);
                 weatherModel.temperature = String.format("%.2f", main.getDouble("temp"));
                 int dot;

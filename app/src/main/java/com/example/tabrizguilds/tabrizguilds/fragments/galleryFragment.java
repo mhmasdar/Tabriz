@@ -77,6 +77,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(0).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -85,6 +86,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(1).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -93,6 +95,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(2).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -101,6 +104,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(3).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -109,6 +113,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(4).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -117,6 +122,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(5).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -125,6 +131,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(6).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -133,6 +140,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(7).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -141,6 +149,7 @@ public class galleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), imageActivity.class);
                 intent.putExtra("ImgName", imgList.get(8).Name);
+                intent.putExtra("ImgAddress", app.placesImgAddr);
                 startActivity(intent);
             }
         });
@@ -184,7 +193,7 @@ public class galleryFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-//            imgList = databaseHelper.selectPlacesImages(mainType, idRow, 1);
+            imgList = databaseHelper.selectPlacesImages(idRow);
 
             return null;
         }

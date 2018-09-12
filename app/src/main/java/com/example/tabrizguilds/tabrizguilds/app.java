@@ -38,6 +38,7 @@ public class app extends Application {
     public static String subCategoryImgAddr = "GroupsLogo/";
     public static String placesImgAddr = "Asnaf/";
     public static String newsImgAddr = "News/";
+    public static String receivedImgAddr = "ReceivedImage/";
 
 
         @Override

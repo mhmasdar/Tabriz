@@ -65,7 +65,7 @@ public class detailsSliderAdapter extends PagerAdapter {
 
         if (imageList.get(position).Name != null)
             if (!imageList.get(position).Name.equals(""))
-        Glide.with(context).load(app.imgMainAddr + app.placesImgAddr + imageList.get(position).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+                Glide.with(context).load(app.imgMainAddr + app.placesImgAddr + imageList.get(position).Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
 
 
         view.addView(imageLayout, 0);

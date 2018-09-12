@@ -53,6 +53,7 @@ public class userImagesAdapter extends RecyclerView.Adapter<userImagesAdapter.my
             public void onClick(View v) {
                 Intent intent = new Intent(context, imageActivity.class);
                 intent.putExtra("ImgName", currentObj.Name);
+                intent.putExtra("ImgAddress", app.receivedImgAddr);
                 context.startActivity(intent);
             }
         });
@@ -79,7 +80,7 @@ public class userImagesAdapter extends RecyclerView.Adapter<userImagesAdapter.my
 
             if (current.Name != null)
                 if (!current.Name.equals(""))
-//                    Glide.with(context).load(app.imgMainAddr + getImgAddr(current.type) + current.Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img);
+                    Glide.with(context).load(app.imgMainAddr + app.receivedImgAddr + current.Name).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(img);
 
             this.position = position;
             this.current = current;

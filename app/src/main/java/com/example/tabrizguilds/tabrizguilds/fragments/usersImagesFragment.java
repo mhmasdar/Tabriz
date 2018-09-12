@@ -28,10 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.tabrizguilds.tabrizguilds.R;
-import com.example.tabrizguilds.tabrizguilds.adapter.eventsListAdapter;
 import com.example.tabrizguilds.tabrizguilds.adapter.userImagesAdapter;
 import com.example.tabrizguilds.tabrizguilds.app;
 import com.example.tabrizguilds.tabrizguilds.db.DatabaseHelper;
@@ -41,7 +38,6 @@ import com.example.tabrizguilds.tabrizguilds.services.ClassDate;
 import com.example.tabrizguilds.tabrizguilds.services.FilePath;
 import com.example.tabrizguilds.tabrizguilds.services.WebService;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +91,7 @@ public class usersImagesFragment extends Fragment {
         idUser = prefs.getInt("UserId", -1);
 
 //        setUpRecyclerView();
-        DatabaseCallbackList callbackList = new DatabaseCallbackList(getContext());
+        WebServiceCallbackList callbackList = new WebServiceCallbackList();
         callbackList.execute();
 
 
@@ -241,29 +237,23 @@ public class usersImagesFragment extends Fragment {
             flagPermission = false;
     }
 
-    public class DatabaseCallbackList extends AsyncTask<Object, Void, Void> {
+    public class WebServiceCallbackList extends AsyncTask<Object, Void, Void> {
 
 
-        private DatabaseHelper databaseHelper;
-        private Context context;
-
-        public DatabaseCallbackList(Context context) {
-            this.context = context;
-
-        }
+        private WebService webService;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             imgList = new ArrayList<>();
-            databaseHelper = new DatabaseHelper(context);
+            webService = new WebService();
         }
 
 
         @Override
         protected Void doInBackground(Object... objects) {
 
-//            imgList = databaseHelper.selectPlacesImages(mainType, idRow, 0);
+            imgList = webService.selectUserSentImages(app.isInternetOn(), idRow);
 
             return null;
         }

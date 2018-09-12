@@ -193,26 +193,20 @@ public class HomeFragment extends Fragment {
     private class WeatherServiceCallBack extends AsyncTask<Object, Void, Void> {
 
         private WeatherService weatherService;
-        private WeatherModel weatherModelJolfa, weatherModelZonoz, weatherModelKhod;
-        private WebService webService;
+        private WeatherModel weatherModelTabriz, weatherModelJolfa, weatherModelHashtrood;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             weatherService = new WeatherService();
-            webService = new WebService();
         }
 
         @Override
         protected Void doInBackground(Object... params) {
 
+            weatherModelTabriz = weatherService.getWeatherTabriz();
             weatherModelJolfa = weatherService.getWeatherJolfa();
-            weatherModelZonoz = weatherService.getWeatherNordoz();
-            weatherModelKhod = weatherService.getWeatherKhod();
-
-//            timesModelJolfa = webService.getReligiousTimesJolfa(app.isInternetOn());
-//            timesModelZonoz = webService.getReligiousTimesNordoz(app.isInternetOn());
-//            timesModelKhod = webService.getReligiousTimesKhod(app.isInternetOn());
+            weatherModelHashtrood = weatherService.getWeatherHashtrood();
 
             return null;
         }
@@ -222,29 +216,27 @@ public class HomeFragment extends Fragment {
             super.onPostExecute(aVoid);
 
             //set weather
+            if (weatherModelTabriz != null) {
+                currentTemperatureField.setText(weatherModelTabriz.temperature);
+                humidity_field.setText(weatherModelTabriz.humidity);
+                weatherIcon.setText(Html.fromHtml(weatherModelTabriz.iconText));
+                checkWeather = false;
+                lytWeather.setVisibility(View.VISIBLE);
+            }
             if (weatherModelJolfa != null) {
-                currentTemperatureField.setText(weatherModelJolfa.temperature);
-                humidity_field.setText(weatherModelJolfa.humidity);
-                weatherIcon.setText(Html.fromHtml(weatherModelJolfa.iconText));
+                currentTemperatureFieldZonoz.setText(weatherModelJolfa.temperature);
+                humidity_fieldZonoz.setText(weatherModelJolfa.humidity);
+                weatherIconZonoz.setText(Html.fromHtml(weatherModelJolfa.iconText));
                 checkWeather = false;
                 lytWeather.setVisibility(View.VISIBLE);
             }
-            if (weatherModelZonoz != null) {
-                currentTemperatureFieldZonoz.setText(weatherModelZonoz.temperature);
-                humidity_fieldZonoz.setText(weatherModelZonoz.humidity);
-                weatherIconZonoz.setText(Html.fromHtml(weatherModelZonoz.iconText));
+            if (weatherModelHashtrood != null) {
+                currentTemperatureFieldKhod.setText(weatherModelHashtrood.temperature);
+                humidity_fieldKhod.setText(weatherModelHashtrood.humidity);
+                weatherIconKhod.setText(Html.fromHtml(weatherModelHashtrood.iconText));
                 checkWeather = false;
                 lytWeather.setVisibility(View.VISIBLE);
             }
-            if (weatherModelKhod != null) {
-                currentTemperatureFieldKhod.setText(weatherModelKhod.temperature);
-                humidity_fieldKhod.setText(weatherModelKhod.humidity);
-                weatherIconKhod.setText(Html.fromHtml(weatherModelKhod.iconText));
-                checkWeather = false;
-                lytWeather.setVisibility(View.VISIBLE);
-            }
-
-            //set times
 
 
         }
@@ -252,14 +244,11 @@ public class HomeFragment extends Fragment {
 
     private class ReligiousTimesCallBack extends AsyncTask<Object, Void, Void> {
 
-        private WeatherService weatherService;
-        private WeatherModel weatherModelJolfa, weatherModelZonoz, weatherModelKhod;
         private WebService webService;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-//            weatherService = new WeatherService();
             webService = new WebService();
         }
 
@@ -276,32 +265,6 @@ public class HomeFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-            //set weather
-//            if (weatherModelJolfa != null) {
-//                currentTemperatureField.setText(weatherModelJolfa.temperature);
-//                humidity_field.setText(weatherModelJolfa.humidity);
-//                weatherIcon.setText(Html.fromHtml(weatherModelJolfa.iconText));
-//                checkWeather = false;
-//                lytWeather.setVisibility(View.VISIBLE);
-//            }
-//            if (weatherModelZonoz != null) {
-//                currentTemperatureFieldZonoz.setText(weatherModelZonoz.temperature);
-//                humidity_fieldZonoz.setText(weatherModelZonoz.humidity);
-//                weatherIconZonoz.setText(Html.fromHtml(weatherModelZonoz.iconText));
-//                checkWeather = false;
-//                lytWeather.setVisibility(View.VISIBLE);
-//            }
-//            if (weatherModelKhod != null) {
-//                currentTemperatureFieldKhod.setText(weatherModelKhod.temperature);
-//                humidity_fieldKhod.setText(weatherModelKhod.humidity);
-//                weatherIconKhod.setText(Html.fromHtml(weatherModelKhod.iconText));
-//                checkWeather = false;
-//                lytWeather.setVisibility(View.VISIBLE);
-//            }
-
-            //set times
-
 
         }
     }
