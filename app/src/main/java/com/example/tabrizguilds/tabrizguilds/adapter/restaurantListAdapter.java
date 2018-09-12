@@ -34,16 +34,13 @@ public class restaurantListAdapter extends RecyclerView.Adapter<restaurantListAd
     private Context context;
     private LayoutInflater mInflater;
     private List<PlacesModel> placesList = new ArrayList<>();
-    private String tblName;
     private int lastPosition = -1;
 
 
-    public restaurantListAdapter(Context context, List<PlacesModel> placesList, String tblName) {
+    public restaurantListAdapter(Context context, List<PlacesModel> placesList) {
         this.context = context;
         this.placesList = placesList;
         this.mInflater = LayoutInflater.from(context);
-        this.tblName = tblName;
-
     }
 
     @Override

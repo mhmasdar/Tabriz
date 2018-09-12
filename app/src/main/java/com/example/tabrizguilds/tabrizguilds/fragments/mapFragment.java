@@ -102,14 +102,14 @@ public class mapFragment extends Fragment {
     Drawable myCurrentLocationMarker;
 
     private int zoomLevel = 15;
-    List<MapModel> placesList;
-    List<MapModel> filteredList;
-    List<MapModel> sortedList;
+    List<PlacesModel> placesList;
+    List<PlacesModel> filteredList;
+    List<PlacesModel> sortedList;
     List<PlacesModel> favoriteList;
-    MapModel tapedPlace;
+    PlacesModel tapedPlace;
 
-    private List<String> allFilters;
-    private List<String> selectedFilters;
+    private List<Integer> allFilters;
+    private List<Integer> selectedFilters;
     private String selectedSort;
     private List<String> allSorts;
 
@@ -133,16 +133,19 @@ public class mapFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
         allFilters = new ArrayList<>();
-        allFilters.add("Tbl_Eating");
-        allFilters.add("Tbl_Shoppings");
-        allFilters.add("Tbl_Rests");
-        allFilters.add("Tbl_Tourisms");
-        allFilters.add("Tbl_Culturals");
-        allFilters.add("Tbl_Transports");
-        allFilters.add("Tbl_Services");
-        allFilters.add("Tbl_Offices");
-        allFilters.add("Tbl_Medicals");
-        allFilters.add("Tbl_Events");
+        allFilters.add(1);
+        allFilters.add(2);
+        allFilters.add(3);
+        allFilters.add(4);
+        allFilters.add(5);
+        allFilters.add(6);
+        allFilters.add(7);
+        allFilters.add(8);
+        allFilters.add(9);
+        allFilters.add(10);
+        allFilters.add(11);
+        allFilters.add(12);
+        allFilters.add(13);
 
         selectedFilters = allFilters;
 
@@ -174,7 +177,7 @@ public class mapFragment extends Fragment {
         mapController = map.getController();
         mapController.setZoom(12);
         GpsMyLocationProvider myLocation = new GpsMyLocationProvider(ctx);
-        GeoPoint startPoint = new GeoPoint(38.937267, 45.627604);
+        GeoPoint startPoint = new GeoPoint(38.077583, 46.3025249);
 //        GeoPoint startPoint2 = new GeoPoint(38.9939216, 45.8146334);
 //        GeoPoint startPoint3 = new GeoPoint(38.9339216, 45.6146334);
         //GeoPoint startPoint = new GeoPoint(myLocation.getLastKnownLocation().getLatitude(), myLocation.getLastKnownLocation().getLongitude());
@@ -299,11 +302,11 @@ public class mapFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent iRouting = new Intent(getContext(), RoutingActivity.class);
-                iRouting.putExtra("PlaceName", tapedPlace.name);
-                iRouting.putExtra("PlaceLat", tapedPlace.lat);
-                iRouting.putExtra("PlaceLon", tapedPlace.lon);
-                iRouting.putExtra("PlaceType", tapedPlace.type);
-                iRouting.putExtra("PlaceMainType", tapedPlace.mainType);
+                iRouting.putExtra("PlaceName", tapedPlace.Name);
+                iRouting.putExtra("PlaceLat", tapedPlace.Lat);
+                iRouting.putExtra("PlaceLon", tapedPlace.Long);
+                iRouting.putExtra("PlaceType", tapedPlace.Category);
+                iRouting.putExtra("PlaceMainType", tapedPlace.RootCategory);
                 startActivity(iRouting);
                 getActivity().overridePendingTransition(R.anim.activity_enter, R.anim.stay);
             }
@@ -324,7 +327,7 @@ public class mapFragment extends Fragment {
 
 
 //String address = "http://maps.google.com/maps?saddr=" + currentLocation.getLatitude() + "," + currentLocation.getLongitude() + "&daddr=" + tapedPlace.lat + "," + tapedPlace.lon;
-                String address = "http://maps.google.com/maps?daddr=" + tapedPlace.lat + "," + tapedPlace.lon;
+                String address = "http://maps.google.com/maps?daddr=" + tapedPlace.Lat + "," + tapedPlace.Long;
 
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(address));
                 startActivity(intent);
@@ -351,49 +354,18 @@ public class mapFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (tapedPlace.mainType == 10) {
-                    app.check = 7;
-                    eventsDetailsFragment fragment = new eventsDetailsFragment();
-
-                    Bundle args = new Bundle();
-                    args.putInt("ID", tapedPlace.id);
-                    args.putString("TBL_NAME", "Tbl_Events");
-                    fragment.setArguments(args);
-
-                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
-                    ft.replace(R.id.container, fragment);
-                    ft.addToBackStack(null);
-                    ft.commit();
-                } else if (tapedPlace.mainType == 8) {
-//                    app.check = 7;
-//                    detailsOfficeFragment fragment = new detailsOfficeFragment();
-//
-//                    Bundle args = new Bundle();
-//                    args.putInt("ID", tapedPlace.id);
-//                    args.putString("TBL_NAME", "Tbl_Offices");
-//                    fragment.setArguments(args);
-//
-//                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-//                    ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
-//                    ft.replace(R.id.container, fragment);
-//                    ft.addToBackStack(null);
-//                    ft.commit();
-                } else {
-                    app.check = 7;
-                    detailsFragment fragment = new detailsFragment();
-                    Bundle args = new Bundle();
-                    args.putInt("ID", tapedPlace.id);
-                    args.putString("TBL_NAME", getTblName(tapedPlace.mainType));
-                    fragment.setArguments(args);
+                app.check = 7;
+                detailsFragment fragment = new detailsFragment();
+                Bundle args = new Bundle();
+                args.putInt("ID", tapedPlace.id);
+                fragment.setArguments(args);
 
 
-                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
-                    ft.replace(R.id.container, fragment);
-                    ft.addToBackStack(null);
-                    ft.commit();
-                }
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
+                ft.replace(R.id.container, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
 
             }
         });
@@ -428,47 +400,6 @@ public class mapFragment extends Fragment {
         };
         MapEventsOverlay OverlayEvents = new MapEventsOverlay(getContext(), mReceive);
         map.getOverlays().add(OverlayEvents);
-    }
-
-    public String getTblName(int type) {
-
-        String tblName = "";
-
-        switch (type) {
-            case 1:
-                tblName = "Tbl_Eating";
-                break;
-            case 2:
-                tblName = "Tbl_Shoppings";
-                break;
-            case 3:
-                tblName = "Tbl_Rests";
-                break;
-            case 4:
-                tblName = "Tbl_Tourisms";
-                break;
-            case 5:
-                tblName = "Tbl_Culturals";
-                break;
-            case 6:
-                tblName = "Tbl_Transports";
-                break;
-            case 7:
-                tblName = "Tbl_Services";
-                break;
-            case 8:
-                tblName = "Tbl_Offices";
-                break;
-            case 9:
-                tblName = "Tbl_Medicals";
-                break;
-            case 10:
-                tblName = "Tbl_Events";
-                break;
-            default:
-                tblName = "";
-        }
-        return tblName;
     }
 
     private void initView(View view) {
@@ -610,128 +541,75 @@ public class mapFragment extends Fragment {
         filterDialog.setContentView(R.layout.dialog_filters);
         Button btnFilter = (Button) filterDialog.findViewById(R.id.btnFilter);
         Button btn_cancel = (Button) filterDialog.findViewById(R.id.btn_cancel);
-        final CheckBox checkAll = filterDialog.findViewById(R.id.checkAll);
-        final CheckBox checkEating = filterDialog.findViewById(R.id.checkEating);
-        final CheckBox checkShopping = filterDialog.findViewById(R.id.checkShopping);
-        final CheckBox checkStay = filterDialog.findViewById(R.id.checkStay);
-        final CheckBox checkTourism = filterDialog.findViewById(R.id.checkTourism);
-        final CheckBox checkArt = filterDialog.findViewById(R.id.checkArt);
-        final CheckBox checkTransport = filterDialog.findViewById(R.id.checkTransport);
-        final CheckBox checkServices = filterDialog.findViewById(R.id.checkServices);
-        final CheckBox checkOffices = filterDialog.findViewById(R.id.checkOffices);
-        final CheckBox checkMedical = filterDialog.findViewById(R.id.checkMedical);
-        final CheckBox checkevents = filterDialog.findViewById(R.id.checkEvents);
+        final CheckBox[] checkBox = new CheckBox[14]; // check[0] is all
+        checkBox[0] = filterDialog.findViewById(R.id.check0);
+        checkBox[1] = filterDialog.findViewById(R.id.check1);
+        checkBox[2] = filterDialog.findViewById(R.id.check2);
+        checkBox[3] = filterDialog.findViewById(R.id.check3);
+        checkBox[4] = filterDialog.findViewById(R.id.check4);
+        checkBox[5] = filterDialog.findViewById(R.id.check5);
+        checkBox[6] = filterDialog.findViewById(R.id.check6);
+        checkBox[7] = filterDialog.findViewById(R.id.check7);
+        checkBox[8] = filterDialog.findViewById(R.id.check8);
+        checkBox[9] = filterDialog.findViewById(R.id.check9);
+        checkBox[10] = filterDialog.findViewById(R.id.check10);
+        checkBox[11] = filterDialog.findViewById(R.id.check11);
+        checkBox[12] = filterDialog.findViewById(R.id.check12);
+        checkBox[13] = filterDialog.findViewById(R.id.check13);
 
-
-        if (selectedFilters.size() == 10) {
-            checkAll.setChecked(true);
+        if (selectedFilters.size() == 13) {
+            checkBox[0].setChecked(true);
         } else {
             for (int i = 0; i < selectedFilters.size(); i++) {
-                if (selectedFilters.get(i).equals("Tbl_Eating"))
-                    checkEating.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Shoppings"))
-                    checkShopping.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Rests"))
-                    checkStay.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Tourisms"))
-                    checkTourism.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Culturals"))
-                    checkArt.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Transports"))
-                    checkTransport.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Services"))
-                    checkServices.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Offices"))
-                    checkOffices.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Medicals"))
-                    checkMedical.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Events"))
-                    checkevents.setChecked(true);
+                if (selectedFilters.get(i) == 1)
+                    checkBox[1].setChecked(true);
+                if (selectedFilters.get(i) == 2)
+                    checkBox[2].setChecked(true);
+                if (selectedFilters.get(i) == 3)
+                    checkBox[3].setChecked(true);
+                if (selectedFilters.get(i) == 4)
+                    checkBox[4].setChecked(true);
+                if (selectedFilters.get(i) == 5)
+                    checkBox[5].setChecked(true);
+                if (selectedFilters.get(i) == 6)
+                    checkBox[6].setChecked(true);
+                if (selectedFilters.get(i) == 7)
+                    checkBox[7].setChecked(true);
+                if (selectedFilters.get(i) == 8)
+                    checkBox[8].setChecked(true);
+                if (selectedFilters.get(i) == 9)
+                    checkBox[9].setChecked(true);
+                if (selectedFilters.get(i) == 10)
+                    checkBox[10].setChecked(true);
+                if (selectedFilters.get(i) == 11)
+                    checkBox[11].setChecked(true);
+                if (selectedFilters.get(i) == 12)
+                    checkBox[12].setChecked(true);
+                if (selectedFilters.get(i) == 13)
+                    checkBox[13].setChecked(true);
             }
         }
 
+        for (int i = 1; i < 13; i++) {
+            checkBox[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked)
+                        checkBox[0].setChecked(false);
+                }
+            });
+        }
 
-        checkEating.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkShopping.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkStay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkTourism.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkTransport.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkServices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkOffices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkMedical.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
 
-        checkevents.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-
-        checkAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox[0].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    checkEating.setChecked(false);
-                    checkShopping.setChecked(false);
-                    checkStay.setChecked(false);
-                    checkTourism.setChecked(false);
-                    checkArt.setChecked(false);
-                    checkTransport.setChecked(false);
-                    checkServices.setChecked(false);
-                    checkOffices.setChecked(false);
-                    checkMedical.setChecked(false);
-                    checkevents.setChecked(false);
+                    for (int i = 1; i < 13; i++)
+                        checkBox[i].setChecked(false);
 
                 }
+
             }
         });
 
@@ -753,82 +631,27 @@ public class mapFragment extends Fragment {
                 map.getOverlays().clear();
                 lytDetails.setVisibility(View.GONE);
 
-                if (checkAll.isChecked()) {
+                if (checkBox[0].isChecked()) {
                     filteredList = placesList;
                 } else {
-                    if (checkEating.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 1)
-                                filteredList.add(placesList.get(i));
+
+                    for (int j = 1; j < 13; j++) {
+                        if (checkBox[j].isChecked()) {
+                            for (int i = 0; i < placesList.size(); i++) {
+                                if (placesList.get(i).RootCategory == j)
+                                    filteredList.add(placesList.get(i));
+                            }
                         }
-                        selectedFilters.add(allFilters.get(0));
-                    }
-                    if (checkShopping.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 2)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(1));
-                    }
-                    if (checkStay.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 3)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(2));
-                    }
-                    if (checkTourism.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 4)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(3));
-                    }
-                    if (checkArt.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 5)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(4));
-                    }
-                    if (checkTransport.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 6)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(5));
-                    }
-                    if (checkServices.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 7)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(6));
-                    }
-                    if (checkOffices.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 8)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(7));
-                    }
-                    if (checkMedical.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 9)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(8));
-                    }
-                    if (checkevents.isChecked()) {
-                        for (int i = 0; i < placesList.size(); i++) {
-                            if (placesList.get(i).mainType == 10)
-                                filteredList.add(placesList.get(i));
-                        }
-                        selectedFilters.add(allFilters.get(9));
                     }
                 }
 
-                if (!checkAll.isChecked() && !checkEating.isChecked() && !checkShopping.isChecked() && !checkStay.isChecked() && !checkTourism.isChecked() && !checkArt.isChecked() && !checkTransport.isChecked() && !checkServices.isChecked() && !checkOffices.isChecked() && !checkMedical.isChecked() && !checkevents.isChecked()) {
+                boolean isCheckedAtLeastOneCheckbox = false;
+                for (int k = 0; k < 13; k++) {
+                    if (checkBox[k].isChecked())
+                        isCheckedAtLeastOneCheckbox = true;
+                }
+
+                if (!checkBox[0].isChecked() && !isCheckedAtLeastOneCheckbox) {
                     Toast.makeText(getContext(), "حداقل یک مورد انتخاب کنید", Toast.LENGTH_LONG).show();
                 } else {
                     if (filteredList.size() > 0) {
@@ -899,14 +722,14 @@ public class mapFragment extends Fragment {
                 } else if (radioRate.isChecked()) {
                     selectedSort = "rate";
                     for (int i = 0; i < filteredList.size(); i++) {
-                        if (filteredList.get(i).star > 3)
+                        if (filteredList.get(i).Star > 3)
                             sortedList.add(filteredList.get(i));
                     }
                 } else if (radioNear.isChecked()) {
                     selectedSort = "near";
                     if (currentLocation != null) {
                         for (int i = 0; i < filteredList.size(); i++) {
-                            if (getDistance(currentLocation.getLatitude(), currentLocation.getLongitude(), filteredList.get(i).lat, filteredList.get(i).lon, "K") < 4)
+                            if (getDistance(currentLocation.getLatitude(), currentLocation.getLongitude(), filteredList.get(i).Lat, filteredList.get(i).Long, "K") < 4)
                                 sortedList.add(filteredList.get(i));
                         }
                     } else {
@@ -921,7 +744,7 @@ public class mapFragment extends Fragment {
                         if (favoriteList.size() > 0) {
                             for (int i = 0; i < filteredList.size(); i++) {
                                 for (int j = 0; j < favoriteList.size(); j++) {
-                                    if (favoriteList.get(j).RootCategory == filteredList.get(i).mainType && favoriteList.get(j).id == filteredList.get(i).id) {
+                                    if (favoriteList.get(j).RootCategory == filteredList.get(i).RootCategory && favoriteList.get(j).id == filteredList.get(i).id) {
                                         sortedList.add(filteredList.get(i));
                                     }
                                 }
@@ -948,7 +771,7 @@ public class mapFragment extends Fragment {
     }
 
 
-    private void addMarkersToMap(final List<MapModel> placesList) {
+    private void addMarkersToMap(final List<PlacesModel> placesList) {
 
         if (this.getView() != null) {
 
@@ -956,10 +779,10 @@ public class mapFragment extends Fragment {
 
             for (int i = 0; i < placesList.size(); i++) {
 
-                GeoPoint placeLoc = new GeoPoint(placesList.get(i).lat, placesList.get(i).lon);
-                myLocationOverlayItem = new OverlayItem("" + placesList.get(i).id, placesList.get(i).name, placeLoc);
+                GeoPoint placeLoc = new GeoPoint(placesList.get(i).Lat, placesList.get(i).Long);
+                myLocationOverlayItem = new OverlayItem("" + placesList.get(i).id, placesList.get(i).Name, placeLoc);
 
-                switch (placesList.get(i).mainType) {
+                switch (placesList.get(i).RootCategory) {
                     case 1:
                         myCurrentLocationMarker = getResources().getDrawable(R.mipmap.restaurants);
                         break;
@@ -976,22 +799,27 @@ public class mapFragment extends Fragment {
                         myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.museums);
                         break;
                     case 6:
-                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.transport);
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.museums);
                         break;
                     case 7:
-                        if (placesList.get(i).type == 1)
-                            myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.gym);
-                        else
-                            myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.services);
-                        break;
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.museums);
                     case 8:
-                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.government);
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.gym);
                         break;
                     case 9:
-                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.medical);
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.transport);
                         break;
                     case 10:
-                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.events);
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.transport);
+                        break;
+                    case 11:
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.services);
+                        break;
+                    case 12:
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.government);
+                        break;
+                    case 13:
+                        myCurrentLocationMarker = this.getResources().getDrawable(R.mipmap.medical);
                         break;
                 }
 
@@ -1012,17 +840,14 @@ public class mapFragment extends Fragment {
                             imgGoogle.setVisibility(View.VISIBLE);
                             imgGoogle.setAnimation(mp4);
                             lytDetails.startAnimation(mp3);
-                            txtName.setText(placesList.get(index).name);
-                            txtAddress.setText(placesList.get(index).address);
+                            txtName.setText(placesList.get(index).Name);
+                            txtAddress.setText(placesList.get(index).Address);
                             if (placesList.get(index).image != null)
                                 if (!placesList.get(index).image.equals(""))
                                     Glide.with(getContext()).load(app.imgMainAddr + app.placesImgAddr + placesList.get(index).image).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgDetails);
 
-                            if (placesList.get(index).mainType != 10 && placesList.get(index).mainType != 8)
-                                rating.setRating(Float.parseFloat(placesList.get(index).star + ""));
-                            else {
-                                rating.setVisibility(View.INVISIBLE);
-                            }
+                            rating.setRating(Float.parseFloat(placesList.get(index).Star + ""));
+
                             return true;
                         }
 
@@ -1058,14 +883,14 @@ public class mapFragment extends Fragment {
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     /*::	This function converts decimal degrees to radians						 :*/
-	/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     private static double deg2rad(double deg) {
         return (deg * Math.PI / 180.0);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-	/*::	This function converts radians to decimal degrees						 :*/
-	/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::	This function converts radians to decimal degrees						 :*/
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     private static double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
     }
@@ -1075,11 +900,9 @@ public class mapFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
 
         public DatabaseCallbackListAll(Context context) {
             this.context = context;
-//            this.tblName = tblName;
         }
 
         @Override
@@ -1104,28 +927,9 @@ public class mapFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Eating"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Shoppings"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Rests"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Tourisms"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Culturals"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Transports"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Services"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Offices"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Medicals"));
-            placesList.addAll(databaseHelper.selectAllPlacesToMap("Tbl_Events"));
+            placesList = databaseHelper.selectAllPlacesToMap();
 
-
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Eating"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Shoppings"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Rests"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Tourisms"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Culturals"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Transports"));
-            //placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Offices"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Medicals"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Services"));
-            favoriteList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Events"));
+            favoriteList = databaseHelper.selectAllPlacesByFavorite();
 
             return null;
         }

@@ -57,8 +57,8 @@ public class categorySeatchFragment extends Fragment {
     private RecyclerView recycle;
 
     private String sortType = "Name";
-    private List<String> allFilters;
-    private List<String> selectedFilters;
+    private List<Integer> allFilters;
+    private List<Integer> selectedFilters;
     private List<PlacesModel> placeList = new ArrayList<>();
 
     public boolean firstTime = true;
@@ -76,15 +76,19 @@ public class categorySeatchFragment extends Fragment {
         initView(view);
 
         allFilters = new ArrayList<>();
-        allFilters.add("Tbl_Eating");
-        allFilters.add("Tbl_Shoppings");
-        allFilters.add("Tbl_Rests");
-        allFilters.add("Tbl_Tourisms");
-        allFilters.add("Tbl_Culturals");
-        allFilters.add("Tbl_Transports");
-        allFilters.add("Tbl_Services");
-        allFilters.add("Tbl_Offices");
-        allFilters.add("Tbl_Medicals");
+        allFilters.add(1);
+        allFilters.add(2);
+        allFilters.add(3);
+        allFilters.add(4);
+        allFilters.add(5);
+        allFilters.add(6);
+        allFilters.add(7);
+        allFilters.add(8);
+        allFilters.add(9);
+        allFilters.add(10);
+        allFilters.add(11);
+        allFilters.add(12);
+        allFilters.add(13);
 
         if (firstTime) {
             selectedFilters = allFilters;
@@ -147,8 +151,7 @@ public class categorySeatchFragment extends Fragment {
                 if (!edtSearch.getText().toString().equals("")) {
                     DatabaseCallback callback = new DatabaseCallback(getContext());
                     callback.execute();
-                }
-                else
+                } else
                     Toast.makeText(getContext(), "عبارت جستوجو را وارد کنید", Toast.LENGTH_LONG).show();
 
             }
@@ -205,124 +208,73 @@ public class categorySeatchFragment extends Fragment {
         dialog.setContentView(R.layout.dialog_filters);
         Button btnFilter = (Button) dialog.findViewById(R.id.btnFilter);
         Button btn_cancel = (Button) dialog.findViewById(R.id.btn_cancel);
-        final CheckBox checkAll = dialog.findViewById(R.id.checkAll);
-        final CheckBox checkEating = dialog.findViewById(R.id.checkEating);
-        final CheckBox checkShopping = dialog.findViewById(R.id.checkShopping);
-        final CheckBox checkStay = dialog.findViewById(R.id.checkStay);
-        final CheckBox checkTourism = dialog.findViewById(R.id.checkTourism);
-        final CheckBox checkArt = dialog.findViewById(R.id.checkArt);
-        final CheckBox checkTransport = dialog.findViewById(R.id.checkTransport);
-        final CheckBox checkServices = dialog.findViewById(R.id.checkServices);
-        final CheckBox checkOffices = dialog.findViewById(R.id.checkOffices);
-        final CheckBox checkMedical = dialog.findViewById(R.id.checkMedical);
-        final CheckBox checkEvent = dialog.findViewById(R.id.checkEvents);
-        final TextView txtEvent = dialog.findViewById(R.id.txtEvent);
-        checkEvent.setVisibility(View.GONE);
-        txtEvent.setVisibility(View.GONE);
+        final CheckBox[] checkBox = new CheckBox[14]; // check[0] is all
+        checkBox[0] = dialog.findViewById(R.id.check0);
+        checkBox[1] = dialog.findViewById(R.id.check1);
+        checkBox[2] = dialog.findViewById(R.id.check2);
+        checkBox[3] = dialog.findViewById(R.id.check3);
+        checkBox[4] = dialog.findViewById(R.id.check4);
+        checkBox[5] = dialog.findViewById(R.id.check5);
+        checkBox[6] = dialog.findViewById(R.id.check6);
+        checkBox[7] = dialog.findViewById(R.id.check7);
+        checkBox[8] = dialog.findViewById(R.id.check8);
+        checkBox[9] = dialog.findViewById(R.id.check9);
+        checkBox[10] = dialog.findViewById(R.id.check10);
+        checkBox[11] = dialog.findViewById(R.id.check11);
+        checkBox[12] = dialog.findViewById(R.id.check12);
+        checkBox[13] = dialog.findViewById(R.id.check13);
 
-        if (selectedFilters.size() == 9){
-            checkAll.setChecked(true);
+        if (selectedFilters.size() == 13) {
+            checkBox[0].setChecked(true);
+        } else {
+            for (int i = 0; i < selectedFilters.size(); i++) {
+                if (selectedFilters.get(i) == 1)
+                    checkBox[1].setChecked(true);
+                if (selectedFilters.get(i) == 2)
+                    checkBox[2].setChecked(true);
+                if (selectedFilters.get(i) == 3)
+                    checkBox[3].setChecked(true);
+                if (selectedFilters.get(i) == 4)
+                    checkBox[4].setChecked(true);
+                if (selectedFilters.get(i) == 5)
+                    checkBox[5].setChecked(true);
+                if (selectedFilters.get(i) == 6)
+                    checkBox[6].setChecked(true);
+                if (selectedFilters.get(i) == 7)
+                    checkBox[7].setChecked(true);
+                if (selectedFilters.get(i) == 8)
+                    checkBox[8].setChecked(true);
+                if (selectedFilters.get(i) == 9)
+                    checkBox[9].setChecked(true);
+                if (selectedFilters.get(i) == 10)
+                    checkBox[10].setChecked(true);
+                if (selectedFilters.get(i) == 11)
+                    checkBox[11].setChecked(true);
+                if (selectedFilters.get(i) == 12)
+                    checkBox[12].setChecked(true);
+                if (selectedFilters.get(i) == 13)
+                    checkBox[13].setChecked(true);
+            }
         }
-        else{
-            for (int i = 0; i< selectedFilters.size(); i++){
-                if (selectedFilters.get(i).equals("Tbl_Eating"))
-                    checkEating.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Shoppings"))
-                    checkShopping.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Rests"))
-                    checkStay.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Tourisms"))
-                    checkTourism.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Culturals"))
-                    checkArt.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Transports"))
-                    checkTransport.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Services"))
-                    checkServices.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Offices"))
-                    checkOffices.setChecked(true);
-                if (selectedFilters.get(i).equals("Tbl_Medicals"))
-                    checkMedical.setChecked(true);
-            }
+
+
+        for (int i = 1; i < 13; i++) {
+            checkBox[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked)
+                        checkBox[0].setChecked(false);
+                }
+            });
         }
 
-        checkArt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
 
-        checkEating.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkShopping.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkStay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkTourism.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkTransport.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkServices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkOffices.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkMedical.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    checkAll.setChecked(false);
-            }
-        });
-        checkAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        checkBox[0].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    checkEating.setChecked(false);
-                    checkShopping.setChecked(false);
-                    checkStay.setChecked(false);
-                    checkTourism.setChecked(false);
-                    checkArt.setChecked(false);
-                    checkTransport.setChecked(false);
-                    checkServices.setChecked(false);
-                    checkOffices.setChecked(false);
-                    checkMedical.setChecked(false);
+                    for (int i = 1; i < 13; i++)
+                        checkBox[i].setChecked(false);
 
                 }
 
@@ -344,41 +296,26 @@ public class categorySeatchFragment extends Fragment {
 
                 selectedFilters = new ArrayList<>();
 
-                if (checkAll.isChecked()){
+                if (checkBox[0].isChecked()) {
                     selectedFilters = allFilters;
-                }
-                else{
+                } else {
                     selectedFilters = new ArrayList<>();
-                    if (checkEating.isChecked())
-                        selectedFilters.add(allFilters.get(0));
-                    if (checkShopping.isChecked())
-                        selectedFilters.add(allFilters.get(1));
-                    if (checkStay.isChecked())
-                        selectedFilters.add(allFilters.get(2));
-                    if (checkTourism.isChecked())
-                        selectedFilters.add(allFilters.get(3));
-                    if (checkArt.isChecked())
-                        selectedFilters.add(allFilters.get(4));
-                    if (checkTransport.isChecked())
-                        selectedFilters.add(allFilters.get(5));
-                    if (checkServices.isChecked())
-                        selectedFilters.add(allFilters.get(6));
-                    if (checkOffices.isChecked())
-                        selectedFilters.add(allFilters.get(7));
-                    if (checkMedical.isChecked())
-                        selectedFilters.add(allFilters.get(7));
+
+
+                    for (int i = 1; i < 13; i++) {
+                        if (checkBox[i].isChecked())
+                            selectedFilters.add(allFilters.get(i - 1));
+                    }
                 }
 
-                if (selectedFilters.size() == 0){
+                if (selectedFilters.size() == 0) {
                     Toast.makeText(getContext(), "حداقل یک مورد انتخاب کنید", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     if (!edtSearch.getText().toString().equals("")) {
                         DatabaseCallback callback = new DatabaseCallback(getContext());
                         callback.execute();
                         dialog.dismiss();
-                    }
-                    else
+                    } else
                         Toast.makeText(getContext(), "عبارت جستوجو را وارد کنید", Toast.LENGTH_LONG).show();
 
                 }
@@ -396,8 +333,8 @@ public class categorySeatchFragment extends Fragment {
         dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_sort);
-        Button btnSort = (Button) dialog.findViewById(R.id.btnSort);
-        Button btn_cancel = (Button) dialog.findViewById(R.id.btn_cancel);
+        Button btnSort = dialog.findViewById(R.id.btnSort);
+        Button btn_cancel = dialog.findViewById(R.id.btn_cancel);
         final RadioButton radioName = dialog.findViewById(R.id.radio1);
         final RadioButton radioLike = dialog.findViewById(R.id.radio2);
         final RadioButton radioRate = dialog.findViewById(R.id.radio3);
@@ -417,13 +354,11 @@ public class categorySeatchFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (radioName.isChecked()){
+                if (radioName.isChecked()) {
                     sortType = "Name";
-                }
-                else if (radioLike.isChecked()){
+                } else if (radioLike.isChecked()) {
                     sortType = "likeCount";
-                }
-                else if (radioRate.isChecked()){
+                } else if (radioRate.isChecked()) {
                     sortType = "star";
                 }
 
@@ -431,8 +366,7 @@ public class categorySeatchFragment extends Fragment {
                     DatabaseCallback callback = new DatabaseCallback(getContext());
                     callback.execute();
                     dialog.dismiss();
-                }
-                else
+                } else
                     Toast.makeText(getContext(), "عبارت جستوجو را وارد کنید", Toast.LENGTH_LONG).show();
 
             }
@@ -446,7 +380,7 @@ public class categorySeatchFragment extends Fragment {
 
     private void setUpRecyclerView(List<PlacesModel> placesList) {
 
-        restaurantListAdapter adapter = new restaurantListAdapter(getContext(), placesList, "");
+        restaurantListAdapter adapter = new restaurantListAdapter(getContext(), placesList);
         recycle.setAdapter(adapter);
 
         LinearLayoutManager mLinearLayoutManagerVertical = new LinearLayoutManager(getContext());
@@ -478,9 +412,7 @@ public class categorySeatchFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-//            for (int i = 0 ; i < selectedFilters.size(); i++) {
-                placeList.addAll(databaseHelper.selectAllPlacesbySearch(selectedFilters, searchValue, sortType));
-//            }
+            placeList = databaseHelper.selectAllPlacesbySearch(searchValue, sortType, selectedFilters);
 
             return null;
         }
@@ -490,7 +422,7 @@ public class categorySeatchFragment extends Fragment {
             super.onPostExecute(aVoid);
 
             if (placeList != null)
-                    setUpRecyclerView(placeList);
+                setUpRecyclerView(placeList);
 
         }
 

@@ -53,31 +53,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return lastUpdate;
     }
 
-    public List<MapModel> selectAllPlacesToMap(String tblName) {
+    public List<PlacesModel> selectAllPlacesToMap() {
 
-        List<MapModel> list = new ArrayList<>();
+        List<PlacesModel> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
         //String order = "orderb";
-        String sql = "SELECT * FROM " + tblName;
+        String sql = "SELECT * FROM Tbl_Places";
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
         if (!cursor.isAfterLast()) {
             do {
-                MapModel pm = new MapModel();
+                PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                if (!tblName.equals("Tbl_Events"))
-                    pm.type = cursor.getInt(cursor.getColumnIndex("type"));
-                pm.mainType = cursor.getInt(cursor.getColumnIndex("mainType"));
-                pm.name = cursor.getString(cursor.getColumnIndex("Name"));
-                pm.address = cursor.getString(cursor.getColumnIndex("address"));
+                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("RootCategory"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("Categroy"));
+                pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
+                pm.Address = cursor.getString(cursor.getColumnIndex("Address"));
                 pm.image = cursor.getString(cursor.getColumnIndex("image"));
-                pm.lat = cursor.getDouble(cursor.getColumnIndex("lat"));
-                pm.lon = cursor.getDouble(cursor.getColumnIndex("lon"));
-                if (!tblName.equals("Tbl_Offices") && !tblName.equals("Tbl_Events"))
-                    pm.star = cursor.getDouble(cursor.getColumnIndex("star"));
-                else
-                    pm.star = 0;
-                //pm.imgPersonal = cursor.getString(cursor.getColumnIndex("imgPersonal"));
+                pm.Lat = cursor.getDouble(cursor.getColumnIndex("Lat"));
+                pm.Long = cursor.getDouble(cursor.getColumnIndex("Long"));
+                pm.Star = cursor.getDouble(cursor.getColumnIndex("Star"));
 
 
                 list.add(pm);
@@ -1318,99 +1313,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<String> selectOfficePhoneById(String r) {
-        List<String> list = new ArrayList<>();
-        SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql = "SELECT * FROM Tbl_OfficePhone WHERE id=" + r;
-        String request = "id";
-        Cursor cursor = ArasDB.rawQuery(sql, null);
-        cursor.moveToFirst();
-        if (!cursor.isAfterLast()) {
-            do {
-                String s = cursor.getString(cursor.getColumnIndex(request));
-                list.add(s);
-            } while (cursor.moveToNext());
-
-        }
-        cursor.close();
-        ArasDB.close();
-        return list;
-    }
-
-    public void insertNewOfficePhone(PhoneModel placesModel) {
-
-        SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql = "";
-        sql = "INSERT INTO Tbl_OfficePhone (id,name,phone,visibility,lastUpdate) VALUES('"
-                + placesModel.id + "','" + placesModel.name + "','" + placesModel.phone + "','" + placesModel.visibility + "','" + placesModel.lastUpdate + "')";
-        ArasDB.execSQL(sql);
-
-        ArasDB.close();
-    }
-
-    public List<String> selectOfficePhoneByLastUpdate(String r) {
-        List<String> list = new ArrayList<>();
-        SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql = "SELECT * FROM Tbl_OfficePhone WHERE id=" + r;
-        String request = "lastUpdate";
-        Cursor cursor = ArasDB.rawQuery(sql, null);
-        cursor.moveToFirst();
-        if (!cursor.isAfterLast()) {
-            do {
-                String s = cursor.getString(cursor.getColumnIndex(request));
-                list.add(s);
-            } while (cursor.moveToNext());
-
-        }
-        cursor.close();
-        ArasDB.close();
-        return list;
-    }
-
-    public void updateOfficePhone(PhoneModel placesModel) {
-
-        SQLiteDatabase ArasDB = getReadableDatabase();
-        String sql;
-        sql = "UPDATE Tbl_OfficePhone SET name='" + placesModel.name + "',phone='" + placesModel.phone + "',visibility=" + ((placesModel.visibility) ? 1 : 0) + ",lastUpdate='" + placesModel.lastUpdate + "' WHERE id=" + placesModel.id;
-        ArasDB.execSQL(sql);
-        ArasDB.close();
-    }
-
-    public void deleteOfficePhone(String id) {
-
-        //Log.i("LOG", "delete city:" + id);
-        SQLiteDatabase ArasDB = getWritableDatabase();
-        String sql = "DELETE FROM Tbl_OfficePhone WHERE id=" + id + "";
-        ArasDB.execSQL(sql);
-        ArasDB.close();
-
-    }
-
-    public List<PhoneModel> selectAllPhones() {
-
-        List<PhoneModel> list = new ArrayList<>();
-        SQLiteDatabase ArasDB = getReadableDatabase();
-        //String order = "orderb";
-        String sql = "SELECT * FROM Tbl_OfficePhone";
-        Cursor cursor = ArasDB.rawQuery(sql, null);
-        cursor.moveToFirst();
-        if (!cursor.isAfterLast()) {
-            do {
-                PhoneModel pm = new PhoneModel();
-                pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.name = cursor.getString(cursor.getColumnIndex("Name"));
-                pm.phone = cursor.getString(cursor.getColumnIndex("phone"));
-
-                list.add(pm);
-            } while (cursor.moveToNext());
-
-        }
-        cursor.close();
-        ArasDB.close();
-        return list;
-    }
-
-
     public List<String> selectImageId(String r) {
         List<String> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
@@ -1505,18 +1407,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<PlacesModel> selectAllPlacesbySearch(List<String> tblNames, String searchValue, String sort) {
+    public List<PlacesModel> selectAllPlacesbySearch(String searchValue, String sort, List<Integer> selectedFilters) {
 
         List<PlacesModel> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
         //String order = "orderb";
-        String sql = "SELECT id,type,name,address,star,likeCount,mainType,image FROM " + tblNames.get(0) + " WHERE name LIKE '%" + searchValue + "%'";
-
-        for (int i = 1; i < tblNames.size(); i++) {
-            sql += " UNION SELECT id,type,Name,address,star,likeCount,mainType,image FROM " + tblNames.get(i) + " WHERE Name LIKE '%" + searchValue + "%'";
+        String sql = "SELECT * FROM Tbl_Places WHERE RootCategory In (";
+        for (int i = 0; i < selectedFilters.size(); i++) {
+            if (i == selectedFilters.size() - 1)
+                sql += selectedFilters.get(i);
+            else
+                sql += selectedFilters.get(i) + ",";
         }
 
-        sql += "order by " + sort + " DESC";
+        sql += ") AND Name LIKE '%" + searchValue + "%' order by " + sort + " DESC";
 
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
@@ -1524,17 +1428,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.Category = cursor.getInt(cursor.getColumnIndex("type"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("Categroy"));
                 pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
-                pm.Address = cursor.getString(cursor.getColumnIndex("address"));
-                if (!tblNames.equals("Tbl_Offices"))
-                    pm.Star = cursor.getDouble(cursor.getColumnIndex("star"));
-                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("mainType"));
+                pm.Address = cursor.getString(cursor.getColumnIndex("Address"));
+                pm.Star = cursor.getDouble(cursor.getColumnIndex("Star"));
+                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("RootCategory"));
                 pm.image = cursor.getString(cursor.getColumnIndex("image"));
 
-
-                if (!(pm.RootCategory == 8 && pm.id == 1))
-                    list.add(pm);
+                list.add(pm);
             } while (cursor.moveToNext());
 
         }
@@ -1543,27 +1444,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    public List<PlacesModel> selectAllPlacesByFavorite(String tblName) {
+    public List<PlacesModel> selectAllPlacesByFavorite() {
 
         List<PlacesModel> list = new ArrayList<>();
         SQLiteDatabase ArasDB = getReadableDatabase();
         //String order = "orderb";
-        String sql = "SELECT * FROM " + tblName + " WHERE userFavorite > 0";
+        String sql = "SELECT * FROM Tbl_Places WHERE idUserFavorite > 0";
         Cursor cursor = ArasDB.rawQuery(sql, null);
         cursor.moveToFirst();
         if (!cursor.isAfterLast()) {
             do {
                 PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                if (!tblName.equals("Tbl_Events"))
-                    pm.Category = cursor.getInt(cursor.getColumnIndex("type"));
-                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("mainType"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("Category"));
+                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("RootCategory"));
                 pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
-                pm.Address = cursor.getString(cursor.getColumnIndex("address"));
+                pm.Address = cursor.getString(cursor.getColumnIndex("Address"));
                 pm.image = cursor.getString(cursor.getColumnIndex("image"));
-                if (!tblName.equals("Tbl_Offices") && !tblName.equals("Tbl_Events"))
-                    pm.Star = cursor.getDouble(cursor.getColumnIndex("star"));
-                //pm.imgPersonal = cursor.getString(cursor.getColumnIndex("imgPersonal"));
+                pm.Star = cursor.getDouble(cursor.getColumnIndex("Star"));
 
 
                 list.add(pm);

@@ -1,272 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="280dp"
+    android:layout_height="match_parent"
     android:background="@color/darkWhite"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:text="فیلتر کردن گزینه ها"
-        android:gravity="center"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:textColor="@color/white"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:layout_height="wrap_content" />
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="فیلتر کردن گزینه ها"
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_weight="0.5">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="همه دسته بندی ها"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkAll"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="همه دسته بندی ها" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/check0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="رستوران ها"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
+                </LinearLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkEating"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="رستوران و خوراکی" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/check1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="مراکز خرید"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
+                </LinearLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkShopping"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="مراکز خرید" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/check2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="مرااکز اقامتی"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
+                </LinearLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkStay"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="مرااکز اقامتی" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/check3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="گردشگری"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
+                </LinearLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkTourism"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="گردشگری" />
 
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/check4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="فرهنگی و هنری"
-            android:layout_marginRight="8dp"
-            android:layout_height="wrap_content" />
+                </LinearLayout>
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:id="@+id/checkArt"
-            android:buttonTint="@color/colorPrimary"
-            app:buttonTint="@color/colorPrimary"
-            android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="مد و لباس" />
+
+                    <CheckBox
+                        android:id="@+id/check5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="خانه و مسکن" />
+
+                    <CheckBox
+                        android:id="@+id/check6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="آموزش" />
+
+                    <CheckBox
+                        android:id="@+id/check7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="ورزشی" />
+
+                    <CheckBox
+                        android:id="@+id/check8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="اتومبیل" />
+
+                    <CheckBox
+                        android:id="@+id/check9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="حمل و نقل" />
+
+                    <CheckBox
+                        android:id="@+id/check10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="خدمات و تسهیلات" />
+
+                    <CheckBox
+                        android:id="@+id/check11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="اماکن و ادارات" />
+
+                    <CheckBox
+                        android:id="@+id/check12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtEvent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="مراکز درمانی" />
+
+                    <CheckBox
+                        android:id="@+id/check13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        app:buttonTint="@color/colorPrimary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="حمل و نقل"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkTransport"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="خدمات و تسهیلات"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkServices"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="اماکن و ادارات"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkOffices"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="مراکز درمانی"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkMedical"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/txtEvent"
-                android:layout_width="wrap_content"
-                android:text="رویداد ها"
-                android:layout_marginRight="8dp"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:id="@+id/checkEvents"
-                android:buttonTint="@color/colorPrimary"
-                app:buttonTint="@color/colorPrimary"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:paddingBottom="30dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="30dp">
 
         <Button
             android:id="@+id/btn_cancel"
@@ -279,9 +356,9 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="لغو"
-            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnFilter"
@@ -294,9 +371,9 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="اعمال"
-            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

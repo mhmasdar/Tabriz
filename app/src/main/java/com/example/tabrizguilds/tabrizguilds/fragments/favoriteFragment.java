@@ -87,7 +87,7 @@ public class favoriteFragment extends Fragment {
 
     private void setUpRecyclerViewPlaces(List<PlacesModel> placesList) {
 
-        restaurantListAdapter adapter = new restaurantListAdapter(getContext(), placesList, "");
+        restaurantListAdapter adapter = new restaurantListAdapter(getContext(), placesList);
         recyclePlaces.setAdapter(adapter);
 
         LinearLayoutManager mLinearLayoutManagerVertical = new LinearLayoutManager(getContext());
@@ -100,11 +100,9 @@ public class favoriteFragment extends Fragment {
 
         private DatabaseHelper databaseHelper;
         private Context context;
-        private String tblName;
 
         public DatabaseCallback(Context context) {
             this.context = context;
-            //this.tblName = tblName;
         }
 
         @Override
@@ -119,15 +117,7 @@ public class favoriteFragment extends Fragment {
         @Override
         protected Void doInBackground(Object... objects) {
 
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Eating"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Shoppings"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Rests"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Tourisms"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Culturals"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Transports"));
-            //placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Offices"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Medicals"));
-            placesList.addAll(databaseHelper.selectAllPlacesByFavorite("Tbl_Services"));
+            placesList = databaseHelper.selectAllPlacesByFavorite();
 
             return null;
         }

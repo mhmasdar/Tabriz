@@ -94,7 +94,7 @@ public class restaurantsListFragment extends Fragment {
 
     private void setUpRecyclerView(List<PlacesModel> placesList) {
 
-        restaurantListAdapter adapter = new restaurantListAdapter(getContext(), placesList, "Tbl_Eating");
+        restaurantListAdapter adapter = new restaurantListAdapter(getContext(), placesList);
         recycler.setAdapter(adapter);
 
         LinearLayoutManager mLinearLayoutManagerVertical = new LinearLayoutManager(getContext());
