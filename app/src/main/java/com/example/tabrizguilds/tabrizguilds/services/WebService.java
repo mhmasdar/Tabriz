@@ -299,12 +299,12 @@ public class WebService {
             return null;
     }
 
-    public String postRegisterInfo(boolean isInternetAvailable, String name, String lName, String mobile, String email, String pass) {
+    public String postRegisterInfo(boolean isInternetAvailable, String Name, String lName, String mobile, String email, String pass) {
 
         if (isInternetAvailable) {
 
-            //String req = "{\"Name\":\"" + Name + "\",\"LName\":\"" + lName + "\",\"Mobile\":\"" + mobile + "\",\"Email\":\"" + email + "\",\"Pass\":\"" + pass + "\",\"Visibility\":1,\"lastUpdate\":1}";
-            String req = "{idRow:0,Name:\"" + name + "\",LName:\"" + lName + "\",Mobile:\"" + mobile + "\",Email:\"" + email + "\",Pass:\"" + pass + "\",Visibility:1,lastUpdate:1,imei:null,macAddress:null}";
+            String req = "{\"Name\":\"" + Name + "\",\"LName\":\"" + lName + "\",\"Mobile\":\"" + mobile + "\",\"Email\":\"" + email + "\",\"Pass\":\"" + pass + "\",\"Visibility\":1,\"IsValid\":0,\"id\":0,\"AccsessId\":0,\"PCode\":\"\",\"Type\":4}";
+//            String req = "{idRow:0,Name:\"" + name + "\",LName:\"" + lName + "\",Mobile:\"" + mobile + "\",Email:\"" + email + "\",Pass:\"" + pass + "\",Visibility:1,lastUpdate:1,imei:null,macAddress:null}";
             String response = connectToServerByJson(addr + "login/register", "POST", req);
             Log.i("LOG", response + "");
 
@@ -1028,44 +1028,8 @@ public class WebService {
                         for (int i = 0; i < actionList.size(); i++) {
 
                             actionModel = actionList.get(i);
-                            String tblName = "";
 
-                            switch (actionModel.type) {
-                                case 1:
-                                    tblName = "Tbl_Eating";
-                                    break;
-                                case 2:
-                                    tblName = "Tbl_Shoppings";
-                                    break;
-                                case 3:
-                                    tblName = "Tbl_Rests";
-                                    break;
-                                case 4:
-                                    tblName = "Tbl_Tourisms";
-                                    break;
-                                case 5:
-                                    tblName = "Tbl_Culturals";
-                                    break;
-                                case 6:
-                                    tblName = "Tbl_Transports";
-                                    break;
-                                case 7:
-                                    tblName = "Tbl_Services";
-                                    break;
-                                case 8:
-                                    tblName = "Tbl_Offices";
-                                    break;
-                                case 9:
-                                    tblName = "Tbl_Medicals";
-                                    break;
-                                case 10:
-                                    tblName = "Tbl_Events";
-                                    break;
-                                default:
-                                    tblName = "";
-                            }
-
-                            if (tblName.equals("")) {
+                            if (actionModel.type != 1) {
 
                                 SharedPreferences.Editor editor = prefs.edit();
                                 editor.putBoolean("NewsLike" + actionModel.idRow, true);
@@ -1075,7 +1039,7 @@ public class WebService {
                             } else {
                                 List<String> s = helper.selectAllById(actionModel.idRow + "");
                                 if (!s.isEmpty())
-                                    helper.updateTblByLikeAndRate(tblName, actionModel.idRow, actionModel.id, actionModel.rate, actionModel.likes);
+                                    helper.updateTblByLikeAndRate(actionModel.idRow, actionModel.id, actionModel.rate, actionModel.likes);
                             }
                         }
                     }

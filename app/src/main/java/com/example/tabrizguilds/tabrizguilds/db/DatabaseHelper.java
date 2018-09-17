@@ -396,11 +396,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArasDB.close();
     }
 
-    public void updateTblByLikeAndRate(String tblName, int idRow, int idLR, double rate, int like) {
+    public void updateTblByLikeAndRate(int idRow, int idLR, double rate, int like) {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE " + tblName + " SET userLike=" + ((like == 0) ? 0 : idLR) + ",idUserRate=" + ((rate == -1) ? 0 : idLR) + ",userRate=" + rate + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET userLike=" + ((like == 0) ? 0 : idLR) + ",idUserRate=" + ((rate == -1) ? 0 : idLR) + ",userRate=" + rate + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
