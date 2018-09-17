@@ -446,16 +446,7 @@ public class profileActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Object... params) {
 
-            databaseHelper.updateTblsAfterExit("Tbl_Eating");
-            databaseHelper.updateTblsAfterExit("Tbl_Shoppings");
-            databaseHelper.updateTblsAfterExit("Tbl_Rests");
-            databaseHelper.updateTblsAfterExit("Tbl_Tourisms");
-            databaseHelper.updateTblsAfterExit("Tbl_Culturals");
-            databaseHelper.updateTblsAfterExit("Tbl_Transports");
-            databaseHelper.updateTblsAfterExit("Tbl_Services");
-            databaseHelper.updateTblsAfterExit("Tbl_Medicals");
-            databaseHelper.updateTblsAfterExit("Tbl_Events");
-
+            databaseHelper.updateTblAfterExit();
 
             return null;
         }

@@ -271,7 +271,7 @@ public class WebService {
                         userModel.lName = Object.getString("LName");
                         userModel.mobile = Object.getString("Mobile");
                         userModel.email = Object.getString("Email");
-                        userModel.pass = Object.getString("Pass");
+//                        userModel.pass = Object.getString("Pass");
 
                         return userModel;
                     } catch (JSONException e) {
@@ -901,7 +901,7 @@ public class WebService {
 
         if (isInternetAvailable) {
 
-            String req = "{\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"type\":\"" + type + "}";
+            String req = "{\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"Type\":\"" + type + "}";
             String response = connectToServerByJson(addr + "favorite/add", "POST", req);
             Log.i("LOG", response + "");
 
@@ -932,7 +932,7 @@ public class WebService {
         if (isInternetAvailable) {
 
 
-            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"likes\":" + like + ",\"rate\":\"" + rate + ",\"type\":\"" + type + "\"}";
+            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"Likes\":" + like + ",\"Rate\":\"" + rate + ",\"Type\":" + type + "}";
             String response = connectToServerByJson(addr + "like/add", "POST", req);
             Log.i("LOG", response + "");
 
@@ -1075,7 +1075,7 @@ public class WebService {
                         model.id = Object.getInt("id");
                         model.likeCount = Object.getInt("likeCount");
                         model.date = Object.getInt("date");
-                        model.name = Object.getString("Name");
+                        model.name = Object.getString("name");
                         model.body = Object.getString("body");
                         String answers = Object.getString("answers");
 
@@ -1158,7 +1158,7 @@ public class WebService {
 
                         model.id = Object.getInt("id");
                         model.likeCount = Object.getInt("likeCount");
-                        //model.Type = Object.getInt("Type");
+                        model.Type = Object.getInt("Type");
                         model.commentCount = Object.getInt("commentCount");
                         model.Date = Object.getInt("Date");
                         model.Title = Object.getString("Title");

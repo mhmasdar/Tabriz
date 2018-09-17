@@ -391,7 +391,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE Tbl_Places SET userFavorite=" + idFavorite + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET idUserFavorite=" + idFavorite + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
@@ -400,16 +400,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE Tbl_Places SET userLike=" + ((like == 0) ? 0 : idLR) + ",idUserRate=" + ((rate == -1) ? 0 : idLR) + ",userRate=" + rate + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET idUserLike=" + ((like == 0) ? 0 : idLR) + ",idUserRate=" + ((rate == -1) ? 0 : idLR) + ",userRate=" + rate + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
 
-    public void updateTblsAfterExit(String tblName) {
+    public void updateTblAfterExit() {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE " + tblName + " SET userFavorite=-1,userLike=-1,userRate=-1,idUserRate=-1";
+        sql = "UPDATE Tbl_Places SET idUserFavorite=-1,idUserLike=-1,userRate=-1,idUserRate=-1";
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
