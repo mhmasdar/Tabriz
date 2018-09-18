@@ -349,7 +349,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase ArasDB = getReadableDatabase();
         String sql;
-        sql = "UPDATE Tbl_Places SET userLike=" + idLike + ",likeCount=" + likeCount + " WHERE id=" + idRow;
+        sql = "UPDATE Tbl_Places SET idUserLike=" + idLike + ",likeCount=" + likeCount + " WHERE id=" + idRow;
         ArasDB.execSQL(sql);
         ArasDB.close();
     }
@@ -1456,7 +1456,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 PlacesModel pm = new PlacesModel();
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
-                pm.Category = cursor.getInt(cursor.getColumnIndex("Category"));
+                pm.Category = cursor.getInt(cursor.getColumnIndex("Categroy"));
                 pm.RootCategory = cursor.getInt(cursor.getColumnIndex("RootCategory"));
                 pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
                 pm.Address = cursor.getString(cursor.getColumnIndex("Address"));

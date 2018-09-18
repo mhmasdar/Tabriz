@@ -113,8 +113,8 @@ public class newsListFragment extends Fragment {
 
         newsTabLayout.addTab(newsTabLayout.newTab().setText("فرهنگ و جامعه"));
         newsTabLayout.addTab(newsTabLayout.newTab().setText("گردشگری"));
-        newsTabLayout.addTab(newsTabLayout.newTab().setText("عمرانی"));
         newsTabLayout.addTab(newsTabLayout.newTab().setText("اقتصادی"));
+        newsTabLayout.addTab(newsTabLayout.newTab().setText("عمرانی"));
         newsTabLayout.addTab(newsTabLayout.newTab().setText("همه اخبار"));
 
 
@@ -138,7 +138,7 @@ public class newsListFragment extends Fragment {
 
                     for (int i = 0; i < newsList.size(); i++) {
 
-                        if (newsList.get(i).Type == totalTabsCount - (tab.getPosition() + 1))
+                        if (newsList.get(i).Type - 59 == totalTabsCount - (tab.getPosition() + 1))
                             filteredList.add(newsList.get(i));
                     }
                     setUpRecyclerView(filteredList, true);

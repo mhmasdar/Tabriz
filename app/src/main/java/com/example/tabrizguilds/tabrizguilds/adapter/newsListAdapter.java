@@ -211,16 +211,16 @@ public class newsListAdapter extends RecyclerView.Adapter<newsListAdapter.myView
 
         String returnType = "";
         switch (Type){
-            case 1:
+            case 61:
                 returnType = "اقتصادی";
                 break;
-            case 2:
+            case 60:
                 returnType = "عمرانی";
                 break;
-            case 3:
+            case 62:
                 returnType = "گردشگری";
                 break;
-            case 4:
+            case 63:
                 returnType = "فرهنگ و جامعه";
                 break;
             default:

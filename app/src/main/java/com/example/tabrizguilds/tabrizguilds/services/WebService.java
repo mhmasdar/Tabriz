@@ -932,7 +932,8 @@ public class WebService {
         if (isInternetAvailable) {
 
 
-            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"Likes\":" + like + ",\"Rate\":\"" + rate + ",\"Type\":" + type + "}";
+//            String req = "{id:" + idLR + ",idRow:" + idRow + ",idUser:" + idUser + ",Likes:" + like + ",Rate:" + rate + ",Type:" + type + "}";
+            String req = "{\"id\":" + idLR + ",\"idRow\":" + idRow + ",\"idUser\":" + idUser + ",\"Likes\":" + like + ",\"Rate\":" + rate + ",\"Type\":" + type + "}";
             String response = connectToServerByJson(addr + "like/add", "POST", req);
             Log.i("LOG", response + "");
 
