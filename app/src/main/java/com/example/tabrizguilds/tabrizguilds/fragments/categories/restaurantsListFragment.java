@@ -53,18 +53,21 @@ public class restaurantsListFragment extends Fragment {
     private int subCategory = 0;
     TextView txtToolbar;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurants_list, container, false);
         initView(view);
-        initSlider();
+
 
         Bundle args = getArguments();
         rootCategory = args.getInt("rootCategory");
         subCategory = args.getInt("subCategory");
         txtToolbar.setText(args.getString("subCategoryName"));
+
+        initSlider();
 
         databaseCallback = new DatabaseCallback(getContext(), rootCategory, subCategory);
         databaseCallback.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -105,9 +108,88 @@ public class restaurantsListFragment extends Fragment {
     private void initSlider() {
 
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.eat1);
-        images.add(R.drawable.eat2);
-        images.add(R.drawable.eat3);
+
+        switch (rootCategory)
+        {
+            case 1:
+                images.add(R.drawable.eat1);
+                images.add(R.drawable.eat2);
+                images.add(R.drawable.eat3);
+                break;
+
+            case 2:
+                images.add(R.drawable.shop1);
+                images.add(R.drawable.shop2);
+                images.add(R.drawable.shop3);
+                break;
+
+            case 3:
+                images.add(R.drawable.hotel1);
+                images.add(R.drawable.hotel2);
+                images.add(R.drawable.hotel3);
+                break;
+
+            case 4:
+                images.add(R.drawable.stay1);
+                images.add(R.drawable.stay2);
+                images.add(R.drawable.stay3);
+                break;
+
+            case 5:
+                images.add(R.drawable.cloth1);
+                images.add(R.drawable.cloth2);
+                images.add(R.drawable.cloth3);
+                break;
+
+            case 6:
+                images.add(R.drawable.house1);
+                images.add(R.drawable.house2);
+                images.add(R.drawable.house3);
+                break;
+
+            case 7:
+                images.add(R.drawable.edu1);
+                images.add(R.drawable.edu2);
+                images.add(R.drawable.edu3);
+                break;
+
+            case 8:
+                images.add(R.drawable.sport1);
+                images.add(R.drawable.sport2);
+                images.add(R.drawable.sport3);
+                break;
+
+            case 9:
+                images.add(R.drawable.car1);
+                images.add(R.drawable.car2);
+                images.add(R.drawable.car3);
+                break;
+
+            case 10:
+                images.add(R.drawable.trans1);
+                images.add(R.drawable.trans2);
+                images.add(R.drawable.trans3);
+                break;
+
+            case 11:
+                images.add(R.drawable.ser1);
+                images.add(R.drawable.ser2);
+                images.add(R.drawable.ser3);
+                break;
+
+            case 12:
+                images.add(R.drawable.off1);
+                images.add(R.drawable.off2);
+                images.add(R.drawable.off3);
+                break;
+
+            case 13:
+                images.add(R.drawable.med1);
+                images.add(R.drawable.med2);
+                images.add(R.drawable.med3);
+                break;
+        }
+
         mPager.setAdapter(new categoriesSliderAdapter(getContext(), images));
 
         // Auto start of viewpager

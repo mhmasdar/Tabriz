@@ -42,7 +42,7 @@ public class MFirebaseMessagingService extends FirebaseMessagingService {
 
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                    .setSmallIcon(R.drawable.aras_logo)
+                    .setSmallIcon(R.drawable.tabriz_logo)
                     .setContentTitle(messageTitle)
                     .setContentText(messageBody)
                     .setAutoCancel(true)

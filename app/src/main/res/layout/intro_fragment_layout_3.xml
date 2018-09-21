@@ -31,7 +31,7 @@
             android:id="@+id/txtIntro3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="از نظر بقیه هم استفاده کن "
+            android:text="@string/intro3_1"
             android:textStyle="bold"
             style="@style/AudioFileInfoOverlayText2"
             android:textColor="@color/white"
@@ -46,7 +46,7 @@
             android:lineSpacingMultiplier="1.2"
             android:layout_marginLeft="15dp"
             android:layout_height="wrap_content"
-            android:text="میتونی بر اساس تجربیات دیگران، بهترین رستوران ها و هتل های منطقه رو پیدا کنی و یا تجربه خودت رو با دیگران به اشتراک بذاری"
+            android:text="@string/intro3_2"
             style="@style/AudioFileInfoOverlayText2"
             android:textColor="@color/white"
             android:textSize="16sp"/>

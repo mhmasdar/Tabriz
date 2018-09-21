@@ -95,7 +95,7 @@
         <!-- ADD this lines before </application> close tag -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/aras_logo" />
+            android:resource="@drawable/tabriz_logo" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/notifBack" />

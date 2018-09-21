@@ -16,7 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:id="@+id/lytMain"
-        android:visibility="gone"
+        android:visibility="visible"
         android:orientation="vertical"
         android:gravity="right"
         android:layout_height="match_parent">
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:padding="8dp"
             android:layout_margin="10dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:background="@drawable/btn_intro"
             android:textSize="15sp"
             android:textColor="@color/colorPrimaryDark"

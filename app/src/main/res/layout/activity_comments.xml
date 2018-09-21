@@ -121,7 +121,6 @@
             <TextView
                 android:id="@+id/txtReplyBody"
                 android:layout_width="wrap_content"
-                android:text="@string/s1"
                 android:maxLines="1"
                 android:textSize="11sp"
                 android:layout_marginTop="3dp"

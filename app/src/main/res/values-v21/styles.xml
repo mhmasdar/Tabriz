@@ -12,6 +12,6 @@
 
 
     <style name="introActivityTheme" parent="AppTheme">
-        <item name="colorPrimaryDark">@color/introPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 </resources>

@@ -16,18 +16,17 @@
             android:id="@+id/imgIntro6"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:src="@drawable/aras_logo" />
+            android:layout_gravity="center" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:text="سازمان منطقه آزاد ارس"
+            android:text="همراه تبریز"
             android:textStyle="bold"
             android:textSize="16sp"
             android:id="@+id/txtIntro6"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/detailsTitle"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -42,11 +41,11 @@
         <Button
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:text="بزن بریم"
+            android:text="شروع کن"
             android:layout_marginTop="40dp"
             android:background="@drawable/btn_intro"
             android:id="@+id/btnIntro6"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/detailsTitle"
             style="@style/AudioFileInfoOverlayText2"
             android:textSize="20sp" />
 

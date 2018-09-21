@@ -68,9 +68,6 @@ public class IntroFragment extends Fragment {
             case 3:
                 layoutResId = R.layout.intro_fragment_layout_4;
                 break;
-            case 4:
-                layoutResId = R.layout.intro_fragment_layout_5;
-                break;
             default:
                 layoutResId = R.layout.intro_fragment_layout_6;
                 break;
@@ -128,19 +125,10 @@ public class IntroFragment extends Fragment {
 
         if (mPage == 4)
         {
-            TextView t = (TextView) view.findViewById(R.id.txtIntro5);
-            TextView t1 = (TextView) view.findViewById(R.id.txtIntro5_1);
-            t.setTypeface(typeface);
-            t1.setTypeface(typeface);
-
-            ImageView img = (ImageView) view.findViewById(R.id.imgIntro5);
-            Glide.with(this).load(R.drawable.ic_intro5).into(img);
-        }
+            ImageView img = (ImageView) view.findViewById(R.id.imgIntro6);
+            Glide.with(this).load(R.drawable.tabriz_logo).into(img);
 
 
-
-        if (mPage == 5)
-        {
             prefs = getContext().getSharedPreferences("login", 0);
             editor = prefs.edit();
 
@@ -163,6 +151,7 @@ public class IntroFragment extends Fragment {
                 }
             });
         }
+
 
         return view;
     }

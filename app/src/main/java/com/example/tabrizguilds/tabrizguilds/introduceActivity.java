@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.uncopt.android.widget.text.justify.JustifiedTextView;
@@ -15,8 +16,8 @@ public class introduceActivity extends AppCompatActivity {
 
     private RelativeLayout relativeBack;
     private ImageView img1;
-    private JustifiedTextView txt1;
-    private JustifiedTextView txt2;
+    private TextView txt1;
+    private TextView txt2;
     private ImageView img2;
 
 
@@ -26,9 +27,9 @@ public class introduceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_introduce);
         initView();
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
-        txt1.setTypeface(typeface);
-        txt2.setTypeface(typeface);
+//        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
+//        txt1.setTypeface(typeface);
+//        txt2.setTypeface(typeface);
 
 
 
@@ -54,8 +55,8 @@ public class introduceActivity extends AppCompatActivity {
     private void initView() {
         relativeBack = (RelativeLayout) findViewById(R.id.relativeBack);
         img1 = (ImageView) findViewById(R.id.img1);
-        txt1 = (JustifiedTextView) findViewById(R.id.txt1);
-        txt2 = (JustifiedTextView) findViewById(R.id.txt2);
+        txt1 = (TextView) findViewById(R.id.txt1);
+        txt2 = (TextView) findViewById(R.id.txt2);
         img2 = (ImageView) findViewById(R.id.img2);
 
     }

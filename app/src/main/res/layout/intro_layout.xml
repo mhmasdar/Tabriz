@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/introBack"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v4.view.ViewPager
@@ -36,7 +36,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:padding="10dp"
-               app:fillColor="@color/colorPrimary"
+               app:fillColor="@color/detailsTitle"
                app:pageColor="@color/mainBarBack"
                 />
 

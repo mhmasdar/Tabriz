@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "62645683252",
-    "firebase_url": "https://arasfreezone-3b23e.firebaseio.com",
-    "project_id": "arasfreezone-3b23e",
-    "storage_bucket": "arasfreezone-3b23e.appspot.com"
+    "project_number": "104410684487",
+    "firebase_url": "https://hamrahe-tabriz.firebaseio.com",
+    "project_id": "hamrahe-tabriz",
+    "storage_bucket": "hamrahe-tabriz.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:62645683252:android:36a3fce822cd4537",
+        "mobilesdk_app_id": "1:104410684487:android:797252c98b36d887",
         "android_client_info": {
-          "package_name": "com.example.arka.arasfreezone1"
+          "package_name": "com.example.tabrizguilds.tabrizguilds"
         }
       },
       "oauth_client": [
         {
-          "client_id": "62645683252-m0aohi418bafge2ai1j1hcvb11g524p4.apps.googleusercontent.com",
+          "client_id": "104410684487-f08lsvktg1dksc1e6rr922ta4123que4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBPtQ4V9oS9TTcacTsLemah_7UsS2NR1nI"
+          "current_key": "AIzaSyC0Ym07RGPOX7bMLhVIyQLC44WPfbmgYxw"
         }
       ],
       "services": {

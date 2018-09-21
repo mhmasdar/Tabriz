@@ -31,7 +31,7 @@
             android:id="@+id/txtIntro1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="تا حالا گذرتون به ارس افتاده؟"
+            android:text="@string/intro1_1"
             android:textStyle="bold"
             style="@style/AudioFileInfoOverlayText2"
             android:textColor="@color/white"
@@ -46,7 +46,7 @@
             android:layout_marginLeft="15dp"
             android:lineSpacingMultiplier="1.2"
             android:layout_height="wrap_content"
-            android:text="ارس یکی از مناطق آزاد 7 گانه ایران هست که تو استان آذربایجان شرقی قرار داره. با این برنامه میتونی منطقه آزاد ارس رو به طور کامل بشناسی"
+            android:text="@string/intro1_2"
             style="@style/AudioFileInfoOverlayText2"
             android:textColor="@color/white"
             android:textSize="16sp"/>

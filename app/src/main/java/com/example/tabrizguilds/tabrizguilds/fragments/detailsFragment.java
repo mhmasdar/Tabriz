@@ -580,20 +580,20 @@ public class detailsFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-                Dialog dialog = new Dialog(getActivity());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.dialog_menu);
-                dialog.setCancelable(true);
-                dialog.setCanceledOnTouchOutside(true);
-                dialog.show();
+            Dialog dialog = new Dialog(getActivity());
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.dialog_menu);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
 
-                recyclerMenu = dialog.findViewById(R.id.recycler);
-                lytLoadingM = dialog.findViewById(R.id.lytLoading);
-                lytEmptyM = dialog.findViewById(R.id.lytEmpty);
-                lytDisconnectM = dialog.findViewById(R.id.lytDisconnect);
+            recyclerMenu = dialog.findViewById(R.id.recycler);
+            lytLoadingM = dialog.findViewById(R.id.lytLoading);
+            lytEmptyM = dialog.findViewById(R.id.lytEmpty);
+            lytDisconnectM = dialog.findViewById(R.id.lytDisconnect);
 
-                WebServiceCallBackMenu webServiceCallBackMenu = new WebServiceCallBackMenu();
-                webServiceCallBackMenu.execute();
+            WebServiceCallBackMenu webServiceCallBackMenu = new WebServiceCallBackMenu();
+            webServiceCallBackMenu.execute();
 
         }
     };

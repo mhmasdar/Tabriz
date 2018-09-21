@@ -34,33 +34,22 @@
                    android:gravity="center_vertical"
                    android:layout_height="wrap_content">
 
-                  <TextView
-                      android:layout_width="wrap_content"
-                      android:id="@+id/txtTitle"
-                      android:text="برنامه گردشگری منطقه آزاد ارس"
-                      android:textColor="@color/white"
-                      android:textSize="14sp"
-                      android:textStyle="bold"
-                      android:layout_height="wrap_content"
-                      android:visibility="gone"
-                      android:layout_marginRight="10dp"/>
-
                   <ImageView
                       android:id="@+id/txtSplash"
-                      android:layout_width="120dp"
-                      android:src="@drawable/aras_text2"
+                      android:layout_width="100dp"
+                      android:src="@drawable/tabriz_text"
                       android:scaleType="fitXY"
                       android:layout_marginRight="5dp"
                       android:transitionName="App_text"
-                      android:layout_height="29dp"
+                      android:layout_height="30dp"
                       android:visibility="visible"/>
 
                   <ImageView
                       android:id="@+id/imgAras"
-                      android:layout_width="34dp"
-                      android:src="@drawable/aras_logo1"
+                      android:layout_width="40dp"
+                      android:src="@drawable/tabriz_logo1"
                       android:transitionName="App_Logo"
-                      android:layout_height="34dp" />
+                      android:layout_height="40dp" />
 
 
                </LinearLayout>
@@ -106,7 +95,7 @@
              android:layout_marginTop="40dp"
              android:gravity="center"
              android:id="@+id/lytWeather"
-             android:visibility="invisible"
+             android:visibility="visible"
              android:orientation="vertical"
              android:layout_alignParentTop="true"
              android:layout_height="wrap_content">
@@ -195,165 +184,6 @@
                    android:gravity="center"
                    android:fontFamily="@font/weatherfont"
                    android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_height="wrap_content">
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_weight="1"
-                   android:gravity="center"
-                   android:orientation="vertical"
-                   android:layout_height="match_parent">
-
-                  <TextView
-                      android:layout_width="wrap_content"
-                      android:textSize="15sp"
-                      style="@style/AudioFileInfoOverlayText2"
-                      android:textStyle="bold"
-                      android:textColor="@color/white"
-                      android:layout_height="wrap_content"
-                      android:text="هشترود"
-                      android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:orientation="horizontal"
-                      android:layout_marginTop="10dp"
-                      android:gravity="center"
-                      android:layout_height="wrap_content">
-
-                     <LinearLayout
-                         android:layout_width="wrap_content"
-                         android:orientation="vertical"
-                         android:gravity="center_vertical|right"
-                         android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/current_temperature_field_khod"
-                            android:layout_width="wrap_content"
-                            android:textSize="13sp"
-                            style="@style/AudioFileInfoOverlayText2"
-                            android:textStyle="bold"
-                            android:text="-"
-                            android:textColor="@color/white"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                        <!--humidity and pressure-->
-                        <TextView
-                            android:id="@+id/humidity_field_khod"
-                            android:layout_width="wrap_content"
-                            android:textSize="13sp"
-                            android:text="-"
-                            android:layout_marginTop="5dp"
-                            style="@style/AudioFileInfoOverlayText2"
-                            android:textColor="@color/white"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                     </LinearLayout>
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:id="@+id/weather_icon_khod"
-                         android:layout_marginLeft="10dp"
-                         android:layout_height="wrap_content"
-                         android:textColor="@color/yellow"
-                         android:text="&#xf00d;"
-                         style="@style/AudioFileInfoOverlayText2"
-                         android:textSize="35sp"
-                         android:gravity="center"
-                         android:fontFamily="@font/weatherfont"
-                         android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                  </LinearLayout>
-
-
-               </LinearLayout>
-
-               <RelativeLayout
-                   android:layout_width="0.5dp"
-                   android:background="@color/white"
-                   android:layout_height="match_parent"></RelativeLayout>
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_weight="1"
-                   android:gravity="center"
-                   android:orientation="vertical"
-                   android:layout_height="match_parent">
-
-                  <TextView
-                      android:layout_width="wrap_content"
-                      android:textSize="15sp"
-                      style="@style/AudioFileInfoOverlayText2"
-                      android:textStyle="bold"
-                      android:textColor="@color/white"
-                      android:layout_height="wrap_content"
-                      android:text="جلفا"
-                      android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:orientation="horizontal"
-                      android:layout_marginTop="10dp"
-                      android:gravity="center"
-                      android:layout_height="wrap_content">
-
-                     <LinearLayout
-                         android:layout_width="wrap_content"
-                         android:orientation="vertical"
-                         android:gravity="center_vertical|right"
-                         android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/current_temperature_field_zonoz"
-                            android:layout_width="wrap_content"
-                            android:textSize="13sp"
-                            style="@style/AudioFileInfoOverlayText2"
-                            android:textStyle="bold"
-                            android:text="-"
-                            android:textColor="@color/white"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                        <!--humidity and pressure-->
-                        <TextView
-                            android:id="@+id/humidity_field_zonoz"
-                            android:layout_width="wrap_content"
-                            android:textSize="13sp"
-                            android:text="-"
-                            android:layout_marginTop="5dp"
-                            style="@style/AudioFileInfoOverlayText2"
-                            android:textColor="@color/white"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                     </LinearLayout>
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:id="@+id/weather_icon_zonoz"
-                         android:layout_marginLeft="10dp"
-                         android:layout_height="wrap_content"
-                         android:textColor="@color/yellow"
-                         android:text="&#xf00d;"
-                         style="@style/AudioFileInfoOverlayText2"
-                         android:textSize="35sp"
-                         android:gravity="center"
-                         android:fontFamily="@font/weatherfont"
-                         android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                  </LinearLayout>
-
-
-               </LinearLayout>
 
             </LinearLayout>
 

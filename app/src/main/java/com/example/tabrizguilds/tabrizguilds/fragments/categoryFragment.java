@@ -36,6 +36,7 @@ public class categoryFragment extends Fragment {
     private LinearLayout lytMedical;
     private LinearLayout lytOffice;
     private LinearLayout lytUtilities;
+    private LinearLayout lytStay;
 
     private int rootCategory;
 
@@ -309,6 +310,25 @@ public class categoryFragment extends Fragment {
             }
         });
 
+        lytStay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                app.check = 5;
+
+                rootCategory = 3;
+                SubCategoryFragment fragment = new SubCategoryFragment();
+                Bundle args = new Bundle();
+                args.putInt("rootCategory", rootCategory);
+                args.putString("categoryName", "مراکز اقامتی");
+                fragment.setArguments(args);
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit, R.anim.fragment_back_enter, R.anim.fragment_bacl_exit);
+                ft.replace(R.id.container, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+
         return view;
     }
 
@@ -327,5 +347,6 @@ public class categoryFragment extends Fragment {
         lytMedical = (LinearLayout) view.findViewById(R.id.lytMedical);
         lytOffice = (LinearLayout) view.findViewById(R.id.lytOffice);
         lytUtilities = (LinearLayout) view.findViewById(R.id.lytUtilities);
+        lytStay = (LinearLayout) view.findViewById(R.id.lytStay);
     }
 }

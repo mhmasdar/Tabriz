@@ -51,7 +51,6 @@ public class HomeFragment extends Fragment {
     private LinearLayout lytWeather;
     TextView cityField, txtPray, detailsField, currentTemperatureField, humidity_field, pressure_field, weatherIcon, updatedField;
 
-    TextView currentTemperatureFieldZonoz, currentTemperatureFieldKhod, humidity_fieldZonoz, humidity_fieldKhod, weatherIconZonoz, weatherIconKhod;
 
     private boolean checkWeather = true;
     private CirclePageIndicator indicator;
@@ -74,7 +73,6 @@ public class HomeFragment extends Fragment {
 
     public boolean flagPermission = false;
 
-    TextView txtTitle;
     private ImageView imgAras;
     private ImageView txtSplash;
 
@@ -91,14 +89,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         currentTemperatureField = (TextView) view.findViewById(R.id.current_temperature_field);
-        currentTemperatureFieldZonoz = (TextView) view.findViewById(R.id.current_temperature_field_zonoz);
-        currentTemperatureFieldKhod = (TextView) view.findViewById(R.id.current_temperature_field_khod);
         humidity_field = (TextView) view.findViewById(R.id.humidity_field);
-        humidity_fieldZonoz = (TextView) view.findViewById(R.id.humidity_field_zonoz);
-        humidity_fieldKhod = (TextView) view.findViewById(R.id.humidity_field_khod);
         weatherIcon = (TextView) view.findViewById(R.id.weather_icon);
-        weatherIconZonoz = (TextView) view.findViewById(R.id.weather_icon_zonoz);
-        weatherIconKhod = (TextView) view.findViewById(R.id.weather_icon_khod);
         txtPray = (TextView) view.findViewById(R.id.txtPray);
         relative_Menu = (RelativeLayout) view.findViewById(R.id.relative_Menu);
         lytWeather = (LinearLayout) view.findViewById(R.id.lytWeather);
@@ -106,7 +98,6 @@ public class HomeFragment extends Fragment {
         indicator = (CirclePageIndicator) view.findViewById(R.id.indicator);
         imgAras = (ImageView) view.findViewById(R.id.imgAras);
         txtSplash = (ImageView) view.findViewById(R.id.txtSplash);
-        txtTitle = view.findViewById(R.id.txtTitle);
 
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -127,29 +118,23 @@ public class HomeFragment extends Fragment {
         String LogoText = prefs.getString("LogoText", "");
 
         if (LogoImgName.equals("") && LogoText.equals("")){
-            imgAras.setImageResource(R.drawable.aras_logo1);
-            txtSplash.setImageResource(R.drawable.aras_text2);
+            imgAras.setImageResource(R.drawable.tabriz_logo1);
+            txtSplash.setImageResource(R.drawable.tabriz_text);
             txtSplash.setVisibility(View.VISIBLE);
-            txtTitle.setVisibility(View.GONE);
         }
         else if (!LogoImgName.equals("") && LogoText.equals("")){
             Glide.with(getContext()).load(app.imgMainAddr + "logo/" + LogoImgName).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
             //txtTitle.setText(LogoText);
             txtSplash.setVisibility(View.VISIBLE);
-            txtTitle.setVisibility(View.GONE);
         }
         else if (LogoImgName.equals("") && !LogoText.equals("")){
             //Glide.with(getContext()).load(app.imgMainAddr + "logo/" + LogoImgName).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-            imgAras.setImageResource(R.drawable.aras_logo1);
-            txtTitle.setText(LogoText);
+            imgAras.setImageResource(R.drawable.tabriz_logo1);
             txtSplash.setVisibility(View.GONE);
-            txtTitle.setVisibility(View.VISIBLE);
         }
         else{
             Glide.with(getContext()).load(app.imgMainAddr + "logo/" + LogoImgName).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imgAras);
-            txtTitle.setText(LogoText);
             txtSplash.setVisibility(View.GONE);
-            txtTitle.setVisibility(View.VISIBLE);
         }
 
 
@@ -224,16 +209,10 @@ public class HomeFragment extends Fragment {
                 lytWeather.setVisibility(View.VISIBLE);
             }
             if (weatherModelJolfa != null) {
-                currentTemperatureFieldZonoz.setText(weatherModelJolfa.temperature);
-                humidity_fieldZonoz.setText(weatherModelJolfa.humidity);
-                weatherIconZonoz.setText(Html.fromHtml(weatherModelJolfa.iconText));
                 checkWeather = false;
                 lytWeather.setVisibility(View.VISIBLE);
             }
             if (weatherModelHashtrood != null) {
-                currentTemperatureFieldKhod.setText(weatherModelHashtrood.temperature);
-                humidity_fieldKhod.setText(weatherModelHashtrood.humidity);
-                weatherIconKhod.setText(Html.fromHtml(weatherModelHashtrood.iconText));
                 checkWeather = false;
                 lytWeather.setVisibility(View.VISIBLE);
             }

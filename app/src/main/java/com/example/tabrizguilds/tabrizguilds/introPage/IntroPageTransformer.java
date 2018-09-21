@@ -56,9 +56,6 @@ public class IntroPageTransformer implements ViewPager.PageTransformer {
             View txtIntro4 = page.findViewById(R.id.txtIntro4);
             View txtIntro4_1 = page.findViewById(R.id.txtIntro4_1);
             View imgIntro4 = page.findViewById(R.id.imgIntro4);
-            View txtIntro5 = page.findViewById(R.id.txtIntro5);
-            View txtIntro5_1 = page.findViewById(R.id.txtIntro5_1);
-            View imgIntro5 = page.findViewById(R.id.imgIntro5);
             View imgIntro6 = page.findViewById(R.id.imgIntro6);
             View txtIntro6 = page.findViewById(R.id.txtIntro6);
             // The page is currently being scrolled / swiped. This is
@@ -102,13 +99,6 @@ public class IntroPageTransformer implements ViewPager.PageTransformer {
                 imgIntro4.setAlpha(1.0f - absPosition);
             }
 
-            else if (pagePosition == 4)
-            {
-                txtIntro5_1.setTranslationX(pageWidthTimesPosition);
-                imgIntro5.setTranslationX(-pageWidthTimesPosition);
-                imgIntro5.setAlpha(1.0f - absPosition);
-            }
-
             else
             {
                 imgIntro6.setTranslationX(pageWidthTimesPosition * 0.8f);
@@ -142,12 +132,6 @@ public class IntroPageTransformer implements ViewPager.PageTransformer {
                     imgIntro4.setTranslationX(pageWidthTimesPosition * 0.8f);
                 }
 
-                if (pagePosition == 4)
-                {
-                    txtIntro5_1.setTranslationX(-pageWidthTimesPosition);
-                    txtIntro5.setAlpha(1.0f - absPosition);
-                    imgIntro5.setTranslationX(pageWidthTimesPosition * 0.8f);
-                }
             }
 
             else {
