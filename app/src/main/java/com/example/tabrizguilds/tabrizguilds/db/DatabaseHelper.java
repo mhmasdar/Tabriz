@@ -153,6 +153,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 pm.id = cursor.getInt(cursor.getColumnIndex("id"));
                 pm.Name = cursor.getString(cursor.getColumnIndex("Name"));
                 pm.Category = cursor.getInt(cursor.getColumnIndex("Categroy"));
+                pm.RootCategory = cursor.getInt(cursor.getColumnIndex("RootCategory"));
                 pm.Lat = cursor.getDouble(cursor.getColumnIndex("Lat"));
                 pm.Long = cursor.getDouble(cursor.getColumnIndex("Long"));
                 pm.Address = cursor.getString(cursor.getColumnIndex("Address"));
@@ -166,6 +167,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 pm.EndTime = cursor.getString(cursor.getColumnIndex("EndTime"));
                 pm.Cost = cursor.getInt(cursor.getColumnIndex("Cost"));
                 pm.placeStar = cursor.getInt(cursor.getColumnIndex("placeStar"));
+                pm.AvailableDay = cursor.getString(cursor.getColumnIndex("AvailableDay"));
 
 
             } while (cursor.moveToNext());

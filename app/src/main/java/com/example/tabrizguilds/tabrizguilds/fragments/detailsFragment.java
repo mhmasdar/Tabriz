@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 import com.example.tabrizguilds.tabrizguilds.R;
 import com.example.tabrizguilds.tabrizguilds.RoutingActivity;
+import com.example.tabrizguilds.tabrizguilds.adapter.WorkDaysDialogAdapter;
 import com.example.tabrizguilds.tabrizguilds.adapter.detailsSliderAdapter;
 import com.example.tabrizguilds.tabrizguilds.adapter.facilityDialogAdapter;
 import com.example.tabrizguilds.tabrizguilds.adapter.menuDialogAdapter;
@@ -51,6 +52,7 @@ import com.like.OnLikeListener;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -81,15 +83,16 @@ public class detailsFragment extends Fragment {
     private LinearLayout lytLocation;
     private LinearLayout lytLoadingM;
     private LinearLayout lytEmptyM, lytDisconnectM;
-    private LinearLayout lytLoadingF;
-    private LinearLayout lytEmptyF, lytDisconnectF;
+    private LinearLayout lytEmptyF, lytDisconnectF, lytLoadingF;
+    private LinearLayout lytEmptyW, lytDisconnectW, lytLoadingW;
     private TextView txtAddress;
     private TextView txtHotelStars;
-    private TextView txtInfo, txtHour, txtDay;
+    private TextView txtInfo, txtHour;
     private LinearLayout lytWebsite;
     private LinearLayout lytOptions;
     private LinearLayout lytComments;
     private LinearLayout lytDrivers;
+    private LinearLayout lytDays;
     private LinearLayout lytRouting;
     private ImageView imgMenuAndCost;
     private TextView txtMenuAndCost;
@@ -111,6 +114,10 @@ public class detailsFragment extends Fragment {
     //recycler in dialog_Facility
     private RecyclerView recyclerFacility;
     List<FacilityModel> facilityList;
+
+    //recycler in dialog_WorkDay
+    private RecyclerView recyclerWorkDays;
+    List<String> WorkDaysList;
 
     // diolog rating content
     RatingBar rating_dialog;
@@ -291,6 +298,8 @@ public class detailsFragment extends Fragment {
         lytMenu.setOnClickListener(lytMenuClick);
 
         lytOptions.setOnClickListener(lytOptionsClick);
+
+        lytDays.setOnClickListener(lytDaysClick);
 
         imgBookmark.setOnClickListener(imgBookmarkClick);
 
@@ -549,6 +558,7 @@ public class detailsFragment extends Fragment {
 
     private void initView(View view) {
         lytRating = (LinearLayout) view.findViewById(R.id.lytRating);
+        lytDays = (LinearLayout) view.findViewById(R.id.lytDays);
         lytGallery = (LinearLayout) view.findViewById(R.id.lytGallery);
         lytDrivers = (LinearLayout) view.findViewById(R.id.lytDrivers);
         txtName = (TextView) view.findViewById(R.id.txtName);
@@ -566,7 +576,7 @@ public class detailsFragment extends Fragment {
         lytWebsite = (LinearLayout) view.findViewById(R.id.lytWebsite);
         lytOptions = (LinearLayout) view.findViewById(R.id.lytOptions);
         lytComments = (LinearLayout) view.findViewById(R.id.lytComments);
-        txtDay = view.findViewById(R.id.txtDay);
+//        txtDay = view.findViewById(R.id.txtDay);
         txtHour = view.findViewById(R.id.txtHour);
         txtMenuAndCost = view.findViewById(R.id.txtMenuAndCost);
         imgMenuAndCost = view.findViewById(R.id.imgMenuAndCost);
@@ -615,6 +625,39 @@ public class detailsFragment extends Fragment {
 
             WebServiceCallBackFacilities webServiceCallBackFacilities = new WebServiceCallBackFacilities();
             webServiceCallBackFacilities.execute();
+
+        }
+    };
+
+    View.OnClickListener lytDaysClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Dialog dialog = new Dialog(getActivity());
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.dialog_worktime);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
+
+            recyclerWorkDays = dialog.findViewById(R.id.recycler);
+            lytLoadingW = dialog.findViewById(R.id.lytLoading);
+            lytEmptyW = dialog.findViewById(R.id.lytEmpty);
+            lytDisconnectW = dialog.findViewById(R.id.lytDisconnect);
+
+            if (WorkDaysList.size() > 0) {
+
+                setUpRecyclerViewWorkDays(WorkDaysList);
+
+                recyclerWorkDays.setVisibility(View.VISIBLE);
+                lytLoadingW.setVisibility(View.GONE);
+                lytDisconnectW.setVisibility(View.GONE);
+                lytEmptyW.setVisibility(View.GONE);
+
+            } else {
+                lytLoadingW.setVisibility(View.GONE);
+                lytDisconnectW.setVisibility(View.GONE);
+                lytEmptyW.setVisibility(View.VISIBLE);
+            }
 
         }
     };
@@ -723,6 +766,16 @@ public class detailsFragment extends Fragment {
         recyclerFacility.setLayoutManager(mLinearLayoutManagerVertical);
     }
 
+    private void setUpRecyclerViewWorkDays(List<String> workDaysList) {
+
+        WorkDaysDialogAdapter adapter = new WorkDaysDialogAdapter(getContext(), workDaysList);
+        recyclerWorkDays.setAdapter(adapter);
+
+        LinearLayoutManager mLinearLayoutManagerVertical = new LinearLayoutManager(getContext());
+        mLinearLayoutManagerVertical.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerWorkDays.setLayoutManager(mLinearLayoutManagerVertical);
+    }
+
 
     public class DatabaseCallback extends AsyncTask<Object, Void, Void> {
 
@@ -741,6 +794,7 @@ public class detailsFragment extends Fragment {
             super.onPreExecute();
             placesModel = new PlacesModel();
             imgList = new ArrayList<>();
+            WorkDaysList = new ArrayList<>();
             databaseHelper = new DatabaseHelper(context);
         }
 
@@ -769,12 +823,18 @@ public class detailsFragment extends Fragment {
                 txtInfo.setText(placesModel.Info);
             txtName.setText(placesModel.Name);
             txtHour.setText(placesModel.StartTime + " تا " + placesModel.EndTime);
-            txtDay.setText(placesModel.AvailableDay);
+//            txtDay.setText(placesModel.AvailableDay);
 
             if (placesModel.RootCategory == 3) {
-                txtHotelStars.setVisibility(View.VISIBLE);
-                txtHotelStars.setText(placesModel.placeStar);
+                if (placesModel.placeStar != 0) {
+                    txtHotelStars.setVisibility(View.VISIBLE);
+                    txtHotelStars.setText(placesModel.placeStar);
+                }
             }
+
+            if (placesModel.AvailableDay != null)
+                WorkDaysList = Arrays.asList(placesModel.AvailableDay.split(","));
+
 
         }
 

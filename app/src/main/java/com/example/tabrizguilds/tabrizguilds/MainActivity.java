@@ -2,6 +2,7 @@ package com.example.tabrizguilds.tabrizguilds;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
@@ -84,9 +85,12 @@ public class MainActivity extends AppCompatActivity {
         lytAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddNewItemActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.bottom_to_top, R.anim.stay);
+//                Intent intent = new Intent(MainActivity.this, AddNewItemActivity.class);
+//                startActivity(intent);
+//                overridePendingTransition(R.anim.bottom_to_top, R.anim.stay);
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://tabriz.touristsapp.com/"));
+                startActivity(browserIntent);
             }
         });
 

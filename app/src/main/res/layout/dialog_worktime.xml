@@ -10,7 +10,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:background="@color/colorPrimary"
-        android:text="ساعات کاری"
+        android:text="روز های کاری"
         android:gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:id="@+id/recycler"
         android:visibility="gone"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"

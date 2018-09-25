@@ -178,7 +178,6 @@
                    android:layout_marginLeft="10dp"
                    android:layout_height="wrap_content"
                    android:textColor="@color/yellow"
-                   android:text="&#xf00d;"
                    style="@style/AudioFileInfoOverlayText2"
                    android:textSize="70sp"
                    android:gravity="center"

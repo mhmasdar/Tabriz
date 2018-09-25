@@ -401,8 +401,11 @@ public class WebService {
                         placesModel.image = Object.getString("image");
                         if (!Object.getString("Cost").equals("null"))
                             placesModel.Cost = Object.getInt("Cost");
+                        else
+                            placesModel.Cost = 0;
                         if (!Object.getString("placeStar").equals("null"))
                             placesModel.placeStar = Object.getInt("placeStar");
+                        else placesModel.placeStar = 0;
 
                         placeslList.add(placesModel);
 
